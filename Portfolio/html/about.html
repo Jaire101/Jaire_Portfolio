@@ -1,108 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+    <title>About | Jaire Whitehead</title>
 
-<body>
-    <section class="card">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
 
-        <h2>Technical Skills</h2>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-        <div class="skill">
-            <div class="skill-title">
-                <span>HTML</span>
-                <span>90%</span>
-            </div>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-            <div class="progress">
-                <div class="progress-bar html"></div>
-            </div>
-        </div>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
 
-        <div class="skill">
-            <div class="skill-title">
-                <span>CSS</span>
-                <span>80%</span>
-            </div>
+  <body>
+    <header>
+      <h1>Jaire Whitehead</h1>
 
-            <div class="progress">
-                <div class="progress-bar css"></div>
-            </div>
-        </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
 
-        <div class="skill">
-            <div class="skill-title">
-                <span>JavaScript</span>
-                <span>10%</span>
-            </div>
+        <button
+          id="themeToggle"
+          class="btn"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
+          🌙
+        </button>
+      </nav>
+    </header>
 
-            <div class="progress">
-                <div class="progress-bar javascript"></div>
-            </div>
-        </div>
+    <main>
+      <section class="card">
+        <h2>About Me</h2>
 
-        <div class="skill">
-            <div class="skill-title">
-                <span>Python</span>
-                <span>5%</span>
-            </div>
+        <p>
+          I am Jaire Whitehead, an active-duty member of the United States Air
+          Force, a Private Pilot, and an aspiring freelance web developer.
+        </p>
 
-            <div class="progress">
-                <div class="progress-bar python"></div>
-            </div>
-        </div>
+        <p>
+          My military experience has taught me discipline, reliability,
+          attention to detail, and problem-solving. I bring those same qualities
+          into every project I build.
+        </p>
 
-    </section>
-    <section class="card">
+        <p>
+          I enjoy creating clean, responsive, and user-friendly websites that
+          help businesses build a stronger online presence.
+        </p>
+      </section>
 
-        <h2>Featured Projects</h2>
+      <section class="card">
+        <h2>What I Bring to a Project</h2>
 
         <div class="project-grid">
+          <article class="project-card">
+            <h3>
+              <i class="fa-solid fa-mobile-screen-button"></i>
+              Responsive Design
+            </h3>
 
-            <div class="project-card">
-                <h3>Personal Portfolio</h3>
-                <p>The website you're looking at right now. Built using HTML and CSS.</p>
+            <p>
+              Websites that look organized and work well on desktops, tablets,
+              and phones.
+            </p>
+          </article>
 
-                <a href="projects.html" class="btn">
-                    Learn More
-                </a>
-            </div>
+          <article class="project-card">
+            <h3>
+              <i class="fa-solid fa-palette"></i>
+              Clean Visual Design
+            </h3>
 
-            <div class="project-card">
-                <h3>Restaurant Website</h3>
-                <p>Coming Soon</p>
+            <p>
+              Modern layouts, readable content, and clear calls to action that
+              support a professional brand.
+            </p>
+          </article>
 
-                <a href="#" class="btn secondary">
-                    Coming Soon
-                </a>
-            </div>
+          <article class="project-card">
+            <h3>
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              Problem-Solving
+            </h3>
 
-            <div class="project-card">
-                <h3>Gym Website</h3>
-                <p>Coming Soon</p>
+            <p>
+              A disciplined approach to testing details, fixing issues, and
+              continuously improving the final result.
+            </p>
+          </article>
 
-                <a href="#" class="btn secondary">
-                    Coming Soon
-                </a>
-            </div>
+          <article class="project-card">
+            <h3>
+              <i class="fa-solid fa-arrow-trend-up"></i>
+              Continuous Growth
+            </h3>
 
-            <div class="project-card">
-                <h3>Coffee Shop Website</h3>
-                <p>Coming Soon</p>
-
-                <a href="#" class="btn secondary">
-                    Coming Soon
-                </a>
-            </div>
-
+            <p>
+              I am actively expanding my skills in HTML, CSS, JavaScript, and
+              web design.
+            </p>
+          </article>
         </div>
+      </section>
 
-    </section>
-</body>
+      <section class="card">
+        <h2>My Goal</h2>
 
+        <p>
+          My goal is to grow into a dependable freelance web developer who helps
+          small businesses and entrepreneurs create websites they can be proud
+          of.
+        </p>
+
+        <a href="contact.html" class="btn"> Let’s Work Together </a>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Jaire Whitehead. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+  </body>
 </html>

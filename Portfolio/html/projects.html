@@ -1,63 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+    <title>Projects | Jaire Whitehead</title>
 
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
 
-    <main class=" container">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Jaire Whitehead</h1>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+
+        <button
+          id="themeToggle"
+          class="btn"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
+          🌙
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card">
         <h2>My Projects</h2>
 
-        <div class="project-card">
+        <p>
+          These projects show my progress as a front-end developer and my focus
+          on responsive design, clean layouts, and user-friendly experiences.
+        </p>
 
-            <img src="../images/image2.png" alt="Aster Table Restaurant Website">
+        <div class="project-grid">
+          <article class="project-card">
+            <img
+              src="../images/image2.png"
+              alt="Aster Table restaurant website preview"
+            />
 
             <h3>Aster Table Restaurant</h3>
 
             <p>
-                A modern restaurant landing page featuring responsive design,
-                smooth scroll animations, interactive effects, and an online
-                reservation section.
+              A modern restaurant landing page with smooth scrolling,
+              interactive visual effects, responsive design, menu sections, and
+              a reservation area.
             </p>
 
+            <p><strong>Built with:</strong> HTML, CSS, and JavaScript</p>
+
             <div class="project-links">
-                <a href="../Restaurant_Website/index.html" class="btn">
-                    Live Demo
-                </a>
+              <a href="../Restaurant_Website/index.html" class="btn">
+                View Live Demo
+              </a>
 
-                <a href="#" class="btn secondary">
-                    GitHub
-                </a>
+              <a href="#" class="btn secondary"> GitHub Coming Soon </a>
             </div>
+          </article>
 
-        </div>
-        </div>
+          <article class="project-card">
+            <h3>
+              <i class="fa-solid fa-dumbbell"></i>
+              Elite Fitness
+            </h3>
 
-        <div class="project-card">
-            <h3>Gym Website</h3>
-            <p>Coming Soon</p>
-            <a href="#" class="btn">Coming Soon</a>
-        </div>
+            <p>
+              A future gym and fitness website that will include membership
+              plans, trainer profiles, fitness programs, and a BMI calculator.
+            </p>
 
-        <div class="project-card">
-            <h3>Coffee Shop Website</h3>
-            <p>Coming Soon</p>
-            <a href="#" class="btn">Coming Soon</a>
-        </div>
+            <p><strong>Planned tools:</strong> HTML, CSS, and JavaScript</p>
 
-        </div>
+            <a href="#" class="btn secondary"> Coming Soon </a>
+          </article>
 
+          <article class="project-card">
+            <h3>
+              <i class="fa-solid fa-mug-hot"></i>
+              Coffee Shop Website
+            </h3>
+
+            <p>
+              A future coffee shop website focused on product cards, a clean
+              menu, online ordering ideas, and a warm visual brand style.
+            </p>
+
+            <p><strong>Planned tools:</strong> HTML, CSS, and JavaScript</p>
+
+            <a href="#" class="btn secondary"> Coming Soon </a>
+          </article>
+        </div>
+      </section>
     </main>
-    </head>
 
-    <body>
+    <footer>
+      <p>&copy; 2026 Jaire Whitehead. All rights reserved.</p>
+    </footer>
 
-    </body>
-
+    <script src="../js/script.js"></script>
+  </body>
 </html>
