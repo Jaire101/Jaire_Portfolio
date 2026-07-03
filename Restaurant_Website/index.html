@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aster Table | Modern Seasonal Restaurant</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="cursor-light" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Aster Table home">
+        <span class="brand-mark">A</span>
+        <span>Aster Table</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#menu">Menu</a>
+        <a href="#story">Story</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <a class="nav-action" href="#reserve">Reserve</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Aster Table restaurant introduction">
+        <img class="hero-image" src="assets/hero.png" alt="Seasonal plated dish in a warm contemporary restaurant" />
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow reveal">Seasonal dining in the city</p>
+          <h1 class="reveal">Aster Table</h1>
+          <p class="hero-copy reveal">
+            Fire-kissed vegetables, handmade pasta, and quiet hospitality from a kitchen that changes with the market.
+          </p>
+          <div class="hero-actions reveal">
+            <a class="button primary magnetic" href="#reserve">Book a table</a>
+            <a class="button ghost magnetic" href="#menu">View menu</a>
+          </div>
+        </div>
+        <div class="hero-note reveal" aria-label="Open hours">
+          <span>Dinner</span>
+          <strong>Tue-Sun, 5-11</strong>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Restaurant highlights">
+        <div class="ticker-track">
+          <span>Wood-fired seasonal plates</span>
+          <span>Natural wine cellar</span>
+          <span>Chef's counter</span>
+          <span>Private dining</span>
+          <span>Market-driven desserts</span>
+          <span>Wood-fired seasonal plates</span>
+          <span>Natural wine cellar</span>
+          <span>Chef's counter</span>
+        </div>
+      </section>
+
+      <section class="section menu-section" id="menu">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Tonight's rhythm</p>
+          <h2>Small plates, generous plates, and one dessert you should not split.</h2>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card reveal">
+            <span class="course">Start</span>
+            <h3>Charred Carrot Agnolotti</h3>
+            <p>Brown butter, fennel pollen, pickled golden raisin.</p>
+            <strong>$18</strong>
+          </article>
+          <article class="menu-card reveal">
+            <span class="course">Sea</span>
+            <h3>Dayboat Scallop</h3>
+            <p>Corn cream, lime leaf, crisp shallot, basil oil.</p>
+            <strong>$24</strong>
+          </article>
+          <article class="menu-card reveal">
+            <span class="course">Fire</span>
+            <h3>Koji-Grilled Short Rib</h3>
+            <p>Black garlic jus, sprouting broccoli, smoked salt.</p>
+            <strong>$38</strong>
+          </article>
+          <article class="menu-card reveal">
+            <span class="course">Sweet</span>
+            <h3>Citrus Olive Oil Cake</h3>
+            <p>Bay leaf cream, candied kumquat, pistachio crunch.</p>
+            <strong>$14</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="feature" id="story">
+        <div class="feature-media reveal">
+          <img src="assets/menu.png" alt="Overhead photograph of seasonal dishes on a stone counter" />
+        </div>
+        <div class="feature-copy reveal">
+          <p class="eyebrow">Kitchen notes</p>
+          <h2>Built around the market, finished over flame.</h2>
+          <p>
+            Our menu starts with whatever arrives brightest that morning: herbs still cool from the farm box, fish from small boats, and vegetables that deserve the center of the plate.
+          </p>
+          <div class="stats" aria-label="Restaurant details">
+            <span><strong>42</strong> seats</span>
+            <span><strong>8</strong> counter spots</span>
+            <span><strong>120</strong> cellar picks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="reservation-band" id="reserve">
+        <div class="reservation-copy reveal">
+          <p class="eyebrow">Reservations</p>
+          <h2>Settle in for dinner.</h2>
+          <p>Choose the dining room for a slow evening, the counter for the kitchen's pulse, or the booth for a little privacy.</p>
+        </div>
+        <form class="reserve-form reveal" aria-label="Reservation request">
+          <label>
+            Date
+            <input type="date" name="date" />
+          </label>
+          <label>
+            Time
+            <select name="time">
+              <option>5:30 PM</option>
+              <option>6:30 PM</option>
+              <option>7:30 PM</option>
+              <option>8:30 PM</option>
+            </select>
+          </label>
+          <label>
+            Guests
+            <input type="number" min="1" max="8" value="2" name="guests" />
+          </label>
+          <button class="button primary magnetic" type="button">Find a table</button>
+        </form>
+      </section>
+
+      <section class="visit" id="visit">
+        <div class="visit-image reveal">
+          <img src="assets/table.png" alt="Candlelit restaurant table set for dinner" />
+        </div>
+        <div class="visit-panel reveal">
+          <p class="eyebrow">Find us</p>
+          <h2>118 Linden Street</h2>
+          <p>Downtown, two blocks from the theater. Walk-ins are welcome at the bar when seats open.</p>
+          <dl>
+            <div>
+              <dt>Hours</dt>
+              <dd>Tue-Sun, 5:00-11:00 PM</dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd>(555) 014-7820</dd>
+            </div>
+            <div>
+              <dt>Events</dt>
+              <dd>Private dining for 10-24 guests</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Aster Table</span>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
