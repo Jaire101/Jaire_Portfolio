@@ -898,6 +898,221 @@ button {
 }
 
 /* =========================================================
+   AVIATION MINI GAMES
+   ========================================================= */
+
+.game-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  padding: clamp(14px, 4vw, 40px);
+  background: rgba(1, 5, 7, 0.82);
+  backdrop-filter: blur(10px);
+  place-items: center;
+}
+
+.game-overlay[aria-hidden="true"] {
+  display: none;
+}
+
+.game-panel {
+  width: min(760px, 96vw);
+  border: 1px solid rgba(102, 255, 173, 0.36);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(19, 33, 35, 0.96), rgba(4, 8, 9, 0.98)),
+    repeating-linear-gradient(90deg, rgba(102, 255, 173, 0.035) 0 1px, transparent 1px 42px);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.62),
+    inset 0 0 34px rgba(102, 255, 173, 0.12);
+  overflow: hidden;
+}
+
+.game-header,
+.game-stats,
+.game-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.game-header {
+  padding: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-kicker {
+  margin: 0 0 4px;
+  color: var(--amber);
+  font: 900 0.72rem "Consolas", monospace;
+}
+
+.game-header h2 {
+  margin: 0;
+  color: var(--green);
+  font: 900 clamp(1.3rem, 4vw, 2rem) "Consolas", monospace;
+}
+
+.game-close,
+.game-controls button {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 176, 47, 0.48);
+  border-radius: 5px;
+  background: rgba(255, 176, 47, 0.1);
+  color: var(--amber);
+  cursor: pointer;
+  font: 900 0.78rem "Consolas", monospace;
+}
+
+.game-stats {
+  padding: 12px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d9e6e1;
+  font: 800 0.82rem "Consolas", monospace;
+}
+
+.game-stats b,
+.game-stats span:last-child {
+  color: var(--green);
+}
+
+.game-stage {
+  padding: 18px;
+}
+
+.game-sky {
+  position: relative;
+  height: clamp(260px, 46vh, 420px);
+  overflow: hidden;
+  border: 1px solid rgba(102, 255, 173, 0.2);
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(102, 255, 173, 0.18), transparent 28%),
+    linear-gradient(180deg, #17394c 0%, #0b1820 52%, #060909 100%);
+}
+
+.game-horizon {
+  position: absolute;
+  top: 38%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(102, 255, 173, 0.55);
+  box-shadow: 0 0 18px rgba(102, 255, 173, 0.45);
+}
+
+.game-runway {
+  position: absolute;
+  bottom: -18%;
+  left: 50%;
+  width: 44%;
+  height: 60%;
+  background:
+    linear-gradient(90deg, transparent 0 45%, rgba(255, 255, 255, 0.86) 46% 54%, transparent 55%),
+    repeating-linear-gradient(180deg, rgba(255,255,255,.62) 0 16px, transparent 16px 34px),
+    linear-gradient(180deg, rgba(40, 54, 55, 0.3), rgba(20, 23, 23, 0.92));
+  clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%);
+  transform: translateX(-50%);
+}
+
+.game-player {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 64px;
+  height: 22px;
+  clip-path: polygon(0 52%, 40% 18%, 100% 52%, 40% 84%);
+  background: linear-gradient(90deg, #171d1e, #f2fbf7 45%, #202728);
+  filter: drop-shadow(0 0 12px rgba(102, 255, 173, 0.55));
+  transform: translateX(-50%);
+  transition: left 160ms ease-out;
+}
+
+.game-shooter .game-player,
+.game-shooter .game-horizon,
+.game-shooter .game-runway {
+  display: none;
+}
+
+.game-dot {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border: 2px solid rgba(255, 176, 47, 0.88);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #fff 0 13%, var(--red) 14% 32%, var(--amber) 33% 51%, transparent 52%),
+    rgba(255, 176, 47, 0.1);
+  box-shadow: 0 0 18px rgba(255, 176, 47, 0.8);
+  cursor: crosshair;
+  transform: translate(-50%, -50%) scale(0.4);
+  animation: targetPop 1.15s ease-out both;
+}
+
+.game-dot.is-hit {
+  pointer-events: none;
+  animation: targetHit 120ms ease-out both;
+}
+
+.game-evade .game-sky {
+  background:
+    linear-gradient(rgba(102,255,173,.08) 50%, rgba(102,255,173,.02) 50%) 0 0 / 100% 8px,
+    radial-gradient(circle at 50% 20%, rgba(102, 255, 173, 0.12), transparent 28%),
+    linear-gradient(180deg, #0a1724 0%, #081017 52%, #030506 100%);
+}
+
+.game-evade .game-horizon,
+.game-evade .game-runway {
+  display: none;
+}
+
+.game-shooter .game-target,
+.game-evade .game-target {
+  display: none;
+}
+
+.enemy-shot {
+  position: absolute;
+  top: -34px;
+  width: 10px;
+  height: 34px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,.9), var(--red));
+  box-shadow: 0 0 18px rgba(255, 77, 77, 0.85);
+  transform: translateX(-50%);
+  animation: incomingShot 1.28s linear both;
+}
+
+.game-evade .game-player {
+  bottom: 8%;
+  width: 74px;
+  height: 26px;
+}
+
+.is-playing.game-shooter .game-sky {
+  animation: targetScan 2s linear infinite;
+}
+
+.is-playing.game-evade .game-sky {
+  animation: dangerPulse 1.4s ease-in-out infinite;
+}
+
+.game-controls {
+  padding: 0 18px 18px;
+}
+
+.game-controls button {
+  flex: 1;
+}
+
+.game-shooter .game-controls button[data-game-move] {
+  display: none;
+}
+
+/* =========================================================
    INNER PAGES
    ========================================================= */
 
@@ -1302,6 +1517,80 @@ p {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes runwayRush {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+
+  to {
+    background-position: 0 0, 0 34px, 0 0;
+  }
+}
+
+@keyframes radarSweep {
+  to {
+    filter: hue-rotate(24deg);
+  }
+}
+
+@keyframes radarTarget {
+  0%,
+  100% {
+    transform: scale(0.86);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
+}
+
+@keyframes targetPop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.35);
+  }
+
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  78% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.72);
+  }
+}
+
+@keyframes targetHit {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.8);
+  }
+}
+
+@keyframes incomingShot {
+  to {
+    top: 112%;
+  }
+}
+
+@keyframes targetScan {
+  50% {
+    box-shadow: inset 0 0 38px rgba(255, 176, 47, 0.18);
+  }
+}
+
+@keyframes dangerPulse {
+  50% {
+    box-shadow: inset 0 0 46px rgba(255, 77, 77, 0.18);
   }
 }
 
