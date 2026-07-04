@@ -1,5 +1,19 @@
 const cockpit = document.querySelector(".cockpit-shell");
+const heroView = document.querySelector(".hero-view");
 let effectTimer;
+
+function playCockpitEffect(effect) {
+  if (!cockpit) return;
+
+  window.clearTimeout(effectTimer);
+  cockpit.classList.remove("effect-dogfight", "effect-fireworks", "effect-night", "effect-flyby");
+  void cockpit.offsetWidth;
+  cockpit.classList.add(`effect-${effect}`);
+
+  effectTimer = window.setTimeout(() => {
+    cockpit.classList.remove("effect-dogfight", "effect-fireworks", "effect-flyby");
+  }, 5200);
+}
 
 document.querySelectorAll(".screen-link").forEach((button) => {
   button.addEventListener("click", () => {
@@ -24,14 +38,14 @@ document.querySelectorAll("[data-effect]").forEach((button) => {
   button.addEventListener("click", () => {
     if (!cockpit) return;
 
-    window.clearTimeout(effectTimer);
-    document.querySelector(".hero-view")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    cockpit.classList.remove("effect-dogfight", "effect-fireworks", "effect-night", "effect-flyby");
-    void cockpit.offsetWidth;
-    cockpit.classList.add(`effect-${button.dataset.effect}`);
+    const isCompactScreen = window.matchMedia("(max-width: 860px)").matches;
+    heroView?.scrollIntoView({
+      behavior: isCompactScreen ? "auto" : "smooth",
+      block: "start"
+    });
 
-    effectTimer = window.setTimeout(() => {
-      cockpit.classList.remove("effect-dogfight", "effect-fireworks", "effect-flyby");
-    }, 5200);
+    window.setTimeout(() => {
+      playCockpitEffect(button.dataset.effect);
+    }, isCompactScreen ? 90 : 360);
   });
 });
