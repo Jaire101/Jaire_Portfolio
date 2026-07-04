@@ -138,3 +138,36 @@ document.querySelector(".trial-form").addEventListener("submit", (event) => {
     event.currentTarget.reset();
   }, 2200);
 });
+
+const bmiForm = document.getElementById("bmiForm");
+const bmiResult = document.getElementById("bmiResult");
+
+if (bmiForm && bmiResult) {
+  bmiForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const feet = Number(document.getElementById("heightFeet").value);
+    const inches = Number(document.getElementById("heightInches").value);
+    const weight = Number(document.getElementById("weight").value);
+
+    const totalInches = feet * 12 + inches;
+    const bmi = (weight / (totalInches * totalInches)) * 703;
+
+    let category = "";
+
+    if (bmi < 18.5) {
+      category = "Underweight range";
+    } else if (bmi < 25) {
+      category = "Healthy weight range";
+    } else if (bmi < 30) {
+      category = "Overweight range";
+    } else {
+      category = "Obesity range";
+    }
+
+    bmiResult.innerHTML = `
+      <p>Your BMI is <strong>${bmi.toFixed(1)}</strong>.</p>
+      <p>General category: ${category}.</p>
+    `;
+  });
+}
