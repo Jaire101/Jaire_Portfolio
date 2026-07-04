@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jaire | Flight Deck Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="home">
+    <main class="cockpit-shell" aria-label="Interactive fighter cockpit portfolio">
+      <img class="canopy" src="assets/canopy-flight.png" alt="View through a fighter jet canopy over the ocean">
+      <div class="canopy-tint"></div>
+      <div class="hud" aria-hidden="true">
+        <div class="hud-line top"></div>
+        <div class="hud-ring"></div>
+        <div class="hud-cross"></div>
+        <div class="hud-readout left">ALT 28,540</div>
+        <div class="hud-readout right">SPD 642</div>
+        <div class="hud-readout bottom">NAV PORTFOLIO // LOCK</div>
+      </div>
+
+      <section class="cockpit" aria-label="Cockpit controls">
+        <div class="glareshield">
+          <div class="status-strip">
+            <span class="lamp red"></span><span>SITE READY</span>
+            <span class="lamp green"></span><span>IMAGE OK</span>
+            <span class="lamp amber"></span><span>LINKS ACTIVE</span>
+          </div>
+        </div>
+
+        <div class="console-grid">
+          <aside class="side-panel left-panel" aria-label="Mission buttons">
+            <a class="hard-button" href="about.html"><span>01</span> About Me</a>
+            <a class="hard-button" href="projects.html"><span>02</span> Projects</a>
+            <a class="hard-button" href="log.html"><span>03</span> Process</a>
+            <a class="hard-button" href="contact.html"><span>04</span> Contact</a>
+          </aside>
+
+          <button class="mfd mfd-left screen-link" data-target="projects.html" type="button" aria-label="Open projects page">
+            <span class="screen-title">PROJECT DISPLAY</span>
+            <span class="radar">
+              <i class="sweep"></i>
+              <i class="blip b1"></i><i class="blip b2"></i><i class="blip b3"></i>
+            </span>
+            <span class="screen-caption">PROJECTS LOCKED</span>
+          </button>
+
+          <div class="center-stack">
+            <button class="ufc screen-link" data-target="about.html" type="button" aria-label="Open about page">
+              <span class="ufc-label">NAME</span>
+              <span class="ufc-code">JAIRE</span>
+              <span class="ufc-label">WHITEHEAD</span>
+            </button>
+            <div class="throttle-bank" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <nav class="switch-row" aria-label="Quick cockpit navigation">
+              <a href="about.html">ME</a>
+              <a href="projects.html">WORK</a>
+              <a href="log.html">PLAN</a>
+              <a href="contact.html">HI</a>
+            </nav>
+          </div>
+
+          <button class="mfd mfd-right screen-link" data-target="log.html" type="button" aria-label="Open flight log page">
+            <span class="screen-title">BUILD STATUS</span>
+            <span class="telemetry">
+              <b>BUILD VELOCITY</b>
+              <i style="--w: 84%"></i>
+              <b>DESIGN RANGE</b>
+              <i style="--w: 73%"></i>
+              <b>CODE STABILITY</b>
+              <i style="--w: 91%"></i>
+            </span>
+            <span class="screen-caption">LOG READY</span>
+          </button>
+
+          <aside class="side-panel right-panel" aria-label="Communication buttons">
+            <a class="hard-button warning" href="contact.html"><span>GO</span> Start a Project</a>
+            <a class="hard-button" href="projects.html"><span>UX</span> Project Work</a>
+            <a class="hard-button" href="log.html"><span>QA</span> Process</a>
+            <a class="hard-button" href="about.html"><span>JS</span> Skills</a>
+          </aside>
+        </div>
+
+        <div class="lower-console">
+          <div class="analog">
+            <span class="needle"></span>
+            <b>AOA</b>
+          </div>
+          <div class="nameplate">
+            <p>JAIRE WHITEHEAD - FRONT-END DEVELOPER</p>
+            <strong>AVAILABLE FOR WEB PROJECTS</strong>
+          </div>
+          <div class="analog alt">
+            <span class="needle"></span>
+            <b>G</b>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
