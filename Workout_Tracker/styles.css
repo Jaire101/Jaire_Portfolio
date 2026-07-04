@@ -149,3 +149,78 @@ button:hover {
     padding: 28px 0;
   }
 }
+
+.workout-list-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.summary {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.summary div {
+  min-width: 105px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #0f141a;
+}
+
+.summary span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.summary strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 800px) {
+  .workout-list-header {
+    flex-direction: column;
+  }
+
+  .summary {
+    justify-content: start;
+  }
+}
+
+.clear-all-button {
+  min-height: auto;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+
+.clear-all-button:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.filter-bar {
+  margin-bottom: 20px;
+}
+
+.filter-bar label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.filter-bar input {
+  width: 100%;
+}
