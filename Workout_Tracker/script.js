@@ -24,7 +24,8 @@ workoutForm.addEventListener("submit", (event) => {
     exercise,
     sets,
     reps,
-    weight
+    weight,
+    createdAt: new Date().toISOString()
   };
 
   workouts.push(workout);
@@ -92,8 +93,10 @@ function renderWorkouts() {
     exerciseName.textContent = workout.exercise;
 
     const workoutInfo = document.createElement("p");
+    const volume =
+      Number(workout.sets) * Number(workout.reps) * Number(workout.weight);
     workoutInfo.textContent =
-      `${workout.sets} sets × ${workout.reps} reps at ${workout.weight} lbs`;
+      `${workout.sets} sets x ${workout.reps} reps at ${workout.weight} lbs | ${volume.toLocaleString()} lbs volume`;
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";

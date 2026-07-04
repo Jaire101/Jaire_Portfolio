@@ -12,9 +12,11 @@
   <body>
     <main class="app">
       <section class="tracker-card">
+        <div class="hero-kicker">Personal training log</div>
+
         <h1>Workout Tracker</h1>
 
-        <p>Track your training sessions, sets, reps, and weight.</p>
+        <p>Stack sessions, chase volume, and keep your lifts glowing.</p>
 
         <form id="workoutForm">
           <label for="exercise"> Exercise </label>
@@ -65,9 +67,7 @@
           <div>
             <h2>Today's Workouts</h2>
 
-            <button id="clearAllButton" class="clear-all-button" type="button">
-              Clear All Workouts
-            </button>
+            <p class="section-subtitle">Your live session board</p>
           </div>
 
           <div class="summary">
@@ -96,6 +96,11 @@
             placeholder="Search by exercise name..."
           />
         </div>
+
+        <button id="clearAllButton" class="clear-all-button" type="button">
+          Clear All Workouts
+        </button>
+
         <div id="workoutList">
           <p class="empty-message">No workouts added yet.</p>
         </div>
