@@ -1,0 +1,151 @@
+:root {
+  --background: #0d1117;
+  --card: #161b22;
+  --card-light: #1f2933;
+  --text: #f5f7fa;
+  --muted: #aab4be;
+  --accent: #7cff5b;
+  --accent-dark: #57d43a;
+  --border: rgba(255, 255, 255, 0.12);
+  --danger: #ff6b6b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #0d1117, #121b1a);
+  color: var(--text);
+}
+
+.app {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 60px 0;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 28px;
+}
+
+.tracker-card,
+.workout-list-card {
+  background: rgba(22, 27, 34, 0.94);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+.tracker-card h1,
+.workout-list-card h2 {
+  margin-top: 0;
+}
+
+.tracker-card h1 {
+  font-size: 2.2rem;
+}
+
+.tracker-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0 14px;
+  background: #0f141a;
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124, 255, 91, 0.15);
+}
+
+button {
+  margin-top: 14px;
+  min-height: 48px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #0c1608;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.workout-list-card {
+  min-height: 420px;
+}
+
+.empty-message {
+  color: var(--muted);
+  text-align: center;
+  margin-top: 80px;
+}
+
+.workout-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card-light);
+}
+
+.workout-item h3 {
+  margin: 0 0 8px;
+}
+
+.workout-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.delete-button {
+  min-height: auto;
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--danger);
+  color: white;
+}
+
+.delete-button:hover {
+  background: #e65252;
+}
+
+@media (max-width: 800px) {
+  .app {
+    grid-template-columns: 1fr;
+    padding: 28px 0;
+  }
+}
