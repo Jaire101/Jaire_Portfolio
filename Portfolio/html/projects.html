@@ -1,263 +1,190 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Projects | Jaire Whitehead</title>
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css">
   </head>
 
   <body>
-    <header>
-      <h1>Jaire Whitehead</h1>
-
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-
-        <button
-          id="themeToggle"
-          class="btn"
-          type="button"
-          aria-label="Toggle dark mode"
-        >
-          🌙
-        </button>
-      </nav>
+    <header class="page-header">
+      <a class="back" href="index.html">COCKPIT</a>
+      <span>Projects</span>
     </header>
 
-    <main>
-      <section class="card">
-        <h2>My Projects</h2>
+    <main class="mission-page">
+      <section class="dossier">
+        <p class="eyebrow">FEATURED PROJECTS</p>
 
-        <p>
-          These projects show my growth as a front-end developer through
-          responsive design, JavaScript functionality, API integration, and
-          React development.
-        </p>
+        <h1>
+          Real web projects built around usability, responsive design, and
+          clean presentation.
+        </h1>
+      </section>
 
-        <div class="project-grid">
-          <article class="project-card">
-            <img
-              src="../images/image2.png"
-              alt="Aster Table restaurant website preview"
-            />
+      <section class="project-list">
+        <article>
+          <span>RESTAURANT WEBSITE</span>
+          <h2>Aster Table Restaurant</h2>
 
-            <h3>Aster Table Restaurant</h3>
+          <p>
+            A polished restaurant site designed to make the menu, atmosphere,
+            and reservation path easy to understand.
+          </p>
 
-            <p>
-              A modern restaurant landing page with smooth scrolling,
-              responsive design, menu sections, visual effects, and a
-              reservation area.
-            </p>
+          <p class="tech">
+            HTML, CSS, JavaScript, Responsive Design
+          </p>
 
-            <p><strong>Built with:</strong> HTML, CSS, and JavaScript</p>
+          <div class="project-actions">
+            <a
+              href="https://jaire101.github.io/Jaire_Portfolio/Portfolio/Restaurant_Website/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo
+            </a>
 
-            <div class="project-links">
-              <a
-                href="../Restaurant_Website/index.html"
-                class="btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Live Demo
-              </a>
+            <a
+              href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/Restaurant_Website"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code
+            </a>
+          </div>
+        </article>
 
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/Restaurant_Website"
-                class="btn secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Code
-              </a>
-            </div>
-          </article>
+        <article>
+          <span>FITNESS WEBSITE</span>
+          <h2>Elite Fitness</h2>
 
-          <article class="project-card">
-            <img
-              src="../elite-fitness/assets/elite-fitness-hero.png"
-              alt="Elite Fitness training website preview"
-            />
+          <p>
+            A high-energy fitness site built to present services, motivate
+            visitors, and guide them toward contacting the business.
+          </p>
 
-            <h3>Elite Fitness</h3>
+          <p class="tech">
+            HTML, CSS, JavaScript, Animation
+          </p>
 
-            <p>
-              A polished fitness studio website featuring membership plans,
-              coaching information, training programs, responsive navigation,
-              and animated design details.
-            </p>
+          <div class="project-actions">
+            <a
+              href="https://jaire101.github.io/Jaire_Portfolio/Portfolio/elite-fitness/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo
+            </a>
 
-            <p><strong>Built with:</strong> HTML, CSS, and JavaScript</p>
+            <a
+              href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/elite-fitness"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code
+            </a>
+          </div>
+        </article>
 
-            <div class="project-links">
-              <a
-                href="../elite-fitness/index.html"
-                class="btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Live Demo
-              </a>
+        <article>
+          <span>HEALTH APP</span>
+          <h2>Workout Tracker</h2>
 
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/elite-fitness"
-                class="btn secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Code
-              </a>
-            </div>
-          </article>
+          <p>
+            A practical tracking interface for logging workouts and helping
+            users keep a simple record of progress.
+          </p>
 
-          <article class="project-card">
-            <h3>
-              <i class="fa-solid fa-dumbbell"></i>
-              Workout Tracker
-            </h3>
+          <p class="tech">
+            JavaScript, Local Storage, UI Design
+          </p>
 
-            <p>
-              A personal workout logging app that lets users add exercises,
-              track sets, reps, weight, total volume, and search saved
-              workouts.
-            </p>
+          <div class="project-actions">
+            <a
+              href="https://jaire101.github.io/Jaire_Portfolio/Workout_Tracker/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo
+            </a>
 
-            <p>
-              <strong>Built with:</strong> HTML, CSS, JavaScript, and Local
-              Storage
-            </p>
+            <a
+              href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Workout_Tracker"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code
+            </a>
+          </div>
+        </article>
 
-            <div class="project-links">
-              <a
-                href="../../Workout_Tracker/index.html"
-                class="btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Live Demo
-              </a>
+        <article>
+          <span>API DASHBOARD</span>
+          <h2>Weather Dashboard</h2>
 
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Workout_Tracker"
-                class="btn secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Code
-              </a>
-            </div>
-          </article>
+          <p>
+            A weather app that turns forecast data into a clear dashboard for
+            quick daily planning.
+          </p>
 
-          <article class="project-card">
-            <h3>
-              <i class="fa-solid fa-cloud-sun"></i>
-              Weather Dashboard
-            </h3>
+          <p class="tech">
+            JavaScript, Weather API, Cloudflare Workers, CSS
+          </p>
 
-            <p>
-              A responsive weather dashboard that searches cities worldwide,
-              shows current conditions, displays a five-day forecast, and uses
-              a secure Cloudflare Worker API proxy.
-            </p>
+          <div class="project-actions">
+            <a
+              href="https://jaire101.github.io/Jaire_Portfolio/Weather_Dashboard/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo
+            </a>
 
-            <p>
-              <strong>Built with:</strong> HTML, CSS, JavaScript, WeatherAPI,
-              and Cloudflare Workers
-            </p>
+            <a
+              href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Weather_Dashboard"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code
+            </a>
+          </div>
+        </article>
 
-            <div class="project-links">
-              <a
-                href="../../Weather_Dashboard/index.html"
-                class="btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Live Demo
-              </a>
+        <article>
+          <span>REACT APP</span>
+          <h2>React Task Manager</h2>
 
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Weather_Dashboard"
-                class="btn secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Dashboard Code
-              </a>
+          <p>
+            A task-management application where users can create, complete,
+            delete, search, filter, and clear tasks. Data stays saved after
+            refresh using browser local storage.
+          </p>
 
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/jaire-weather-api"
-                class="btn secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Worker Code
-              </a>
-            </div>
-          </article>
+          <p class="tech">
+            React, Vite, JavaScript, Local Storage, Cloudflare Pages
+          </p>
 
-          <article class="project-card">
-            <h3>
-              <i class="fa-brands fa-react"></i>
-              React Task Manager
-            </h3>
+          <div class="project-actions">
+            <a
+              href="https://bbcf5c09.jaire-task-manager.pages.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo
+            </a>
 
-            <p>
-              A responsive task-management application where users can create,
-              complete, delete, search, filter, and clear tasks. Tasks remain
-              saved after refresh using browser local storage.
-            </p>
-
-            <p>
-              <strong>Built with:</strong> React, Vite, JavaScript, Local
-              Storage, and Cloudflare Pages
-            </p>
-
-            <div class="project-links">
-              <a
-                href="https://bbcf5c09.jaire-task-manager.pages.dev"
-                class="btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Live Demo
-              </a>
-
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/react-task-manager-starter"
-                class="btn secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Code
-              </a>
-            </div>
-          </article>
-        </div>
+            <a
+              href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/react-task-manager-starter"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code
+            </a>
+          </div>
+        </article>
       </section>
     </main>
-
-    <footer>
-      <p>&copy; 2026 Jaire Whitehead. All rights reserved.</p>
-    </footer>
-
-    <script src="../js/script.js"></script>
   </body>
 </html>
