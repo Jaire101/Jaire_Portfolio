@@ -17,10 +17,8 @@ const globeLocation = document.getElementById("globeLocation");
 const earthCanvas = document.getElementById("earthCanvas");
 const earthContext = earthCanvas.getContext("2d");
 
-const weatherSources = [
-  "https://wttr.in",
-  "https://wttr.is"
-];
+const WEATHER_PROXY_URL =
+  "https://jaire-weather-api.jaire-weather.workers.dev/weather";
 
 const globeState = {
   rotation: -20,
@@ -114,10 +112,10 @@ async function loadWeather(city) {
   try {
     const weatherData = await getWeather(city);
 
-    renderWeather(weatherData.place, weatherData.data);
+    renderWeather(weatherData);
 
     showStatus(
-      `Updated weather for ${weatherData.place.name}.`,
+      `Updated weather for ${weatherData.location.name}.`,
       "success"
     );
   } catch (error) {
@@ -131,67 +129,41 @@ async function loadWeather(city) {
 }
 
 async function getWeather(city) {
-  let lastError;
+  const url =
+    `${WEATHER_PROXY_URL}?city=${encodeURIComponent(city)}`;
 
-  for (const source of weatherSources) {
-    try {
-      const url = `${source}/${encodeURIComponent(city)}?format=j1`;
+  const response = await fetchWithTimeout(url);
 
-      const response = await fetchWithTimeout(url);
+  let weatherData;
 
-      if (!response.ok) {
-        throw new Error("Weather data is unavailable right now.");
-      }
-
-      const data = await response.json();
-
-      if (
-        !data.current_condition ||
-        !data.current_condition[0] ||
-        !data.weather ||
-        data.weather.length === 0 ||
-        !data.nearest_area ||
-        !data.nearest_area[0]
-      ) {
-        throw new Error("No city found. Check the spelling and try again.");
-      }
-
-      const place = getPlaceDetails(data.nearest_area[0], city);
-
-      return {
-        place,
-        data
-      };
-    } catch (error) {
-      lastError = error;
-    }
+  try {
+    weatherData = await response.json();
+  } catch {
+    throw new Error(
+      "The weather service returned an unreadable response."
+    );
   }
 
-  if (lastError?.message === "No city found. Check the spelling and try again.") {
-    throw lastError;
+  if (!response.ok) {
+    throw new Error(
+      weatherData.error ||
+      "Weather data could not be retrieved right now."
+    );
   }
 
-  throw new Error(
-    "Could not retrieve weather data. Check your connection and try again."
-  );
-}
+  if (
+    !weatherData.location ||
+    !weatherData.current ||
+    !weatherData.forecast ||
+    !weatherData.forecast.forecastday ||
+    weatherData.forecast.forecastday.length === 0
+  ) {
+    throw new Error(
+      "No weather data was found for that city."
+    );
+  }
 
-function getPlaceDetails(nearestArea, searchedCity) {
-  const name = getNestedValue(nearestArea.areaName) || searchedCity;
-  const region = getNestedValue(nearestArea.region);
-  const country = getNestedValue(nearestArea.country);
-
-  return {
-    name,
-    admin1: region,
-    country,
-    latitude: Number(nearestArea.latitude),
-    longitude: Number(nearestArea.longitude)
-  };
-}
-
-function getNestedValue(list) {
-  return list?.[0]?.value || "";
+  return weatherData;
 }
 
 async function fetchWithTimeout(url) {
@@ -220,14 +192,23 @@ async function fetchWithTimeout(url) {
   }
 }
 
-function renderWeather(place, data) {
-  const current = data.current_condition[0];
+function renderWeather(weatherData) {
+  const { location, current } = weatherData;
+
+  const place = {
+    name: location.name,
+    admin1: location.region,
+    country: location.country,
+    latitude: Number(location.lat),
+    longitude: Number(location.lon)
+  };
 
   const region = [place.admin1, place.country]
     .filter(Boolean)
     .join(", ");
 
-  const condition = current.weatherDesc?.[0]?.value || "Mixed conditions";
+  const condition =
+    current.condition?.text || "Mixed conditions";
 
   weatherPanel.classList.remove("is-empty");
   weatherContent.hidden = false;
@@ -240,45 +221,50 @@ function renderWeather(place, data) {
 
   weatherIcon.textContent = getWeatherIcon(condition);
 
-  currentTemp.textContent = `${Math.round(Number(current.temp_F))}°F`;
+  currentTemp.textContent =
+    `${Math.round(Number(current.temp_f))}°F`;
 
   feelsLike.textContent =
-    `${Math.round(Number(current.FeelsLikeF))}°F`;
+    `${Math.round(Number(current.feelslike_f))}°F`;
 
-  windSpeed.textContent = `${current.windspeedMiles} mph`;
+  windSpeed.textContent =
+    `${Math.round(Number(current.wind_mph))} mph`;
 
-  humidity.textContent = `${current.humidity}%`;
+  humidity.textContent =
+    `${current.humidity}%`;
 
   focusGlobe(place);
 
-  renderForecast(data.weather);
+  renderForecast(weatherData.forecast.forecastday);
 }
 
-function renderForecast(weatherDays) {
+function renderForecast(forecastDays) {
   forecastList.innerHTML = "";
 
-  const forecastDays = weatherDays.slice(0, 3);
+  const fiveDayForecast = forecastDays.slice(0, 5);
 
   forecastRange.textContent =
-    `${formatShortDate(forecastDays[0].date)} - ` +
-    `${formatShortDate(forecastDays[forecastDays.length - 1].date)}`;
+    `${formatShortDate(fiveDayForecast[0].date)} - ` +
+    `${formatShortDate(
+      fiveDayForecast[fiveDayForecast.length - 1].date
+    )}`;
 
-  forecastDays.forEach((day, index) => {
-    const hourlyForecast =
-      day.hourly?.[4] ||
-      day.hourly?.[0];
-
+  fiveDayForecast.forEach((day, index) => {
     const condition =
-      hourlyForecast?.weatherDesc?.[0]?.value ||
-      "Mixed conditions";
+      day.day.condition?.text || "Mixed conditions";
 
     const card = document.createElement("article");
     card.className = "forecast-card";
 
     card.innerHTML = `
       <div>
-        <p class="forecast-day">${formatWeekday(day.date, index)}</p>
-        <span class="forecast-range">${formatShortDate(day.date)}</span>
+        <p class="forecast-day">
+          ${formatWeekday(day.date, index)}
+        </p>
+
+        <span class="forecast-range">
+          ${formatShortDate(day.date)}
+        </span>
       </div>
 
       <div class="forecast-icon">
@@ -287,9 +273,8 @@ function renderForecast(weatherDays) {
 
       <div>
         <p class="forecast-temp">
-          ${Math.round(Number(day.maxtempF))}° / ${Math.round(
-            Number(day.mintempF)
-          )}°
+          ${Math.round(Number(day.day.maxtemp_f))}° /
+          ${Math.round(Number(day.day.mintemp_f))}°
         </p>
 
         <p class="forecast-condition">
@@ -377,7 +362,6 @@ function focusGlobe(place) {
   );
 
   globeState.targetRotation = -place.longitude;
-
   globeState.targetZoom = 1.75;
 }
 
@@ -418,7 +402,6 @@ function setLoading(isLoading) {
 
 function showStatus(message, type) {
   statusMessage.textContent = message;
-
   statusMessage.className = "status-message";
 
   if (type === "error") {
@@ -432,7 +415,6 @@ function showStatus(message, type) {
 
 function resizeEarthCanvas() {
   const rect = earthCanvas.getBoundingClientRect();
-
   const scale = window.devicePixelRatio || 1;
 
   earthCanvas.width = Math.max(
@@ -463,10 +445,12 @@ function animateGlobe() {
   );
 
   globeState.centerLat +=
-    (globeState.targetLat - globeState.centerLat) * 0.045;
+    (globeState.targetLat - globeState.centerLat) *
+    0.045;
 
   globeState.zoom +=
-    (globeState.targetZoom - globeState.zoom) * 0.055;
+    (globeState.targetZoom - globeState.zoom) *
+    0.055;
 
   if (!globeState.marker) {
     globeState.targetRotation -= 0.05;
@@ -480,7 +464,6 @@ function animateGlobe() {
 function drawGlobe() {
   const width = earthCanvas.clientWidth;
   const height = earthCanvas.clientHeight;
-
   const context = earthContext;
 
   const radius =
@@ -532,7 +515,6 @@ function drawGlobe() {
   );
 
   drawGrid(context, cx, cy, radius);
-
   drawContinents(context, cx, cy, radius);
 
   const shade = context.createRadialGradient(
@@ -579,14 +561,16 @@ function drawGlobe() {
     Math.PI * 2
   );
 
-  context.strokeStyle = "rgba(224, 242, 254, 0.5)";
-  context.lineWidth = 2;
+  context.strokeStyle =
+    "rgba(224, 242, 254, 0.5)";
 
+  context.lineWidth = 2;
   context.stroke();
 }
 
 function drawStars(context, width, height) {
-  context.fillStyle = "rgba(255, 255, 255, 0.34)";
+  context.fillStyle =
+    "rgba(255, 255, 255, 0.34)";
 
   for (let index = 0; index < 38; index += 1) {
     const x = (index * 97) % width;
@@ -611,7 +595,9 @@ function drawStars(context, width, height) {
 }
 
 function drawGrid(context, cx, cy, radius) {
-  context.strokeStyle = "rgba(224, 242, 254, 0.22)";
+  context.strokeStyle =
+    "rgba(224, 242, 254, 0.22)";
+
   context.lineWidth = 1;
 
   for (let lat = -60; lat <= 60; lat += 30) {
@@ -636,8 +622,12 @@ function drawGrid(context, cx, cy, radius) {
 }
 
 function drawContinents(context, cx, cy, radius) {
-  context.fillStyle = "rgba(52, 211, 153, 0.78)";
-  context.strokeStyle = "rgba(6, 78, 59, 0.48)";
+  context.fillStyle =
+    "rgba(52, 211, 153, 0.78)";
+
+  context.strokeStyle =
+    "rgba(6, 78, 59, 0.48)";
+
   context.lineWidth = 1;
 
   continentShapes.forEach((shape) => {
@@ -675,7 +665,8 @@ function drawMarker(context, cx, cy, radius, marker) {
     Math.PI * 2
   );
 
-  context.fillStyle = "rgba(251, 191, 36, 0.18)";
+  context.fillStyle =
+    "rgba(251, 191, 36, 0.18)";
 
   context.fill();
 
@@ -690,12 +681,10 @@ function drawMarker(context, cx, cy, radius, marker) {
   );
 
   context.fillStyle = "#fbbf24";
-
   context.fill();
 
   context.strokeStyle = "#fff7ed";
   context.lineWidth = 2;
-
   context.stroke();
 }
 
@@ -793,7 +782,8 @@ function buildLongitudeLine(lon) {
 
 function moveTowardAngle(current, target, amount) {
   const delta =
-    ((((target - current) % 360) + 540) % 360) - 180;
+    ((((target - current) % 360) + 540) % 360) -
+    180;
 
   return current + delta * amount;
 }
@@ -808,5 +798,4 @@ window.addEventListener(
 );
 
 resizeEarthCanvas();
-
 animateGlobe();
