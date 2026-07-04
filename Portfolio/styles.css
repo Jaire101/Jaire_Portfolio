@@ -1131,3 +1131,115 @@ p {
     width: 100%;
   }
 }
+
+/* =========================================================
+   SKILLS PROGRESS BARS
+   ========================================================= */
+
+.skills-section {
+  max-width: 1100px;
+  margin: 56px 0 0;
+}
+
+.skills-heading {
+  max-width: 720px;
+}
+
+.skills-heading h2 {
+  margin: 8px 0 12px;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.skills-heading p:not(.eyebrow) {
+  margin-bottom: 0;
+  color: #c9d6d2;
+  line-height: 1.6;
+}
+
+.skills-panel {
+  display: grid;
+  gap: 22px;
+  margin-top: 26px;
+  padding: clamp(20px, 4vw, 34px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(13, 18, 19, 0.84);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 32px rgba(0, 0, 0, 0.35);
+}
+
+.skill {
+  display: grid;
+  gap: 8px;
+}
+
+.skill-title {
+  display: flex;
+  color: var(--text);
+  font: 900 0.82rem "Consolas", monospace;
+  letter-spacing: 0.06em;
+  justify-content: space-between;
+}
+
+.skill-title span:last-child {
+  color: var(--amber);
+}
+
+.progress {
+  position: relative;
+  height: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(102, 255, 173, 0.34);
+  border-radius: 3px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 0 12px,
+      transparent 12px 16px
+    ),
+    rgba(2, 8, 7, 0.75);
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.58);
+}
+
+.progress-bar {
+  height: 100%;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(102, 255, 173, 0.72),
+      var(--green)
+    );
+  box-shadow: 0 0 14px rgba(102, 255, 173, 0.58);
+}
+
+.progress-bar.html {
+  width: 90%;
+}
+
+.progress-bar.css {
+  width: 80%;
+}
+
+.progress-bar.javascript {
+  width: 10%;
+}
+
+.progress-bar.python {
+  width: 5%;
+}
+
+@media (max-width: 520px) {
+  .skills-section {
+    margin-top: 38px;
+  }
+
+  .skills-panel {
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .skill-title {
+    font-size: 0.72rem;
+  }
+}
