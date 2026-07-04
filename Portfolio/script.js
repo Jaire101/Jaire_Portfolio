@@ -1,4 +1,5 @@
 const cockpit = document.querySelector(".cockpit-shell");
+let effectTimer;
 
 document.querySelectorAll(".screen-link").forEach((button) => {
   button.addEventListener("click", () => {
@@ -18,3 +19,19 @@ if (cockpit) {
     cockpit.style.setProperty("--look-y", `${y}px`);
   });
 }
+
+document.querySelectorAll("[data-effect]").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (!cockpit) return;
+
+    window.clearTimeout(effectTimer);
+    document.querySelector(".hero-view")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    cockpit.classList.remove("effect-dogfight", "effect-fireworks", "effect-night", "effect-flyby");
+    void cockpit.offsetWidth;
+    cockpit.classList.add(`effect-${button.dataset.effect}`);
+
+    effectTimer = window.setTimeout(() => {
+      cockpit.classList.remove("effect-dogfight", "effect-fireworks", "effect-flyby");
+    }, 5200);
+  });
+});

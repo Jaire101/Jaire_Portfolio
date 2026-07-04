@@ -106,6 +106,168 @@ button {
     );
 }
 
+.effect-layer {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.effect-layer span {
+  position: absolute;
+  opacity: 0;
+}
+
+.jet {
+  width: 68px;
+  height: 18px;
+  clip-path: polygon(0 48%, 37% 18%, 100% 48%, 39% 76%);
+  background: linear-gradient(
+    90deg,
+    rgba(8, 12, 14, 0.25),
+    rgba(233, 242, 238, 0.95),
+    rgba(15, 20, 22, 0.45)
+  );
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.45));
+}
+
+.jet::after {
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  width: 24px;
+  height: 38px;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  background: rgba(218, 230, 226, 0.75);
+  content: "";
+}
+
+.jet-one {
+  top: 27vh;
+  left: -12vw;
+}
+
+.jet-two {
+  top: 42vh;
+  right: -14vw;
+  transform: scaleX(-1);
+}
+
+.contrail {
+  width: 34vw;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.88), transparent);
+  filter: blur(0.3px);
+}
+
+.trail-one {
+  top: 30vh;
+  left: -36vw;
+  transform: rotate(-12deg);
+}
+
+.trail-two {
+  top: 45vh;
+  right: -36vw;
+  transform: rotate(14deg);
+}
+
+.burst {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #fff 0 12%, #ffd46b 13% 28%, rgba(255, 77, 77, 0.9) 29% 40%, transparent 42%),
+    conic-gradient(from 0deg, transparent 0 8%, rgba(255, 255, 255, 0.9) 9% 11%, transparent 12% 20%, rgba(255, 176, 47, 0.9) 21% 23%, transparent 24% 100%);
+  box-shadow: 0 0 28px rgba(255, 176, 47, 0.85);
+}
+
+.burst-one {
+  top: 21vh;
+  left: 31vw;
+}
+
+.burst-two {
+  top: 28vh;
+  left: 61vw;
+}
+
+.burst-three {
+  top: 14vh;
+  left: 48vw;
+}
+
+.moon {
+  top: 9vh;
+  right: 12vw;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff, #d8dee5 54%, #9ba8b6 100%);
+  box-shadow: 0 0 32px rgba(215, 230, 255, 0.72);
+}
+
+.stars {
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.92) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(180, 218, 255, 0.8) 0 1px, transparent 1.5px);
+  background-position: 14vw 12vh, 8vw 18vh;
+  background-size: 120px 92px, 170px 130px;
+}
+
+.effect-dogfight .jet-one {
+  animation: jetSlashOne 3.6s ease-in-out both;
+}
+
+.effect-dogfight .jet-two {
+  animation: jetSlashTwo 3.6s 0.18s ease-in-out both;
+}
+
+.effect-dogfight .trail-one {
+  animation: trailSlashOne 3.6s ease-out both;
+}
+
+.effect-dogfight .trail-two {
+  animation: trailSlashTwo 3.6s 0.18s ease-out both;
+}
+
+.effect-fireworks .burst-one {
+  animation: burstPop 1.8s ease-out both;
+}
+
+.effect-fireworks .burst-two {
+  animation: burstPop 1.8s 0.32s ease-out both;
+}
+
+.effect-fireworks .burst-three {
+  animation: burstPop 1.8s 0.62s ease-out both;
+}
+
+.effect-night .canopy {
+  filter: brightness(0.38) saturate(0.82) hue-rotate(20deg);
+}
+
+.effect-night .canopy-tint {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(8, 18, 42, 0.12) 0 28%, rgba(4, 9, 24, 0.56) 58%, rgba(0, 0, 8, 0.86) 100%),
+    linear-gradient(180deg, rgba(7, 14, 44, 0.72), rgba(1, 2, 10, 0.78));
+}
+
+.effect-night .moon,
+.effect-night .stars {
+  animation: nightIn 900ms ease-out both;
+}
+
+.effect-flyby .jet-one {
+  animation: flyby 2.2s ease-in both;
+}
+
+.effect-flyby .trail-one {
+  animation: flybyTrail 2.2s ease-in both;
+}
+
 /* =========================================================
    CENTER HUD
    ========================================================= */
@@ -641,18 +803,28 @@ button {
 .switch-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 7px;
+  gap: 6px;
+  min-width: 0;
 }
 
-.switch-row a {
+.switch-row a,
+.switch-row button {
   display: grid;
+  width: 100%;
+  min-width: 0;
   min-height: 42px;
+  padding: 0 4px;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 4px;
   background: #0e1112;
   color: var(--amber);
-  font: 900 0.82rem "Consolas", monospace;
+  overflow: hidden;
+  font: 900 clamp(0.62rem, 0.78vw, 0.78rem) "Consolas", monospace;
+  line-height: 1;
   text-decoration: none;
+  text-overflow: clip;
+  white-space: nowrap;
+  cursor: pointer;
   place-items: center;
 }
 
@@ -982,6 +1154,154 @@ p {
   50% {
     opacity: 1;
     transform: translateY(7px);
+  }
+}
+
+@keyframes jetSlashOne {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(-12deg) scale(0.74);
+  }
+
+  16% {
+    opacity: 1;
+  }
+
+  72% {
+    opacity: 1;
+    transform: translate3d(70vw, 18vh, 0) rotate(-5deg) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(112vw, 4vh, 0) rotate(2deg) scale(0.9);
+  }
+}
+
+@keyframes jetSlashTwo {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(12deg) scaleX(-1) scale(0.74);
+  }
+
+  16% {
+    opacity: 1;
+  }
+
+  72% {
+    opacity: 1;
+    transform: translate3d(-72vw, -16vh, 0) rotate(5deg) scaleX(-1) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-114vw, -2vh, 0) rotate(-2deg) scaleX(-1) scale(0.9);
+  }
+}
+
+@keyframes trailSlashOne {
+  0% {
+    opacity: 0;
+    transform: translateX(0) rotate(-12deg);
+  }
+
+  18% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(118vw) rotate(-12deg);
+  }
+}
+
+@keyframes trailSlashTwo {
+  0% {
+    opacity: 0;
+    transform: translateX(0) rotate(14deg);
+  }
+
+  18% {
+    opacity: 0.78;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-118vw) rotate(14deg);
+  }
+}
+
+@keyframes flyby {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12vh, 0) rotate(-9deg) scale(0.55);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  62% {
+    opacity: 1;
+    transform: translate3d(62vw, -7vh, 0) rotate(-4deg) scale(1.25);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(120vw, -18vh, 0) rotate(0deg) scale(1.6);
+  }
+}
+
+@keyframes flybyTrail {
+  0% {
+    opacity: 0;
+    transform: translateX(0) rotate(-9deg);
+  }
+
+  25% {
+    opacity: 0.65;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(116vw) rotate(-9deg);
+  }
+}
+
+@keyframes burstPop {
+  0% {
+    opacity: 0;
+    filter: blur(0);
+    transform: scale(0.2);
+  }
+
+  14% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  70% {
+    opacity: 0.9;
+    filter: blur(0.2px);
+    transform: scale(6.5);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(1.5px);
+    transform: scale(9);
+  }
+}
+
+@keyframes nightIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
