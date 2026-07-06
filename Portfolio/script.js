@@ -21,12 +21,17 @@ function playCockpitEffect(effect) {
   if (!cockpit) return;
 
   window.clearTimeout(effectTimer);
-  cockpit.classList.remove("effect-dogfight", "effect-fireworks", "effect-night", "effect-flyby");
+  cockpit.classList.remove(
+  "effect-dogfight",
+  "effect-fireworks",
+  "effect-afterburner",
+  "effect-flyby"
+);
   void cockpit.offsetWidth;
   cockpit.classList.add(`effect-${effect}`);
 
   effectTimer = window.setTimeout(() => {
-    cockpit.classList.remove("effect-dogfight", "effect-fireworks", "effect-flyby");
+    cockpit.classList.remove("effect-dogfight", "effect-fireworks", "effect-afterburner", "effect-flyby");
   }, 5200);
 }
 

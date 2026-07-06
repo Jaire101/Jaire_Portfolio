@@ -1,38 +1,44 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta
       name="description"
       content="Jaire Whitehead — front-end developer portfolio."
-    >
+    />
 
     <title>Jaire Whitehead | Front-End Developer</title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body class="home">
     <main class="cockpit-shell flight-deck">
+      <section
+        class="cockpit-reveal"
+        id="cockpit-controls"
+        aria-label="Portfolio cockpit"
+      >
+        <div class="window-effects" aria-hidden="true">
+          <div class="effect-layer">
+            <span class="jet jet-one"></span>
+            <span class="jet jet-two"></span>
 
-      <section class="cockpit-reveal" id="cockpit-controls" aria-label="Portfolio cockpit">
+            <span class="contrail trail-one"></span>
+            <span class="contrail trail-two"></span>
 
-        <div class="effect-layer" aria-hidden="true">
-          <span class="jet jet-one"></span>
-          <span class="jet jet-two"></span>
-          <span class="contrail trail-one"></span>
-          <span class="contrail trail-two"></span>
-          <span class="burst burst-one"></span>
-          <span class="burst burst-two"></span>
-          <span class="burst burst-three"></span>
-          <span class="moon"></span>
-          <span class="stars"></span>
+            <span class="burst burst-one"></span>
+            <span class="burst burst-two"></span>
+            <span class="burst burst-three"></span>
+
+            <span class="moon"></span>
+            <span class="stars"></span>
+          </div>
         </div>
 
         <div class="cockpit" aria-label="Portfolio navigation">
-
           <div class="glareshield">
             <div class="status-strip">
               <span class="lamp red"></span>
@@ -47,10 +53,11 @@
           </div>
 
           <div class="console-grid">
-
             <!-- LEFT NAVIGATION -->
-            <aside class="side-panel left-panel" aria-label="Primary navigation">
-
+            <aside
+              class="side-panel left-panel"
+              aria-label="Primary navigation"
+            >
               <a class="hard-button" href="about.html#skills">
                 <span>01</span>
                 About Me
@@ -70,7 +77,6 @@
                 <span>04</span>
                 Contact
               </a>
-
             </aside>
 
             <!-- LEFT PROJECT SCREEN -->
@@ -94,7 +100,6 @@
 
             <!-- CENTER CONTROLS -->
             <div class="center-stack">
-
               <button
                 class="ufc screen-link"
                 data-target="about.html"
@@ -116,10 +121,9 @@
               <nav class="switch-row" aria-label="Cockpit animation controls">
                 <button type="button" data-effect="dogfight">Press</button>
                 <button type="button" data-effect="fireworks">Press</button>
-                <button type="button" data-effect="night">Press</button>
+                <button type="button" data-effect="afterburner">Press</button>
                 <button type="button" data-effect="flyby">Press</button>
               </nav>
-
             </div>
 
             <!-- RIGHT PROCESS SCREEN -->
@@ -147,7 +151,6 @@
 
             <!-- RIGHT ACTION BUTTONS -->
             <aside class="side-panel right-panel" aria-label="Project actions">
-
               <a class="hard-button" href="about.html">
                 <span>JS</span>
                 Skills
@@ -167,14 +170,11 @@
                 <span>NAV</span>
                 <i></i>
               </div>
-
             </aside>
-
           </div>
 
           <!-- LOWER CONSOLE -->
           <div class="lower-console">
-
             <div class="analog">
               <span class="needle"></span>
               <b>AOA</b>
@@ -189,20 +189,29 @@
               <span class="needle"></span>
               <b>G</b>
             </div>
-
           </div>
-
         </div>
       </section>
 
       <section class="game-overlay" aria-live="polite" aria-hidden="true">
-        <div class="game-panel" role="dialog" aria-modal="true" aria-labelledby="game-title">
+        <div
+          class="game-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="game-title"
+        >
           <header class="game-header">
             <div>
               <p class="game-kicker">TRAINING SIM</p>
               <h2 id="game-title">Target Pop</h2>
             </div>
-            <button class="game-close" type="button" aria-label="Close mini game">CLOSE</button>
+            <button
+              class="game-close"
+              type="button"
+              aria-label="Close mini game"
+            >
+              CLOSE
+            </button>
           </header>
 
           <div class="game-stats">

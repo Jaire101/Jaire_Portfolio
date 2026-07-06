@@ -1965,3 +1965,322 @@ p {
     font-size: 0.72rem;
   }
 }
+
+/* =========================================================
+   WINDOW-ONLY EFFECTS
+   Press-button animations stay behind the cockpit controls
+   and appear only through the windshield area.
+   ========================================================= */
+
+.cockpit-reveal {
+  overflow: hidden;
+}
+
+/* This is the outside windshield/viewing area. */
+.window-effects {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  width: min(1180px, 100vw);
+  height: min(60vh, 570px);
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateX(-50%);
+
+  /*
+    Wide canopy / windshield shape.
+    The animation is clipped inside this shape.
+  */
+  clip-path: polygon(
+    8% 0%,
+    92% 0%,
+    82% 78%,
+    18% 78%
+  );
+
+  isolation: isolate;
+}
+
+/* Keeps all jets, fireworks, moon, and stars inside the window. */
+.window-effects .effect-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Cockpit dashboard always sits in front of the outside effects. */
+.cockpit-reveal .cockpit {
+  z-index: 2;
+}
+
+/* Keep the normal cockpit shading behind the window effects. */
+.cockpit-reveal::before {
+  z-index: 0;
+}
+
+/* Adjust animation starting positions to fit inside the windshield. */
+.window-effects .jet-one {
+  top: 34%;
+  left: -14%;
+}
+
+.window-effects .jet-two {
+  top: 54%;
+  right: -16%;
+}
+
+.window-effects .trail-one {
+  top: 39%;
+  left: -38%;
+}
+
+.window-effects .trail-two {
+  top: 56%;
+  right: -38%;
+}
+
+.window-effects .burst-one {
+  top: 25%;
+  left: 29%;
+}
+
+.window-effects .burst-two {
+  top: 34%;
+  left: 63%;
+}
+
+.window-effects .burst-three {
+  top: 15%;
+  left: 48%;
+}
+
+.window-effects .moon {
+  top: 10%;
+  right: 14%;
+}
+
+.window-effects .stars {
+  inset: 0;
+}
+
+/*
+  Night mode should darken only the outside windshield,
+  not the cockpit controls, buttons, or dashboard.
+*/
+.effect-night .cockpit-reveal::before {
+  background: linear-gradient(
+    180deg,
+    rgba(3, 8, 10, 0.16),
+    transparent 34%,
+    rgba(3, 8, 10, 0.22)
+  );
+}
+
+.window-effects::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms ease;
+}
+
+.effect-night .window-effects::after {
+  opacity: 1;
+  background:
+    radial-gradient(
+      circle at 52% 18%,
+      rgba(8, 18, 42, 0.08) 0 20%,
+      rgba(4, 9, 24, 0.48) 58%,
+      rgba(0, 0, 8, 0.84) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(7, 14, 44, 0.54),
+      rgba(1, 2, 10, 0.7)
+    );
+}
+
+/* Put moon and stars above the night overlay. */
+.window-effects .moon,
+.window-effects .stars {
+  z-index: 3;
+}
+
+/* Mobile windshield area. */
+@media (max-width: 860px) {
+  .window-effects {
+    width: 100vw;
+    height: 48vh;
+
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      88% 76%,
+      12% 76%
+    );
+  }
+
+  .window-effects .jet-one {
+    top: 32%;
+    left: -28%;
+  }
+
+  .window-effects .jet-two {
+    top: 52%;
+    right: -30%;
+  }
+
+  .window-effects .burst-one {
+    left: 24%;
+  }
+
+  .window-effects .burst-two {
+    left: 64%;
+  }
+}
+/* =========================================================
+   AFTERBURNER SCRAMBLE EFFECT
+   Replaces the old night-mode animation.
+   ========================================================= */
+
+.jet::before {
+  position: absolute;
+  top: 4px;
+  right: -38px;
+  width: 42px;
+  height: 10px;
+  border-radius: 50%;
+  content: "";
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 77, 77, 0),
+    rgba(255, 77, 77, 0.55),
+    rgba(255, 176, 47, 0.95),
+    rgba(255, 255, 255, 0.96)
+  );
+  filter: blur(2px);
+  transform-origin: left center;
+}
+
+.effect-afterburner .jet-one {
+  animation: afterburnerPass 3.1s ease-in both;
+}
+
+.effect-afterburner .jet-one::before {
+  animation: afterburnerFlame 3.1s ease-in both;
+}
+
+.effect-afterburner .trail-one {
+  animation: afterburnerTrail 3.1s ease-in both;
+}
+
+.effect-afterburner .jet-two {
+  animation: afterburnerPassTwo 3.1s 0.55s ease-in both;
+}
+
+.effect-afterburner .jet-two::before {
+  animation: afterburnerFlame 3.1s 0.55s ease-in both;
+}
+
+.effect-afterburner .trail-two {
+  animation: afterburnerTrailTwo 3.1s 0.55s ease-in both;
+}
+
+@keyframes afterburnerPass {
+  0% {
+    opacity: 0;
+    transform: translate3d(-14vw, -8vh, 0) scale(0.55);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  68% {
+    opacity: 1;
+    transform: translate3d(58vw, -16vh, 0) scale(1.14);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(104vw, -22vh, 0) scale(0.72);
+  }
+}
+
+@keyframes afterburnerPassTwo {
+  0% {
+    opacity: 0;
+    transform: translate3d(14vw, -14vh, 0) scaleX(-1) scale(0.48);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  68% {
+    opacity: 1;
+    transform: translate3d(-58vw, -22vh, 0) scaleX(-1) scale(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-106vw, -28vh, 0) scaleX(-1) scale(0.7);
+  }
+}
+
+@keyframes afterburnerFlame {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scaleX(0.35);
+  }
+
+  12%,
+  72% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  42% {
+    opacity: 1;
+    transform: scaleX(1.45);
+  }
+}
+
+@keyframes afterburnerTrail {
+  0% {
+    opacity: 0;
+    transform: translateX(-16vw) rotate(-12deg) scaleX(0.3);
+  }
+
+  15% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(112vw) rotate(-12deg) scaleX(1.2);
+  }
+}
+
+@keyframes afterburnerTrailTwo {
+  0% {
+    opacity: 0;
+    transform: translateX(16vw) rotate(14deg) scaleX(0.3);
+  }
+
+  15% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-112vw) rotate(14deg) scaleX(1.2);
+  }
+}
