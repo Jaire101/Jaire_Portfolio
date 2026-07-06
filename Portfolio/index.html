@@ -29,19 +29,19 @@
         </nav>
       </header>
 
-      <section class="hero-grid" aria-labelledby="home-title">
+      <section class="hero-grid bright-hero" aria-labelledby="home-title">
         <div class="hero-copy reveal-on-scroll">
           <p class="signal-line">Air Force discipline / code craft / hero energy</p>
 
           <h1 id="home-title">
-            Futuristic web experiences built with precision, imagination, and
-            momentum.
+            Bright, futuristic websites built with precision and personality.
           </h1>
 
           <p class="hero-lead">
             I am Jaire Whitehead, a U.S. Air Force jet weapons loader and
-            front-end developer who brings mission focus, interactive design,
-            and Marvel-level excitement into the websites I build.
+            front-end developer. I bring mission focus, strong visual design,
+            responsive code, and comic-book-level excitement into the websites
+            I build.
           </p>
 
           <div class="hero-actions" aria-label="Primary actions">
@@ -50,35 +50,35 @@
           </div>
         </div>
 
-        <div class="hero-interface reveal-on-scroll" aria-label="Interactive identity core">
-          <div class="core-orbit" aria-hidden="true">
-            <span class="orbit-ring ring-one"></span>
-            <span class="orbit-ring ring-two"></span>
-            <span class="orbit-ring ring-three"></span>
-            <span class="power-core">JW</span>
-          </div>
+        <div class="hero-showcase reveal-on-scroll" aria-label="Portfolio image showcase">
+          <figure class="showcase-main">
+            <img
+              src="assets/home-code.png"
+              alt="Futuristic coding workstation with responsive website previews"
+            />
+            <figcaption>
+              <span>Front-End Build Mode</span>
+              Responsive layouts, clean UI, and interactive motion.
+            </figcaption>
+          </figure>
 
           <figure class="portrait-scan">
             <img src="images/image.png" alt="Jaire Whitehead" />
           </figure>
 
-          <div class="status-card status-airforce">
-            <span>01</span>
-            <strong>Weapons Loader</strong>
-            <p>Checklists, teamwork, pressure, precision.</p>
-          </div>
+          <figure class="showcase-chip chip-airforce">
+            <img
+              src="assets/home-airforce.png"
+              alt="Bright futuristic Air Force flightline weapons loader scene"
+            />
+          </figure>
 
-          <div class="status-card status-code">
-            <span>02</span>
-            <strong>Coding</strong>
-            <p>Responsive interfaces with motion and clarity.</p>
-          </div>
-
-          <div class="status-card status-marvel">
-            <span>03</span>
-            <strong>Marvel Fan</strong>
-            <p>Bold stories, iconic energy, cinematic polish.</p>
-          </div>
+          <figure class="showcase-chip chip-hero">
+            <img
+              src="assets/home-hero.png"
+              alt="Original heroic comic-inspired coding artwork"
+            />
+          </figure>
         </div>
       </section>
 
@@ -97,8 +97,43 @@
         </article>
       </section>
 
+      <section class="visual-proof" aria-label="Visual portfolio themes">
+        <article class="proof-feature reveal-on-scroll">
+          <img
+            src="assets/home-airforce.png"
+            alt="Air Force flightline weapons loader inspired visual"
+          />
+          <div>
+            <p class="signal-line">Mission precision</p>
+            <h2>Air Force standards in every build.</h2>
+            <p>
+              My weapons-loader background shows up in the way I approach
+              projects: organized, safety-minded, detail-driven, and ready to
+              execute under pressure.
+            </p>
+          </div>
+        </article>
+
+        <article class="proof-feature proof-feature-alt reveal-on-scroll">
+          <img
+            src="assets/home-code.png"
+            alt="Responsive front-end coding workstation visual"
+          />
+          <div>
+            <p class="signal-line">Code that adapts</p>
+            <h2>Responsive work that looks good everywhere.</h2>
+            <p>
+              I care about layouts that hold up on phones, tablets, laptops,
+              and big screens, with animation that makes the site feel alive
+              without getting in the way.
+            </p>
+          </div>
+        </article>
+      </section>
+
       <section class="identity-panels" aria-label="Passion areas">
         <article class="identity-card reveal-on-scroll tilt-card">
+          <img src="assets/home-airforce.png" alt="" aria-hidden="true" />
           <span class="card-index">USAF</span>
           <h2>Mission Ready</h2>
           <p>
@@ -109,6 +144,7 @@
         </article>
 
         <article class="identity-card reveal-on-scroll tilt-card">
+          <img src="assets/home-code.png" alt="" aria-hidden="true" />
           <span class="card-index">DEV</span>
           <h2>Code With Motion</h2>
           <p>
@@ -118,6 +154,7 @@
         </article>
 
         <article class="identity-card reveal-on-scroll tilt-card">
+          <img src="assets/home-hero.png" alt="" aria-hidden="true" />
           <span class="card-index">HERO</span>
           <h2>Cinematic Energy</h2>
           <p>
@@ -143,7 +180,83 @@
           Systems online. Choose a signal.
         </p>
       </section>
+
+      <section class="game-launchpad reveal-on-scroll" aria-labelledby="games-title">
+        <div>
+          <p class="signal-line">Training sims</p>
+          <h2 id="games-title">Mini games are back online.</h2>
+          <p>
+            Quick interactive challenges inspired by focus, reaction time, and
+            aircraft-style training screens.
+          </p>
+        </div>
+
+        <div class="game-launch-grid" aria-label="Mini game launch controls">
+          <button class="mini-game-card" type="button" data-game="shooter">
+            <img
+              src="assets/home-hero.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <span>Target Pop</span>
+            <strong>Shoot Targets</strong>
+          </button>
+
+          <button class="mini-game-card" type="button" data-game="evade">
+            <img
+              src="assets/home-airforce.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <span>Incoming Fire</span>
+            <strong>Dodge Shots</strong>
+          </button>
+        </div>
+      </section>
     </main>
+
+    <section class="game-overlay" aria-live="polite" aria-hidden="true">
+      <div
+        class="game-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="game-title"
+      >
+        <header class="game-header">
+          <div>
+            <p class="game-kicker">TRAINING SIM</p>
+            <h2 id="game-title">Target Pop</h2>
+          </div>
+          <button
+            class="game-close"
+            type="button"
+            aria-label="Close mini game"
+          >
+            CLOSE
+          </button>
+        </header>
+
+        <div class="game-stats">
+          <span>Score <b data-game-score>0</b></span>
+          <span>Time <b data-game-time>60</b></span>
+          <span data-game-status>Ready</span>
+        </div>
+
+        <div class="game-stage" data-game-stage>
+          <div class="game-sky">
+            <span class="game-horizon"></span>
+            <span class="game-runway"></span>
+            <span class="game-player" data-game-player></span>
+          </div>
+        </div>
+
+        <div class="game-controls">
+          <button type="button" data-game-move="-1">LEFT</button>
+          <button type="button" data-game-start>START</button>
+          <button type="button" data-game-move="1">RIGHT</button>
+        </div>
+      </div>
+    </section>
 
     <script src="script.js"></script>
   </body>
