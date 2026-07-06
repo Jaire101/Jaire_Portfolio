@@ -1827,9 +1827,9 @@ p {
 @media (max-width: 860px) {
   .cockpit-reveal {
     min-height: auto;
-    padding: 44svh 12px 24px;
+    padding: 56svh 12px 24px;
     background-position: center top;
-    background-size: auto 62svh;
+    background-size: auto 70svh;
     place-items: start center;
   }
 
@@ -1897,7 +1897,8 @@ p {
 
 @media (max-width: 620px) {
   .cockpit-reveal {
-    padding: 46svh 12px 24px;
+    padding: 68svh 12px 24px;
+    background-size: auto 78svh;
   }
 
   .cockpit {
