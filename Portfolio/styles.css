@@ -6,8 +6,8 @@
   --text: #edf5ef;
   --muted: #9bb1ae;
   --dark: #07090a;
-  --panel: #111719;
-  --panel-light: #263033;
+  --panel-dark: #0d1011;
+  --panel-light: #242b2e;
 }
 
 * {
@@ -47,14 +47,13 @@ button {
 }
 
 /* =========================================================
-   HOMEPAGE — VIEW FIRST / COCKPIT SECOND
+   MAIN COCKPIT PAGE
    ========================================================= */
 
 .cockpit-shell {
   --look-x: 0px;
   --look-y: 0px;
   min-height: 100svh;
-  overflow: visible;
   background: #030506;
 }
 
@@ -63,53 +62,77 @@ button {
 }
 
 /* =========================================================
-   HERO / CANOPY VIEW
+   COCKPIT BACKGROUND
    ========================================================= */
 
-.hero-view {
+.cockpit-reveal {
   position: relative;
   display: grid;
   min-height: 100svh;
+  padding: clamp(105px, 15vh, 165px) clamp(12px, 3vw, 34px)
+    clamp(30px, 5vh, 64px);
   overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 10, 12, 0.28) 0%,
+      rgba(4, 10, 12, 0.08) 34%,
+      rgba(4, 10, 12, 0.62) 100%
+    ),
+    radial-gradient(
+      circle at 50% 52%,
+      transparent 0 28%,
+      rgba(2, 6, 7, 0.48) 84%
+    ),
+    url("assets/canopy-flight.png") center / cover no-repeat;
   isolation: isolate;
   place-items: center;
 }
 
-.canopy {
-  position: absolute;
-  inset: -2vh -2vw;
-  z-index: -3;
-  width: 104vw;
-  height: 104svh;
-  object-fit: cover;
-  object-position: center 28%;
-  transform: translate(var(--look-x), var(--look-y)) scale(1.04);
-  transition: transform 180ms ease-out;
-}
-
-.canopy-tint {
+.cockpit-reveal::before {
   position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: 0;
+  content: "";
   background:
     linear-gradient(
       180deg,
-      rgba(3, 9, 12, 0.06) 0%,
-      rgba(3, 9, 12, 0.12) 45%,
-      rgba(3, 9, 12, 0.66) 100%
-    ),
-    radial-gradient(
-      circle at 50% 35%,
-      transparent 0%,
-      rgba(3, 9, 12, 0.03) 38%,
-      rgba(3, 9, 12, 0.58) 100%
+      rgba(0, 0, 0, 0.12),
+      transparent 36%,
+      rgba(0, 0, 0, 0.28)
     );
+  pointer-events: none;
 }
 
-.effect-layer {
+/* =========================================================
+   WINDOW-ONLY EFFECTS
+   Supports either:
+   .window-effects > .effect-layer
+   OR the older direct .effect-layer layout.
+   ========================================================= */
+
+.window-effects,
+.cockpit-reveal > .effect-layer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  width: min(1180px, 100vw);
+  height: min(62vh, 590px);
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateX(-50%);
+  clip-path: polygon(
+    8% 0%,
+    92% 0%,
+    84% 78%,
+    16% 78%
+  );
+}
+
+.window-effects .effect-layer {
   position: absolute;
   inset: 0;
-  z-index: 1;
   overflow: hidden;
   pointer-events: none;
 }
@@ -117,18 +140,23 @@ button {
 .effect-layer span {
   position: absolute;
   opacity: 0;
+  pointer-events: none;
 }
+
+/* =========================================================
+   AIRCRAFT / EFFECT OBJECTS
+   ========================================================= */
 
 .jet {
   width: 68px;
   height: 18px;
-  clip-path: polygon(0 48%, 37% 18%, 100% 48%, 39% 76%);
   background: linear-gradient(
     90deg,
-    rgba(8, 12, 14, 0.25),
-    rgba(233, 242, 238, 0.95),
+    rgba(8, 12, 14, 0.3),
+    rgba(233, 242, 238, 0.96),
     rgba(15, 20, 22, 0.45)
   );
+  clip-path: polygon(0 48%, 37% 18%, 100% 48%, 39% 76%);
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.45));
 }
 
@@ -138,84 +166,140 @@ button {
   left: 14px;
   width: 24px;
   height: 38px;
+  background: rgba(218, 230, 226, 0.76);
   clip-path: polygon(0 0, 100% 50%, 0 100%);
-  background: rgba(218, 230, 226, 0.75);
   content: "";
 }
 
+/* Afterburner flame */
+
+.jet::before {
+  position: absolute;
+  top: 4px;
+  right: -42px;
+  width: 44px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 77, 77, 0),
+    rgba(255, 77, 77, 0.58),
+    rgba(255, 176, 47, 0.96),
+    rgba(255, 255, 255, 0.98)
+  );
+  content: "";
+  filter: blur(2px);
+  opacity: 0;
+}
+
 .jet-one {
-  top: 27vh;
-  left: -12vw;
+  top: 30%;
+  left: -14%;
 }
 
 .jet-two {
-  top: 42vh;
-  right: -14vw;
+  top: 27%;
+  right: -16%;
   transform: scaleX(-1);
 }
 
 .contrail {
   width: 34vw;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.88), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.88),
+    transparent
+  );
   filter: blur(0.3px);
 }
 
 .trail-one {
-  top: 30vh;
-  left: -36vw;
+  top: 36%;
+  left: -38%;
   transform: rotate(-12deg);
 }
 
 .trail-two {
-  top: 45vh;
-  right: -36vw;
+  top: 31%;
+  right: -38%;
   transform: rotate(14deg);
 }
 
 .burst {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background:
-    radial-gradient(circle, #fff 0 12%, #ffd46b 13% 28%, rgba(255, 77, 77, 0.9) 29% 40%, transparent 42%),
-    conic-gradient(from 0deg, transparent 0 8%, rgba(255, 255, 255, 0.9) 9% 11%, transparent 12% 20%, rgba(255, 176, 47, 0.9) 21% 23%, transparent 24% 100%);
+    radial-gradient(
+      circle,
+      #ffffff 0 12%,
+      #ffd46b 13% 28%,
+      rgba(255, 77, 77, 0.92) 29% 40%,
+      transparent 42%
+    ),
+    conic-gradient(
+      from 0deg,
+      transparent 0 8%,
+      rgba(255, 255, 255, 0.9) 9% 11%,
+      transparent 12% 20%,
+      rgba(255, 176, 47, 0.9) 21% 23%,
+      transparent 24% 100%
+    );
   box-shadow: 0 0 28px rgba(255, 176, 47, 0.85);
 }
 
 .burst-one {
-  top: 21vh;
-  left: 31vw;
+  top: 22%;
+  left: 29%;
 }
 
 .burst-two {
-  top: 28vh;
-  left: 61vw;
+  top: 30%;
+  left: 63%;
 }
 
 .burst-three {
-  top: 14vh;
-  left: 48vw;
+  top: 14%;
+  left: 48%;
 }
 
 .moon {
-  top: 9vh;
-  right: 12vw;
+  top: 10%;
+  right: 13%;
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #fff, #d8dee5 54%, #9ba8b6 100%);
+  background: radial-gradient(
+    circle at 35% 35%,
+    #ffffff,
+    #d8dee5 54%,
+    #9ba8b6 100%
+  );
   box-shadow: 0 0 32px rgba(215, 230, 255, 0.72);
 }
 
 .stars {
   inset: 0;
   background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.92) 0 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(180, 218, 255, 0.8) 0 1px, transparent 1.5px);
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.92) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle,
+      rgba(180, 218, 255, 0.8) 0 1px,
+      transparent 1.5px
+    );
   background-position: 14vw 12vh, 8vw 18vh;
   background-size: 120px 92px, 170px 130px;
 }
+
+/* =========================================================
+   EFFECT BUTTON ANIMATIONS
+   ========================================================= */
 
 .effect-dogfight .jet-one {
   animation: jetSlashOne 3.6s ease-in-out both;
@@ -245,25 +329,30 @@ button {
   animation: burstPop 1.8s 0.62s ease-out both;
 }
 
-.effect-night .canopy {
-  filter: brightness(0.38) saturate(0.82) hue-rotate(20deg);
+/* Afterburner aircraft stay high in the windshield. */
+
+.effect-afterburner .jet-one {
+  animation: afterburnerPass 3.1s ease-in both;
 }
 
-.effect-night .canopy-tint {
-  background:
-    radial-gradient(circle at 50% 20%, rgba(8, 18, 42, 0.12) 0 28%, rgba(4, 9, 24, 0.56) 58%, rgba(0, 0, 8, 0.86) 100%),
-    linear-gradient(180deg, rgba(7, 14, 44, 0.72), rgba(1, 2, 10, 0.78));
+.effect-afterburner .jet-one::before {
+  animation: afterburnerFlame 3.1s ease-in both;
 }
 
-.effect-night .cockpit-reveal::before {
-  background:
-    radial-gradient(circle at 50% 20%, rgba(8, 18, 42, 0.16) 0 26%, rgba(4, 9, 24, 0.58) 58%, rgba(0, 0, 8, 0.88) 100%),
-    linear-gradient(180deg, rgba(7, 14, 44, 0.58), rgba(1, 2, 10, 0.74));
+.effect-afterburner .trail-one {
+  animation: afterburnerTrail 3.1s ease-in both;
 }
 
-.effect-night .moon,
-.effect-night .stars {
-  animation: nightIn 900ms ease-out both;
+.effect-afterburner .jet-two {
+  animation: afterburnerPassTwo 3.1s 0.5s ease-in both;
+}
+
+.effect-afterburner .jet-two::before {
+  animation: afterburnerFlame 3.1s 0.5s ease-in both;
+}
+
+.effect-afterburner .trail-two {
+  animation: afterburnerTrailTwo 3.1s 0.5s ease-in both;
 }
 
 .effect-flyby .jet-one {
@@ -275,220 +364,12 @@ button {
 }
 
 /* =========================================================
-   CENTER HUD
+   COCKPIT CONSOLE
    ========================================================= */
-
-.hud {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1;
-  width: min(44vw, 560px);
-  height: min(34vh, 360px);
-  color: rgba(102, 255, 173, 0.92);
-  pointer-events: none;
-  text-shadow: 0 0 12px rgba(102, 255, 173, 0.75);
-  transform: translate(-50%, -50%);
-}
-
-.hud-ring {
-  position: absolute;
-  inset: 18% 25%;
-  border: 2px solid currentColor;
-  border-radius: 50%;
-  opacity: 0.78;
-}
-
-.hud-cross::before,
-.hud-cross::after,
-.hud-line {
-  position: absolute;
-  content: "";
-  background: currentColor;
-  opacity: 0.7;
-}
-
-.hud-cross::before {
-  top: 50%;
-  left: 19%;
-  width: 62%;
-  height: 2px;
-}
-
-.hud-cross::after {
-  top: 22%;
-  left: 50%;
-  width: 2px;
-  height: 56%;
-}
-
-.hud-line.top {
-  top: 7%;
-  left: 27%;
-  width: 46%;
-  height: 2px;
-}
-
-.hud-readout {
-  position: absolute;
-  font: 700 clamp(0.7rem, 1.1vw, 0.95rem) "Consolas", monospace;
-  letter-spacing: 0;
-}
-
-.hud-readout.left {
-  top: 26%;
-  left: 0;
-}
-
-.hud-readout.right {
-  top: 26%;
-  right: 0;
-}
-
-.hud-readout.bottom {
-  bottom: 10%;
-  left: 50%;
-  white-space: nowrap;
-  transform: translateX(-50%);
-}
-
-/* =========================================================
-   HERO NAME + BUTTON — LOWER CENTER
-   ========================================================= */
-
-.hero-intro {
-  position: absolute;
-  bottom: clamp(92px, 13vh, 150px);
-  left: 50%;
-  z-index: 2;
-  display: grid;
-  width: max-content;
-  max-width: calc(100vw - 32px);
-  margin: 0;
-  padding: 0;
-  justify-items: center;
-  text-align: center;
-  transform: translateX(-50%);
-}
-
-.hero-kicker {
-  margin: 0 0 14px;
-  color: var(--green);
-  font: 900 clamp(0.78rem, 1.4vw, 1rem) "Consolas", monospace;
-  letter-spacing: 0.18em;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9);
-}
-
-.hero-intro h1,
-.hero-intro p:not(.hero-kicker) {
-  display: none;
-}
-
-.enter-cockpit {
-  display: inline-flex;
-  min-width: 220px;
-  min-height: 48px;
-  gap: 12px;
-  padding: 12px 16px;
-  border: 1px solid rgba(102, 255, 173, 0.72);
-  border-radius: 5px;
-  background: rgba(3, 12, 10, 0.4);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.38);
-  color: var(--green);
-  font: 900 0.82rem "Consolas", monospace;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  align-items: center;
-  justify-content: center;
-  transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
-}
-
-.enter-cockpit:hover,
-.enter-cockpit:focus-visible {
-  border-color: var(--green);
-  outline: none;
-  background: rgba(102, 255, 173, 0.2);
-  transform: translateY(-2px);
-}
-
-.enter-cockpit span {
-  font-size: 1.15rem;
-}
-
-.scroll-cue {
-  position: absolute;
-  bottom: clamp(20px, 4vh, 42px);
-  left: 50%;
-  z-index: 3;
-  display: grid;
-  gap: 5px;
-  color: rgba(237, 245, 239, 0.82);
-  font: 800 0.7rem "Consolas", monospace;
-  letter-spacing: 0.08em;
-  text-align: center;
-  text-decoration: none;
-  transform: translateX(-50%);
-}
-
-.scroll-cue span {
-  color: var(--green);
-  font-size: 1.15rem;
-  animation: cockpitScrollHint 1.5s ease-in-out infinite;
-}
-
-/* =========================================================
-   COCKPIT BELOW HERO
-   ========================================================= */
-
-.cockpit-reveal {
-  position: relative;
-  display: grid;
-  min-height: 100svh;
-  padding: clamp(100px, 16vh, 170px) clamp(12px, 3vw, 34px) clamp(28px, 5vh, 58px);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(4, 10, 12, 0.34) 0%,
-      rgba(4, 10, 12, 0.08) 32%,
-      rgba(4, 10, 12, 0.48) 100%
-    ),
-    radial-gradient(
-      circle at 50% 54%,
-      rgba(8, 10, 11, 0) 0 27%,
-      rgba(8, 10, 11, 0.42) 82%
-    ),
-    url("assets/cockpit-integrated-bg.png") center center / cover no-repeat,
-    linear-gradient(
-      180deg,
-      #071013 0%,
-      #101619 9%,
-      #080a0b 100%
-    );
-  isolation: isolate;
-  place-items: center;
-}
-
-.cockpit-reveal::before {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  content: "";
-  background:
-    linear-gradient(
-      180deg,
-      rgba(3, 8, 10, 0.16),
-      transparent 34%,
-      rgba(3, 8, 10, 0.22)
-    );
-  pointer-events: none;
-}
 
 .cockpit {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: min(860px, 66vw);
   margin: 0 auto;
   padding: clamp(8px, 1.1vw, 14px);
@@ -550,10 +431,6 @@ button {
   color: var(--amber);
   background: var(--amber);
 }
-
-/* =========================================================
-   COCKPIT GRID
-   ========================================================= */
 
 .console-grid {
   display: grid;
@@ -617,19 +494,120 @@ button {
   transform: translateY(2px);
 }
 
-.hard-button.warning span {
-  color: var(--red);
+/* =========================================================
+   STATIC NAME DISPLAY
+   ========================================================= */
+
+.ufc {
+  display: flex;
+  flex-direction: column;
+  min-height: 62px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 5px;
+  background: linear-gradient(180deg, #9cffc3, #45ad75);
+  box-shadow:
+    inset 0 0 16px rgba(255, 255, 255, 0.4),
+    0 0 22px rgba(102, 255, 173, 0.18);
+  color: #101410;
+  cursor: default;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
+
+.ufc-code {
+  display: block;
+  width: 100%;
+  margin: 0;
+  font: 900 clamp(1.08rem, 1.42vw, 1.5rem) "Consolas", monospace;
+  line-height: 1;
+  text-align: center;
+}
+
+.ufc-label {
+  display: block;
+  width: 100%;
+  margin: 0;
+  font: 800 0.58rem "Consolas", monospace;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.center-stack {
+  display: grid;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 7px;
+}
+
+.throttle-bank {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.throttle-bank span {
+  height: 70px;
+  border-radius: 12px 12px 4px 4px;
+  background: linear-gradient(
+    90deg,
+    #161b1d,
+    #586166 48%,
+    #171b1c
+  );
+  box-shadow:
+    inset 0 12px 16px rgba(255, 255, 255, 0.08),
+    inset 0 -12px 20px rgba(0, 0, 0, 0.65);
+}
+
+.switch-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.switch-row a,
+.switch-row button {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  padding: 4px 2px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 4px;
+  background: #0e1112;
+  color: var(--amber);
+  cursor: pointer;
+  font: 900 0.62rem "Consolas", monospace;
+  line-height: 0.9;
+  text-decoration: none;
+  place-items: center;
+}
+
+.switch-row button[data-effect] {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+/* =========================================================
+   RIGHT-SIDE SWITCHES
+   ========================================================= */
 
 .jet-switch {
   position: relative;
   display: grid;
   min-height: 44px;
   padding: 7px;
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 5px;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 12px 100%,
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    )
+    0 0 / 12px 100%,
     linear-gradient(180deg, #242b2c, #101314);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -637,19 +615,16 @@ button {
     0 5px 0 #050707;
   color: rgba(223, 231, 228, 0.78);
   align-content: center;
-  overflow: hidden;
 }
 
 .jet-switch span {
-  color: rgba(223, 231, 228, 0.78);
   font: 800 0.6rem "Consolas", monospace;
-  letter-spacing: 0;
 }
 
 .jet-switch i {
   position: absolute;
-  right: 8px;
   top: 50%;
+  right: 8px;
   width: 24px;
   height: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -659,15 +634,15 @@ button {
 }
 
 .jet-switch i::after {
-  content: "";
   position: absolute;
-  left: 2px;
   top: 2px;
+  left: 2px;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--amber);
   box-shadow: 0 0 10px rgba(255, 195, 77, 0.58);
+  content: "";
 }
 
 .jet-switch.is-armed i::after {
@@ -677,7 +652,7 @@ button {
 }
 
 /* =========================================================
-   MFD MONITORS
+   MFD SCREENS
    ========================================================= */
 
 .mfd {
@@ -686,7 +661,6 @@ button {
   min-height: 182px;
   padding: 12px;
   border-radius: 7px;
-  appearance: none;
   color: var(--green);
   cursor: pointer;
   text-align: left;
@@ -697,7 +671,6 @@ button {
   inset: 10px;
   border: 1px solid rgba(102, 255, 173, 0.42);
   border-radius: 5px;
-  content: "";
   background:
     linear-gradient(
       rgba(102, 255, 173, 0.08) 50%,
@@ -712,6 +685,7 @@ button {
   box-shadow:
     inset 0 0 30px rgba(102, 255, 173, 0.18),
     0 0 16px rgba(102, 255, 173, 0.1);
+  content: "";
 }
 
 .mfd > * {
@@ -736,10 +710,6 @@ button {
 .screen-caption {
   bottom: 12px;
 }
-
-/* =========================================================
-   RADAR SCREEN
-   ========================================================= */
 
 .radar {
   position: absolute;
@@ -801,10 +771,6 @@ button {
   left: 47%;
 }
 
-/* =========================================================
-   BUILD STATUS SCREEN
-   ========================================================= */
-
 .telemetry {
   position: absolute;
   top: 54px;
@@ -827,110 +793,7 @@ button {
 }
 
 /* =========================================================
-   CENTER CONTROLS
-   ========================================================= */
-
-.center-stack {
-  display: grid;
-  gap: 8px;
-  padding: 8px;
-  border-radius: 7px;
-}
-
-.ufc {
-  display: flex;
-  flex-direction: column;
-  min-height: 62px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 5px;
-  background: linear-gradient(180deg, #9cffc3, #45ad75);
-  box-shadow:
-    inset 0 0 16px rgba(255, 255, 255, 0.4),
-    0 0 22px rgba(102, 255, 173, 0.18);
-  color: #101410;
-  cursor: default;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.ufc-code {
-  display: block;
-  width: 100%;
-  margin: 0;
-  font: 900 clamp(1.08rem, 1.42vw, 1.5rem) "Consolas", monospace;
-  line-height: 1;
-  text-align: center;
-}
-
-.ufc-label {
-  display: block;
-  width: 100%;
-  margin: 0;
-  font: 800 0.58rem "Consolas", monospace;
-  line-height: 1.05;
-  text-align: center;
-}
-
-.throttle-bank {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-}
-
-.throttle-bank span {
-  height: 70px;
-  border-radius: 12px 12px 4px 4px;
-  background: linear-gradient(
-    90deg,
-    #161b1d,
-    #586166 48%,
-    #171b1c
-  );
-  box-shadow:
-    inset 0 12px 16px rgba(255, 255, 255, 0.08),
-    inset 0 -12px 20px rgba(0, 0, 0, 0.65);
-}
-
-.switch-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-  min-width: 0;
-}
-
-.switch-row a,
-.switch-row button {
-  display: grid;
-  width: 100%;
-  min-width: 0;
-  min-height: 34px;
-  padding: 0 4px;
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 4px;
-  background: #0e1112;
-  color: var(--amber);
-  overflow: hidden;
-  font: 900 clamp(0.54rem, 0.62vw, 0.66rem) "Consolas", monospace;
-  line-height: 1;
-  text-decoration: none;
-  text-overflow: clip;
-  white-space: nowrap;
-  cursor: pointer;
-  place-items: center;
-}
-
-.switch-row button[data-effect] {
-  min-height: 42px;
-  padding: 4px 2px;
-  line-height: 0.9;
-  text-orientation: upright;
-  white-space: normal;
-  writing-mode: vertical-rl;
-}
-
-/* =========================================================
-   LOWER COCKPIT
+   LOWER COCKPIT PANEL
    ========================================================= */
 
 .lower-console {
@@ -996,18 +859,14 @@ button {
   font-size: 0.72rem;
 }
 
-.locked {
-  animation: lockPulse 260ms ease both;
-}
-
 /* =========================================================
-   AVIATION MINI GAMES
+   MINI GAMES
    ========================================================= */
 
 .game-overlay {
   position: fixed;
   inset: 0;
-  z-index: 20;
+  z-index: 30;
   display: grid;
   padding: clamp(14px, 4vw, 40px);
   background: rgba(1, 5, 7, 0.82);
@@ -1021,15 +880,23 @@ button {
 
 .game-panel {
   width: min(760px, 96vw);
+  overflow: hidden;
   border: 1px solid rgba(102, 255, 173, 0.36);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(19, 33, 35, 0.96), rgba(4, 8, 9, 0.98)),
-    repeating-linear-gradient(90deg, rgba(102, 255, 173, 0.035) 0 1px, transparent 1px 42px);
+    linear-gradient(
+      180deg,
+      rgba(19, 33, 35, 0.96),
+      rgba(4, 8, 9, 0.98)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(102, 255, 173, 0.035) 0 1px,
+      transparent 1px 42px
+    );
   box-shadow:
     0 28px 70px rgba(0, 0, 0, 0.62),
     inset 0 0 34px rgba(102, 255, 173, 0.12);
-  overflow: hidden;
 }
 
 .game-header,
@@ -1093,7 +960,11 @@ button {
   border: 1px solid rgba(102, 255, 173, 0.2);
   border-radius: 6px;
   background:
-    radial-gradient(circle at 50% 18%, rgba(102, 255, 173, 0.18), transparent 28%),
+    radial-gradient(
+      circle at 50% 18%,
+      rgba(102, 255, 173, 0.18),
+      transparent 28%
+    ),
     linear-gradient(180deg, #17394c 0%, #0b1820 52%, #060909 100%);
 }
 
@@ -1114,8 +985,17 @@ button {
   width: 44%;
   height: 60%;
   background:
-    linear-gradient(90deg, transparent 0 45%, rgba(255, 255, 255, 0.86) 46% 54%, transparent 55%),
-    repeating-linear-gradient(180deg, rgba(255,255,255,.62) 0 16px, transparent 16px 34px),
+    linear-gradient(
+      90deg,
+      transparent 0 45%,
+      rgba(255, 255, 255, 0.86) 46% 54%,
+      transparent 55%
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.62) 0 16px,
+      transparent 16px 34px
+    ),
     linear-gradient(180deg, rgba(40, 54, 55, 0.3), rgba(20, 23, 23, 0.92));
   clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%);
   transform: translateX(-50%);
@@ -1127,8 +1007,8 @@ button {
   left: 50%;
   width: 64px;
   height: 22px;
-  clip-path: polygon(0 52%, 40% 18%, 100% 52%, 40% 84%);
   background: linear-gradient(90deg, #171d1e, #f2fbf7 45%, #202728);
+  clip-path: polygon(0 52%, 40% 18%, 100% 52%, 40% 84%);
   filter: drop-shadow(0 0 12px rgba(102, 255, 173, 0.55));
   transform: translateX(-50%);
   transition: left 160ms ease-out;
@@ -1147,7 +1027,13 @@ button {
   border: 2px solid rgba(255, 176, 47, 0.88);
   border-radius: 50%;
   background:
-    radial-gradient(circle, #fff 0 13%, var(--red) 14% 32%, var(--amber) 33% 51%, transparent 52%),
+    radial-gradient(
+      circle,
+      #ffffff 0 13%,
+      var(--red) 14% 32%,
+      var(--amber) 33% 51%,
+      transparent 52%
+    ),
     rgba(255, 176, 47, 0.1);
   box-shadow: 0 0 18px rgba(255, 176, 47, 0.8);
   cursor: crosshair;
@@ -1162,8 +1048,16 @@ button {
 
 .game-evade .game-sky {
   background:
-    linear-gradient(rgba(102,255,173,.08) 50%, rgba(102,255,173,.02) 50%) 0 0 / 100% 8px,
-    radial-gradient(circle at 50% 20%, rgba(102, 255, 173, 0.12), transparent 28%),
+    linear-gradient(
+      rgba(102, 255, 173, 0.08) 50%,
+      rgba(102, 255, 173, 0.02) 50%
+    )
+    0 0 / 100% 8px,
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(102, 255, 173, 0.12),
+      transparent 28%
+    ),
     linear-gradient(180deg, #0a1724 0%, #081017 52%, #030506 100%);
 }
 
@@ -1172,9 +1066,10 @@ button {
   display: none;
 }
 
-.game-shooter .game-target,
-.game-evade .game-target {
-  display: none;
+.game-evade .game-player {
+  bottom: 8%;
+  width: 74px;
+  height: 26px;
 }
 
 .enemy-shot {
@@ -1183,16 +1078,10 @@ button {
   width: 10px;
   height: 34px;
   border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255,255,255,.9), var(--red));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), var(--red));
   box-shadow: 0 0 18px rgba(255, 77, 77, 0.85);
   transform: translateX(-50%);
   animation: incomingShot 1.28s linear both;
-}
-
-.game-evade .game-player {
-  bottom: 8%;
-  width: 74px;
-  height: 26px;
 }
 
 .is-playing.game-shooter .game-sky {
@@ -1333,11 +1222,6 @@ p {
   margin: 12px 0;
 }
 
-.project-list a {
-  color: var(--green);
-  font-weight: 800;
-}
-
 .tech {
   color: #d8e4df;
   font: 800 0.78rem "Consolas", monospace;
@@ -1372,10 +1256,6 @@ p {
   border-color: var(--green);
   outline: none;
   background: rgba(102, 255, 173, 0.16);
-}
-
-.email-link {
-  justify-self: start;
 }
 
 .timeline {
@@ -1441,8 +1321,221 @@ p {
   font-weight: 900;
 }
 
-.comms-form button:hover {
-  filter: brightness(1.08);
+/* =========================================================
+   ABOUT PAGE / PHOTO
+   ========================================================= */
+
+.profile-brief {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 430px;
+  grid-template-areas: "copy photo";
+  gap: clamp(34px, 6vw, 82px);
+  max-width: 1180px;
+  align-items: center;
+}
+
+.profile-copy {
+  grid-area: copy;
+  max-width: 700px;
+}
+
+.profile-copy h1 {
+  margin-bottom: 12px;
+}
+
+.profile-role {
+  margin: 0 0 22px;
+  color: var(--amber);
+  font: 900 clamp(0.72rem, 1.4vw, 0.95rem) "Consolas", monospace;
+  line-height: 1.5;
+}
+
+.profile-copy > p:not(.eyebrow):not(.profile-role) {
+  color: #d2ded9;
+  line-height: 1.7;
+}
+
+.profile-photo-frame {
+  grid-area: photo;
+  display: flex;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-photo-frame::before,
+.profile-photo-frame::after {
+  display: none;
+}
+
+/* True circle: same fixed width and height. */
+
+.profile-photo-circle {
+  width: 430px;
+  height: 430px;
+  flex: 0 0 430px;
+  overflow: hidden;
+  border: 5px solid rgba(102, 255, 173, 0.72);
+  border-radius: 50%;
+  background: #07100d;
+  box-shadow:
+    0 0 34px rgba(102, 255, 173, 0.22),
+    0 22px 42px rgba(0, 0, 0, 0.45);
+}
+
+/* This zoom removes the dark lower area from the source image. */
+
+.profile-photo-circle img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 20%;
+  transform: scale(1.03);
+}
+
+/* =========================================================
+   ABOUT PAGE / STRENGTHS
+   ========================================================= */
+
+.strengths-section,
+.skills-section {
+  max-width: 1100px;
+  margin-top: 56px;
+}
+
+.skills-heading {
+  max-width: 720px;
+}
+
+.skills-heading h2 {
+  margin: 8px 0 12px;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.skills-heading p:not(.eyebrow) {
+  margin-bottom: 0;
+  color: #c9d6d2;
+  line-height: 1.6;
+}
+
+.strength-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.strength-grid article {
+  min-height: 220px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: linear-gradient(
+    145deg,
+    rgba(24, 33, 34, 0.92),
+    rgba(7, 10, 11, 0.92)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 32px rgba(0, 0, 0, 0.3);
+}
+
+.strength-grid article > span {
+  color: var(--amber);
+  font: 900 0.78rem "Consolas", monospace;
+}
+
+.strength-grid h3 {
+  margin: 16px 0 10px;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.strength-grid p {
+  margin: 0;
+  color: #c9d6d2;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   SKILLS BARS
+   ========================================================= */
+
+.skills-panel {
+  display: grid;
+  gap: 22px;
+  margin-top: 26px;
+  padding: clamp(20px, 4vw, 34px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(13, 18, 19, 0.84);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 32px rgba(0, 0, 0, 0.35);
+}
+
+.skill {
+  display: grid;
+  gap: 8px;
+}
+
+.skill-title {
+  display: flex;
+  color: var(--text);
+  font: 900 0.82rem "Consolas", monospace;
+  letter-spacing: 0.06em;
+  justify-content: space-between;
+}
+
+.skill-title span:last-child {
+  color: var(--amber);
+}
+
+.progress {
+  position: relative;
+  height: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(102, 255, 173, 0.34);
+  border-radius: 3px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 0 12px,
+      transparent 12px 16px
+    ),
+    rgba(2, 8, 7, 0.75);
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.58);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(102, 255, 173, 0.72),
+    var(--green)
+  );
+  box-shadow: 0 0 14px rgba(102, 255, 173, 0.58);
+}
+
+.progress-bar.html {
+  width: 90%;
+}
+
+.progress-bar.css {
+  width: 80%;
+}
+
+.progress-bar.javascript {
+  width: 10%;
+}
+
+.progress-bar.python {
+  width: 5%;
 }
 
 /* =========================================================
@@ -1452,26 +1545,6 @@ p {
 @keyframes sweep {
   to {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes lockPulse {
-  50% {
-    filter: brightness(1.8);
-    transform: translateY(2px) scale(0.99);
-  }
-}
-
-@keyframes cockpitScrollHint {
-  0%,
-  100% {
-    opacity: 0.68;
-    transform: translateY(0);
-  }
-
-  50% {
-    opacity: 1;
-    transform: translateY(7px);
   }
 }
 
@@ -1540,7 +1613,7 @@ p {
   }
 
   18% {
-    opacity: 0.78;
+    opacity: 0.8;
   }
 
   100% {
@@ -1549,660 +1622,21 @@ p {
   }
 }
 
-@keyframes flyby {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 12vh, 0) rotate(-9deg) scale(0.55);
-  }
-
-  20% {
-    opacity: 1;
-  }
-
-  62% {
-    opacity: 1;
-    transform: translate3d(62vw, -7vh, 0) rotate(-4deg) scale(1.25);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate3d(120vw, -18vh, 0) rotate(0deg) scale(1.6);
-  }
-}
-
-@keyframes flybyTrail {
-  0% {
-    opacity: 0;
-    transform: translateX(0) rotate(-9deg);
-  }
-
-  25% {
-    opacity: 0.65;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateX(116vw) rotate(-9deg);
-  }
-}
-
 @keyframes burstPop {
   0% {
     opacity: 0;
-    filter: blur(0);
-    transform: scale(0.2);
-  }
-
-  14% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  70% {
-    opacity: 0.9;
-    filter: blur(0.2px);
-    transform: scale(6.5);
-  }
-
-  100% {
-    opacity: 0;
-    filter: blur(1.5px);
-    transform: scale(9);
-  }
-}
-
-@keyframes nightIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes runwayRush {
-  from {
-    background-position: 0 0, 0 0, 0 0;
-  }
-
-  to {
-    background-position: 0 0, 0 34px, 0 0;
-  }
-}
-
-@keyframes radarSweep {
-  to {
-    filter: hue-rotate(24deg);
-  }
-}
-
-@keyframes radarTarget {
-  0%,
-  100% {
-    transform: scale(0.86);
-  }
-
-  50% {
-    transform: scale(1.18);
-  }
-}
-
-@keyframes targetPop {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.35);
+    transform: scale(0.1) rotate(0deg);
   }
 
   18% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  78% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1.7) rotate(65deg);
   }
 
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.72);
+    transform: scale(3.5) rotate(160deg);
   }
-}
-
-@keyframes targetHit {
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.8);
-  }
-}
-
-@keyframes incomingShot {
-  to {
-    top: 112%;
-  }
-}
-
-@keyframes targetScan {
-  50% {
-    box-shadow: inset 0 0 38px rgba(255, 176, 47, 0.18);
-  }
-}
-
-@keyframes dangerPulse {
-  50% {
-    box-shadow: inset 0 0 46px rgba(255, 77, 77, 0.18);
-  }
-}
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 860px) {
-  .cockpit-reveal {
-    min-height: auto;
-    padding: 44svh 12px 24px;
-    background-position: center top;
-    background-size: auto 62svh;
-    place-items: start center;
-  }
-
-  .hero-view {
-    min-height: 100svh;
-  }
-
-  .canopy {
-    inset: -1vh -2vw;
-    width: 104vw;
-    height: 102svh;
-  }
-
-  .hud {
-    width: 78vw;
-    height: 34vh;
-  }
-
-  .console-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .left-panel,
-  .right-panel {
-    grid-column: span 1;
-  }
-
-  .mfd,
-  .center-stack {
-    grid-column: span 2;
-  }
-
-  .mfd {
-    min-height: 220px;
-  }
-
-  .lower-console {
-    grid-template-columns: 64px 1fr 64px;
-    gap: 8px;
-  }
-
-  .status-strip {
-    gap: 5px;
-    font-size: 0.62rem;
-  }
-
-  .cockpit {
-    width: min(100%, 720px);
-    border-radius: 18px 18px 0 0;
-    transform: none;
-  }
-
-  .mission-page {
-    background-attachment: scroll;
-  }
-}
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 520px) {
-  .cockpit-reveal {
-    padding: 46svh 12px 24px;
-  }
-
-  .hero-view {
-    min-height: 100svh;
-  }
-
-  .canopy {
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    transform: translate(var(--look-x), var(--look-y)) scale(1.02);
-  }
-
-  .hud {
-    width: 92vw;
-    height: 30vh;
-  }
-
-  .hud-readout.left,
-  .hud-readout.right {
-    top: 23%;
-    font-size: 0.57rem;
-  }
-
-  .hud-readout.bottom {
-    bottom: 8%;
-    font-size: 0.56rem;
-  }
-
-  .hero-intro {
-    bottom: 84px;
-    width: calc(100vw - 32px);
-  }
-
-  .hero-kicker {
-    margin-bottom: 12px;
-    font-size: 0.72rem;
-  }
-
-  .enter-cockpit {
-    width: auto;
-    min-width: 220px;
-  }
-
-  .scroll-cue {
-    bottom: 19px;
-    font-size: 0.61rem;
-  }
-
-  .console-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cockpit {
-    width: min(100%, 390px);
-    border-radius: 16px 16px 0 0;
-    transform: none;
-  }
-
-  .left-panel,
-  .right-panel,
-  .mfd,
-  .center-stack {
-    grid-column: auto;
-  }
-
-  .side-panel {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hard-button {
-    min-height: 48px;
-  }
-
-  .jet-switch {
-    min-height: 48px;
-  }
-
-  .nameplate p {
-    font-size: 0.72rem;
-  }
-
-  .page-header {
-    padding: 0 14px;
-  }
-
-  .mission-page {
-    padding: 28px 18px;
-  }
-
-  .project-actions a,
-  .email-link {
-    width: 100%;
-  }
-}
-
-/* =========================================================
-   SKILLS PROGRESS BARS
-   ========================================================= */
-
-.skills-section {
-  max-width: 1100px;
-  margin: 56px 0 0;
-}
-
-.skills-heading {
-  max-width: 720px;
-}
-
-.skills-heading h2 {
-  margin: 8px 0 12px;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-}
-
-.skills-heading p:not(.eyebrow) {
-  margin-bottom: 0;
-  color: #c9d6d2;
-  line-height: 1.6;
-}
-
-.skills-panel {
-  display: grid;
-  gap: 22px;
-  margin-top: 26px;
-  padding: clamp(20px, 4vw, 34px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  background: rgba(13, 18, 19, 0.84);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 18px 32px rgba(0, 0, 0, 0.35);
-}
-
-.skill {
-  display: grid;
-  gap: 8px;
-}
-
-.skill-title {
-  display: flex;
-  color: var(--text);
-  font: 900 0.82rem "Consolas", monospace;
-  letter-spacing: 0.06em;
-  justify-content: space-between;
-}
-
-.skill-title span:last-child {
-  color: var(--amber);
-}
-
-.progress {
-  position: relative;
-  height: 15px;
-  overflow: hidden;
-  border: 1px solid rgba(102, 255, 173, 0.34);
-  border-radius: 3px;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.05) 0 12px,
-      transparent 12px 16px
-    ),
-    rgba(2, 8, 7, 0.75);
-  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.58);
-}
-
-.progress-bar {
-  height: 100%;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(102, 255, 173, 0.72),
-      var(--green)
-    );
-  box-shadow: 0 0 14px rgba(102, 255, 173, 0.58);
-}
-
-.progress-bar.html {
-  width: 90%;
-}
-
-.progress-bar.css {
-  width: 80%;
-}
-
-.progress-bar.javascript {
-  width: 10%;
-}
-
-.progress-bar.python {
-  width: 5%;
-}
-
-@media (max-width: 520px) {
-  .skills-section {
-    margin-top: 38px;
-  }
-
-  .skills-panel {
-    gap: 18px;
-    padding: 20px;
-  }
-
-  .skill-title {
-    font-size: 0.72rem;
-  }
-}
-
-/* =========================================================
-   WINDOW-ONLY EFFECTS
-   Press-button animations stay behind the cockpit controls
-   and appear only through the windshield area.
-   ========================================================= */
-
-.cockpit-reveal {
-  overflow: hidden;
-}
-
-/* This is the outside windshield/viewing area. */
-.window-effects {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  z-index: 1;
-  width: min(1180px, 100vw);
-  height: min(60vh, 570px);
-  overflow: hidden;
-  pointer-events: none;
-  transform: translateX(-50%);
-
-  /*
-    Wide canopy / windshield shape.
-    The animation is clipped inside this shape.
-  */
-  clip-path: polygon(
-    8% 0%,
-    92% 0%,
-    82% 78%,
-    18% 78%
-  );
-
-  isolation: isolate;
-}
-
-/* Keeps all jets, fireworks, moon, and stars inside the window. */
-.window-effects .effect-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-/* Cockpit dashboard always sits in front of the outside effects. */
-.cockpit-reveal .cockpit {
-  z-index: 2;
-}
-
-/* Keep the normal cockpit shading behind the window effects. */
-.cockpit-reveal::before {
-  z-index: 0;
-}
-
-/* Adjust animation starting positions to fit inside the windshield. */
-.window-effects .jet-one {
-  top: 34%;
-  left: -14%;
-}
-
-.window-effects .jet-two {
-  top: 54%;
-  right: -16%;
-}
-
-.window-effects .trail-one {
-  top: 39%;
-  left: -38%;
-}
-
-.window-effects .trail-two {
-  top: 56%;
-  right: -38%;
-}
-
-.window-effects .burst-one {
-  top: 25%;
-  left: 29%;
-}
-
-.window-effects .burst-two {
-  top: 34%;
-  left: 63%;
-}
-
-.window-effects .burst-three {
-  top: 15%;
-  left: 48%;
-}
-
-.window-effects .moon {
-  top: 10%;
-  right: 14%;
-}
-
-.window-effects .stars {
-  inset: 0;
-}
-
-/*
-  Night mode should darken only the outside windshield,
-  not the cockpit controls, buttons, or dashboard.
-*/
-.effect-night .cockpit-reveal::before {
-  background: linear-gradient(
-    180deg,
-    rgba(3, 8, 10, 0.16),
-    transparent 34%,
-    rgba(3, 8, 10, 0.22)
-  );
-}
-
-.window-effects::after {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  content: "";
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 500ms ease;
-}
-
-.effect-night .window-effects::after {
-  opacity: 1;
-  background:
-    radial-gradient(
-      circle at 52% 18%,
-      rgba(8, 18, 42, 0.08) 0 20%,
-      rgba(4, 9, 24, 0.48) 58%,
-      rgba(0, 0, 8, 0.84) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(7, 14, 44, 0.54),
-      rgba(1, 2, 10, 0.7)
-    );
-}
-
-/* Put moon and stars above the night overlay. */
-.window-effects .moon,
-.window-effects .stars {
-  z-index: 3;
-}
-
-/* Mobile windshield area. */
-@media (max-width: 860px) {
-  .window-effects {
-    width: 100vw;
-    height: 48vh;
-
-    clip-path: polygon(
-      0% 0%,
-      100% 0%,
-      88% 76%,
-      12% 76%
-    );
-  }
-
-  .window-effects .jet-one {
-    top: 32%;
-    left: -28%;
-  }
-
-  .window-effects .jet-two {
-    top: 52%;
-    right: -30%;
-  }
-
-  .window-effects .burst-one {
-    left: 24%;
-  }
-
-  .window-effects .burst-two {
-    left: 64%;
-  }
-}
-/* =========================================================
-   AFTERBURNER SCRAMBLE EFFECT
-   Replaces the old night-mode animation.
-   ========================================================= */
-
-.jet::before {
-  position: absolute;
-  top: 4px;
-  right: -38px;
-  width: 42px;
-  height: 10px;
-  border-radius: 50%;
-  content: "";
-  opacity: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 77, 77, 0),
-    rgba(255, 77, 77, 0.55),
-    rgba(255, 176, 47, 0.95),
-    rgba(255, 255, 255, 0.96)
-  );
-  filter: blur(2px);
-  transform-origin: left center;
-}
-
-.effect-afterburner .jet-one {
-  animation: afterburnerPass 3.1s ease-in both;
-}
-
-.effect-afterburner .jet-one::before {
-  animation: afterburnerFlame 3.1s ease-in both;
-}
-
-.effect-afterburner .trail-one {
-  animation: afterburnerTrail 3.1s ease-in both;
-}
-
-.effect-afterburner .jet-two {
-  animation: afterburnerPassTwo 3.1s 0.55s ease-in both;
-}
-
-.effect-afterburner .jet-two::before {
-  animation: afterburnerFlame 3.1s 0.55s ease-in both;
-}
-
-.effect-afterburner .trail-two {
-  animation: afterburnerTrailTwo 3.1s 0.55s ease-in both;
 }
 
 @keyframes afterburnerPass {
@@ -2296,4 +1730,346 @@ p {
     opacity: 0;
     transform: translateX(-112vw) rotate(14deg) scaleX(1.2);
   }
+}
+
+@keyframes flyby {
+  0% {
+    opacity: 0;
+    transform: translate3d(-12vw, 4vh, 0) scale(0.45);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+    transform: translate3d(72vw, -14vh, 0) scale(1.38);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(112vw, -20vh, 0) scale(0.75);
+  }
+}
+
+@keyframes flybyTrail {
+  0% {
+    opacity: 0;
+    transform: translateX(-18vw) rotate(-12deg) scaleX(0.3);
+  }
+
+  18% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(118vw) rotate(-12deg) scaleX(1.25);
+  }
+}
+
+@keyframes targetPop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.35);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+@keyframes targetHit {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.2);
+  }
+}
+
+@keyframes incomingShot {
+  to {
+    top: 110%;
+  }
+}
+
+@keyframes targetScan {
+  50% {
+    filter: brightness(1.25);
+  }
+}
+
+@keyframes dangerPulse {
+  50% {
+    filter: brightness(1.24) saturate(1.35);
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .cockpit {
+    width: min(760px, 88vw);
+    transform: translateY(80px);
+  }
+
+  .console-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .left-panel,
+  .right-panel {
+    grid-column: span 1;
+  }
+
+  .mfd,
+  .center-stack {
+    grid-column: span 2;
+  }
+
+  .mfd {
+    min-height: 220px;
+  }
+
+  .profile-brief {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 32px;
+  }
+
+  .profile-photo-circle {
+    width: 340px;
+    height: 340px;
+    flex-basis: 340px;
+  }
+
+  .strength-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .window-effects,
+  .cockpit-reveal > .effect-layer {
+    width: 100vw;
+    height: 52vh;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      90% 76%,
+      10% 76%
+    );
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 620px) {
+  .cockpit-reveal {
+    padding: 74px 10px 28px;
+  }
+
+  .cockpit {
+    width: 100%;
+    transform: none;
+  }
+
+  .console-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .left-panel,
+  .right-panel,
+  .mfd,
+  .center-stack {
+    grid-column: auto;
+  }
+
+  .side-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mfd {
+    min-height: 210px;
+  }
+
+  .lower-console {
+    grid-template-columns: 54px 1fr 54px;
+    gap: 7px;
+  }
+
+  .nameplate p {
+    font-size: 0.64rem;
+  }
+
+  .nameplate strong {
+    font-size: 0.58rem;
+  }
+
+  .status-strip {
+    gap: 5px;
+    font-size: 0.57rem;
+  }
+
+  .window-effects,
+  .cockpit-reveal > .effect-layer {
+    height: 42vh;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      92% 74%,
+      8% 74%
+    );
+  }
+
+  .profile-brief {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "copy";
+    gap: 30px;
+  }
+
+  .profile-photo-frame {
+    margin: 0 auto;
+  }
+
+  .profile-photo-circle {
+    width: 300px;
+    height: 300px;
+    flex-basis: 300px;
+  }
+
+  .profile-copy,
+  .profile-role {
+    text-align: center;
+  }
+
+  .strength-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strength-grid article {
+    min-height: auto;
+  }
+
+  .project-actions a,
+  .email-link {
+    width: 100%;
+  }
+
+  .page-header {
+    padding: 0 14px;
+  }
+
+  .mission-page {
+    padding: 28px 18px;
+    background-attachment: scroll;
+  }
+
+  .skill-title {
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
+/*/* =========================================================
+   ABOUT PAGE — TEXT LEFT / PHOTO RIGHT
+   ========================================================= */
+
+.profile-brief {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  grid-template-areas: "copy photo";
+  gap: clamp(34px, 6vw, 72px);
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.profile-copy {
+  grid-area: copy;
+  max-width: 680px;
+  text-align: left;
+}
+
+.profile-copy h1,
+.profile-copy p,
+.profile-role {
+  text-align: left;
+}
+
+.profile-photo-frame {
+  grid-area: photo;
+  margin: 0;
+  justify-content: center;
+}
+
+.profile-photo-circle {
+  width: 360px;
+  height: 360px;
+  flex: 0 0 360px;
+}
+
+/* Keep the lower sections centered on the page. */
+.data-grid,
+.strengths-section,
+.skills-section {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.skills-heading {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .profile-brief {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "copy";
+    justify-items: center;
+  }
+
+  .profile-copy,
+  .profile-copy h1,
+  .profile-copy p,
+  .profile-role {
+    text-align: center;
+  }
+
+  .profile-photo-circle {
+    width: 300px;
+    height: 300px;
+    flex-basis: 300px;
+  }
+}
+/* FORCE THE PROFILE PHOTO TO SHOW MORE OF THE TOP */
+.profile-photo-circle > img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  transform: scale(1.03) !important;
+  transform-origin: center top !important;
 }
