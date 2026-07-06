@@ -838,6 +838,8 @@ button {
 }
 
 .ufc {
+  display: flex;
+  flex-direction: column;
   min-height: 62px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 5px;
@@ -846,17 +848,28 @@ button {
     inset 0 0 16px rgba(255, 255, 255, 0.4),
     0 0 22px rgba(102, 255, 173, 0.18);
   color: #101410;
-  cursor: pointer;
+  cursor: default;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .ufc-code {
   display: block;
+  width: 100%;
+  margin: 0;
   font: 900 clamp(1.08rem, 1.42vw, 1.5rem) "Consolas", monospace;
+  line-height: 1;
+  text-align: center;
 }
 
 .ufc-label {
   display: block;
+  width: 100%;
+  margin: 0;
   font: 800 0.58rem "Consolas", monospace;
+  line-height: 1.05;
+  text-align: center;
 }
 
 .throttle-bank {
