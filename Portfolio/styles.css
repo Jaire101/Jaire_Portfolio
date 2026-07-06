@@ -507,7 +507,7 @@ button {
   box-shadow:
     0 -12px 42px rgba(0, 0, 0, 0.62),
     inset 0 2px 0 rgba(255, 255, 255, 0.12);
-  transform: translateY(clamp(48px, 7.5vh, 86px));
+  transform: translateY(clamp(82px, 12vh, 122px));
 }
 
 .glareshield {
@@ -905,6 +905,15 @@ button {
   white-space: nowrap;
   cursor: pointer;
   place-items: center;
+}
+
+.switch-row button[data-effect] {
+  min-height: 42px;
+  padding: 4px 2px;
+  line-height: 0.9;
+  text-orientation: upright;
+  white-space: normal;
+  writing-mode: vertical-rl;
 }
 
 /* =========================================================
