@@ -53,7 +53,21 @@ document.querySelectorAll("[data-effect]").forEach((button) => {
   button.addEventListener("click", () => {
     if (!cockpit) return;
 
-    playCockpitEffect(button.dataset.effect);
+    const shouldScrollToEffect = window.matchMedia("(max-width: 860px)").matches;
+
+    if (shouldScrollToEffect) {
+      const effectStage = document.querySelector(".cockpit-reveal");
+      const effectTop = effectStage ? effectStage.getBoundingClientRect().top + window.scrollY : 0;
+
+      window.scrollTo({
+        top: effectTop,
+        behavior: "smooth"
+      });
+    }
+
+    window.setTimeout(() => {
+      playCockpitEffect(button.dataset.effect);
+    }, shouldScrollToEffect ? 260 : 0);
   });
 });
 

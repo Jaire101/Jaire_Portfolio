@@ -1690,9 +1690,11 @@ p {
 
 @media (max-width: 860px) {
   .cockpit-reveal {
-    min-height: 100svh;
-    padding: clamp(58px, 9vh, 96px) 0 0;
+    min-height: auto;
+    padding: 44svh 12px 24px;
     background-position: center top;
+    background-size: auto 62svh;
+    place-items: start center;
   }
 
   .hero-view {
@@ -1739,7 +1741,7 @@ p {
   }
 
   .cockpit {
-    width: 100vw;
+    width: min(100%, 720px);
     border-radius: 18px 18px 0 0;
     transform: none;
   }
@@ -1755,11 +1757,7 @@ p {
 
 @media (max-width: 520px) {
   .cockpit-reveal {
-    min-height: auto;
     padding: 46svh 12px 24px;
-    background-position: center top;
-    background-size: auto 62svh;
-    place-items: start center;
   }
 
   .hero-view {
