@@ -2071,94 +2071,12 @@ p {
     transition-duration: 1ms !important;
   }
 }
-@media (max-width: 1100px) {
-  .cockpit {
-    width: min(760px, 64vw);
-    bottom: clamp(22px, 5vh, 56px);
-    transform: translateX(-50%) scale(0.9);
-  }
-}
 
-@media (max-width: 768px) {
-  .cockpit {
-    width: 92vw;
-    bottom: 14px;
-    transform: translateX(-50%) scale(0.94);
-  }
-
-  .console-grid {
-    grid-template-columns:
-      minmax(64px, 0.72fr)
-      minmax(110px, 1fr)
-      minmax(84px, 0.72fr)
-      minmax(110px, 1fr)
-      minmax(64px, 0.72fr);
-    gap: 5px;
-  }
-
-  .mfd {
-    min-height: 135px;
-  }
-
-  .throttle-bank span {
-    height: 48px;
-  }
-}
-
-/* Keep the current stacked layout usable on phones. */
-@media (max-width: 760px) {
-  .cockpit-reveal {
-    display: grid;
-    padding: 74px 10px 28px;
-    place-items: center;
-  }
-
-  .cockpit-reveal .cockpit {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(105px, 22vh, 135px);
-  z-index: 2;
-
-  width: min(735px, 70vw);
-  margin: 0;
-  padding: 8px;
-
-  transform: translateX(-50%);
-  transform-origin: center bottom;
-}
-}
 /* =========================================================
-   FINAL HOME COCKPIT PLACEMENT
-   Fits the interactive display inside the background dashboard
+   FINAL HOME COCKPIT POSITION
    ========================================================= */
 
 /* Desktop and laptop */
-@media (min-width: 761px) {
-  .cockpit-reveal {
-    display: block !important;
-    min-height: 100svh !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-  }
-
-  .cockpit-reveal .cockpit {
-    position: absolute !important;
-    top: 46vh !important;
-    left: 50% !important;
-    bottom: auto !important;
-    z-index: 5 !important;
-
-    width: min(735px, 78vw) !important;
-    margin: 0 !important;
-    padding: 8px !important;
-
-    transform: translateX(-50%) !important;
-    transform-origin: top center !important;
-  }
-}
-
-/* Tablet and phone */
-/* Desktop cockpit position */
 @media (min-width: 761px) {
   .cockpit-reveal .cockpit {
     position: absolute !important;
@@ -2175,7 +2093,8 @@ p {
     transform-origin: top center !important;
   }
 }
-/* Phone and tablet layout */
+
+/* Phone and tablet */
 @media (max-width: 760px) {
   .cockpit-reveal {
     display: grid !important;
