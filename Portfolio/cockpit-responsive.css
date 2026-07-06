@@ -8,8 +8,8 @@
    ========================================================= */
 
 :root {
-  --cockpit-panel-top: 50%;
-  --cockpit-panel-width: 45%;
+  --cockpit-panel-top: 40%;
+  --cockpit-panel-width: 50%;
 }
 
 /* Desktop and laptop */
