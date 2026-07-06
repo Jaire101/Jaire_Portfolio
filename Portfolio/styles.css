@@ -113,12 +113,14 @@ button {
 
 .window-effects,
 .cockpit-reveal > .effect-layer {
+  --window-effect-width: clamp(320px, 66vw, 1040px);
+  --window-effect-height: min(64vh, 620px);
   position: absolute;
   top: 0;
   left: 50%;
   z-index: 1;
-  width: min(1040px, 66vw);
-  height: min(64vh, 620px);
+  width: var(--window-effect-width);
+  height: var(--window-effect-height);
   overflow: hidden;
   pointer-events: none;
   transform: translateX(-50%);
@@ -1874,20 +1876,8 @@ p {
 
   .window-effects,
   .cockpit-reveal > .effect-layer {
-    width: 78vw;
-    height: 58vh;
-    clip-path: polygon(
-      4% 0%,
-      96% 0%,
-      98% 34%,
-      94% 58%,
-      86% 84%,
-      74% 94%,
-      26% 94%,
-      14% 84%,
-      6% 58%,
-      2% 34%
-    );
+    --window-effect-width: clamp(420px, 72vw, 700px);
+    --window-effect-height: 58vh;
   }
 }
 
@@ -1946,20 +1936,8 @@ p {
 
   .window-effects,
   .cockpit-reveal > .effect-layer {
-    width: 90vw;
-    height: 54vh;
-    clip-path: polygon(
-      2% 0%,
-      98% 0%,
-      99% 34%,
-      94% 58%,
-      86% 84%,
-      74% 94%,
-      26% 94%,
-      14% 84%,
-      6% 58%,
-      1% 34%
-    );
+    --window-effect-width: clamp(260px, 78vw, 350px);
+    --window-effect-height: 54vh;
   }
 
   .profile-brief {
