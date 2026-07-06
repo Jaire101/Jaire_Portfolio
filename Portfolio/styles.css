@@ -2073,19 +2073,50 @@ p {
 }
 
 /* =========================================================
-   FINAL HOME COCKPIT POSITION
+   RESPONSIVE HOME COCKPIT POSITION
+   Keeps the background and interactive console aligned
+   across desktop and laptop screen sizes.
    ========================================================= */
 
 /* Desktop and laptop */
 @media (min-width: 761px) {
+  .cockpit-shell {
+    display: grid;
+    min-height: 100svh;
+    background: #030506;
+    place-items: center;
+  }
+
+  /*
+    This creates one consistent 16:9 cockpit stage.
+    The background and interactive display now scale together
+    instead of moving based on each device's screen height.
+  */
+  .cockpit-reveal {
+    display: block !important;
+    width: min(100vw, 177.777svh);
+    min-height: 0 !important;
+    padding: 0 !important;
+    aspect-ratio: 16 / 9;
+    overflow: hidden !important;
+
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+
+  /*
+    These percentages are tied to the cockpit stage itself,
+    not the browser height. This keeps the display inside
+    the center instrument panel on Windows and MacBook screens.
+  */
   .cockpit-reveal .cockpit {
     position: absolute !important;
-    top: 52vh !important;
+    top: 43.5% !important;
     left: 50% !important;
     bottom: auto !important;
     z-index: 5 !important;
 
-    width: min(735px, 78vw) !important;
+    width: 72.5% !important;
     margin: 0 !important;
     padding: 8px !important;
 
@@ -2094,12 +2125,21 @@ p {
   }
 }
 
-/* Phone and tablet */
+/* Tablet and phone */
 @media (max-width: 760px) {
+  .cockpit-shell {
+    display: block;
+  }
+
   .cockpit-reveal {
     display: grid !important;
+    width: 100%;
     min-height: auto !important;
     padding: 56svh 12px 24px !important;
+    aspect-ratio: auto;
+
+    background-position: center top !important;
+    background-size: auto 70svh !important;
     place-items: start center !important;
   }
 
