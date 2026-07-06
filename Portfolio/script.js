@@ -1,223 +1,105 @@
-const cockpit = document.querySelector(".cockpit-shell");
-const gameOverlay = document.querySelector(".game-overlay");
-const gameTitle = document.querySelector("#game-title");
-const gameScore = document.querySelector("[data-game-score]");
-const gameTime = document.querySelector("[data-game-time]");
-const gameStatus = document.querySelector("[data-game-status]");
-const gameStage = document.querySelector("[data-game-stage]");
-const gameSky = document.querySelector(".game-sky");
-const gamePlayer = document.querySelector("[data-game-player]");
-let effectTimer;
-let gameTimer;
-let spawnTimer;
-let activeGame = "shooter";
-let gameRunning = false;
-let gameX = 50;
-let score = 0;
-let timeLeft = 60;
-let lives = 3;
+const homeBody = document.querySelector(".future-home");
+const cursorGlow = document.querySelector(".cursor-glow");
+const readout = document.querySelector("[data-readout]");
+const themeMessages = {
+  airforce: "Air Force signal active: precision, checklist discipline, and mission focus.",
+  code: "Coding signal active: responsive layouts, clean interactions, and reliable front-end systems.",
+  marvel: "Marvel signal active: bold color, cinematic motion, and hero-level presentation."
+};
 
-function playCockpitEffect(effect) {
-  if (!cockpit) return;
-
-  window.clearTimeout(effectTimer);
-  cockpit.classList.remove(
-  "effect-dogfight",
-  "effect-fireworks",
-  "effect-afterburner",
-  "effect-flyby"
-);
-  void cockpit.offsetWidth;
-  cockpit.classList.add(`effect-${effect}`);
-
-  effectTimer = window.setTimeout(() => {
-    cockpit.classList.remove("effect-dogfight", "effect-fireworks", "effect-afterburner", "effect-flyby");
-  }, 5200);
-}
-
-document.querySelectorAll(".screen-link").forEach((button) => {
-  button.addEventListener("click", () => {
-    const target = button.dataset.target;
-    button.classList.add("locked");
-    window.setTimeout(() => {
-      window.location.href = target;
-    }, 260);
-  });
-});
-
-if (cockpit) {
-  cockpit.addEventListener("pointermove", (event) => {
-    const x = (event.clientX / window.innerWidth - 0.5) * 12;
-    const y = (event.clientY / window.innerHeight - 0.5) * 8;
-    cockpit.style.setProperty("--look-x", `${x}px`);
-    cockpit.style.setProperty("--look-y", `${y}px`);
+if (homeBody && cursorGlow) {
+  window.addEventListener("pointermove", (event) => {
+    homeBody.style.setProperty("--cursor-x", `${event.clientX}px`);
+    homeBody.style.setProperty("--cursor-y", `${event.clientY}px`);
   });
 }
 
-document.querySelectorAll("[data-effect]").forEach((button) => {
-  button.addEventListener("click", () => {
-    if (!cockpit) return;
+const revealItems = document.querySelectorAll(".reveal-on-scroll");
 
-    const shouldScrollToEffect = window.matchMedia("(max-width: 860px)").matches;
-
-    if (shouldScrollToEffect) {
-      const effectStage = document.querySelector(".cockpit-reveal");
-      const effectTop = effectStage ? effectStage.getBoundingClientRect().top + window.scrollY : 0;
-
-      window.scrollTo({
-        top: effectTop,
-        behavior: "smooth"
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
       });
+    },
+    { threshold: 0.18 }
+  );
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}
+
+document.querySelectorAll("[data-theme]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const theme = button.dataset.theme;
+    homeBody?.setAttribute("data-theme", theme);
+    homeBody?.classList.remove("is-pulsing");
+    void homeBody?.offsetWidth;
+    homeBody?.classList.add("is-pulsing");
+
+    if (readout) {
+      readout.textContent = themeMessages[theme] || "Signal active.";
     }
 
     window.setTimeout(() => {
-      playCockpitEffect(button.dataset.effect);
-    }, shouldScrollToEffect ? 260 : 0);
+      homeBody?.classList.remove("is-pulsing");
+    }, 950);
   });
 });
 
-function setGamePlayerPosition() {
-  if (!gamePlayer) return;
-  gamePlayer.style.left = `${gameX}%`;
-}
-
-function clearGameObjects() {
-  gameSky?.querySelectorAll(".game-dot, .enemy-shot").forEach((item) => item.remove());
-}
-
-function movePlayer(direction) {
-  if (!gameOverlay || gameOverlay.getAttribute("aria-hidden") === "true" || activeGame !== "evade") return;
-  gameX = Math.max(8, Math.min(92, gameX + direction * 10));
-  setGamePlayerPosition();
-}
-
-function updateGameStatus(message) {
-  if (gameStatus) gameStatus.textContent = message;
-}
-
-function openGame(game) {
-  activeGame = game;
-  gameRunning = false;
-  score = 0;
-  timeLeft = 60;
-  lives = 3;
-  gameX = 50;
-
-  window.clearInterval(gameTimer);
-  window.clearInterval(spawnTimer);
-  clearGameObjects();
-  gameOverlay?.classList.remove("game-runway", "game-radar", "game-shooter", "game-evade", "is-playing");
-  gameOverlay?.classList.add(game === "shooter" ? "game-shooter" : "game-evade");
-  gameOverlay?.setAttribute("aria-hidden", "false");
-
-  gameTitle.textContent = game === "shooter" ? "Target Pop" : "Incoming Fire";
-  gameScore.textContent = score;
-  gameTime.textContent = timeLeft;
-  setGamePlayerPosition();
-  updateGameStatus(game === "shooter" ? "Click the targets before they vanish." : "Move left and right. Do not get hit.");
-}
-
-function spawnTarget() {
-  if (!gameRunning || activeGame !== "shooter" || !gameSky) return;
-
-  const dot = document.createElement("button");
-  dot.type = "button";
-  dot.className = "game-dot";
-  dot.setAttribute("aria-label", "Target");
-  dot.style.left = `${12 + Math.random() * 76}%`;
-  dot.style.top = `${12 + Math.random() * 68}%`;
-  dot.style.setProperty("--size", `${34 + Math.random() * 26}px`);
-
-  dot.addEventListener("click", () => {
-    score += 10;
-    gameScore.textContent = score;
-    dot.classList.add("is-hit");
-    window.setTimeout(() => dot.remove(), 120);
+document.querySelectorAll(".tilt-card").forEach((card) => {
+  card.addEventListener("pointermove", (event) => {
+    const bounds = card.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+    card.style.transform = `rotateX(${y * -8}deg) rotateY(${x * 8}deg) translateY(-4px)`;
   });
 
-  gameSky.appendChild(dot);
-  window.setTimeout(() => dot.remove(), 1150);
-}
+  card.addEventListener("pointerleave", () => {
+    card.style.transform = "";
+  });
+});
 
-function spawnShot() {
-  if (!gameRunning || activeGame !== "evade" || !gameSky) return;
+const counters = document.querySelectorAll("[data-count-to]");
 
-  const shot = document.createElement("span");
-  shot.className = "enemy-shot";
-  shot.style.left = `${8 + Math.random() * 84}%`;
-  gameSky.appendChild(shot);
+function animateCounter(counter) {
+  const target = Number(counter.dataset.countTo || 0);
+  const duration = 900;
+  const start = performance.now();
 
-  window.setTimeout(() => {
-    const shotX = parseFloat(shot.style.left);
-    if (Math.abs(shotX - gameX) < 8 && gameRunning) {
-      lives -= 1;
-      updateGameStatus(lives > 0 ? `Hit taken. ${lives} shields left.` : "Shields down.");
-      if (lives <= 0) endGame("Game over. Try again.");
-    } else if (gameRunning) {
-      score += 5;
-      gameScore.textContent = score;
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    counter.textContent = Math.round(target * progress);
+
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    } else if (target === 100) {
+      counter.textContent = "100%";
     }
-    shot.remove();
-  }, 1280);
+  }
+
+  requestAnimationFrame(tick);
 }
 
-function startGame() {
-  if (!gameOverlay || gameOverlay.getAttribute("aria-hidden") === "true") return;
-  window.clearInterval(gameTimer);
-  window.clearInterval(spawnTimer);
-  clearGameObjects();
-  gameRunning = true;
-  score = 0;
-  timeLeft = 60;
-  lives = 3;
-  gameX = 50;
-  gameScore.textContent = score;
-  gameTime.textContent = timeLeft;
-  setGamePlayerPosition();
-  gameOverlay.classList.add("is-playing");
-  updateGameStatus(activeGame === "shooter" ? "Shoot every dot." : "Avoid incoming shots.");
-  spawnTimer = window.setInterval(activeGame === "shooter" ? spawnTarget : spawnShot, activeGame === "shooter" ? 650 : 520);
+if ("IntersectionObserver" in window) {
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.55 }
+  );
 
-  gameTimer = window.setInterval(() => {
-    timeLeft -= 1;
-    gameTime.textContent = timeLeft;
-
-    if (timeLeft <= 0) {
-      endGame(activeGame === "shooter" ? "Time. Targets complete." : "You survived the minute.");
-    }
-  }, 1000);
+  counters.forEach((counter) => counterObserver.observe(counter));
+} else {
+  counters.forEach(animateCounter);
 }
-
-function endGame(message) {
-  window.clearInterval(gameTimer);
-  window.clearInterval(spawnTimer);
-  gameRunning = false;
-  gameOverlay?.classList.remove("is-playing");
-  updateGameStatus(message);
-}
-
-function closeGame() {
-  window.clearInterval(gameTimer);
-  window.clearInterval(spawnTimer);
-  clearGameObjects();
-  gameRunning = false;
-  gameOverlay?.classList.remove("is-playing");
-  gameOverlay?.setAttribute("aria-hidden", "true");
-}
-
-document.querySelectorAll("[data-game]").forEach((button) => {
-  button.addEventListener("click", () => openGame(button.dataset.game));
-});
-
-document.querySelector("[data-game-start]")?.addEventListener("click", startGame);
-document.querySelector(".game-close")?.addEventListener("click", closeGame);
-
-document.querySelectorAll("[data-game-move]").forEach((button) => {
-  button.addEventListener("click", () => movePlayer(Number(button.dataset.gameMove)));
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeGame();
-  if (event.key === "ArrowLeft" || event.key.toLowerCase() === "a") movePlayer(-1);
-  if (event.key === "ArrowRight" || event.key.toLowerCase() === "d") movePlayer(1);
-});
