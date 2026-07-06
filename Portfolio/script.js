@@ -1,5 +1,4 @@
 const cockpit = document.querySelector(".cockpit-shell");
-const heroView = document.querySelector(".hero-view");
 const gameOverlay = document.querySelector(".game-overlay");
 const gameTitle = document.querySelector("#game-title");
 const gameScore = document.querySelector("[data-game-score]");
@@ -54,15 +53,7 @@ document.querySelectorAll("[data-effect]").forEach((button) => {
   button.addEventListener("click", () => {
     if (!cockpit) return;
 
-    const isCompactScreen = window.matchMedia("(max-width: 860px)").matches;
-    heroView?.scrollIntoView({
-      behavior: isCompactScreen ? "auto" : "smooth",
-      block: "start"
-    });
-
-    window.setTimeout(() => {
-      playCockpitEffect(button.dataset.effect);
-    }, isCompactScreen ? 90 : 360);
+    playCockpitEffect(button.dataset.effect);
   });
 });
 

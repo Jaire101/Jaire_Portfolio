@@ -17,16 +17,7 @@
   <body class="home">
     <main class="cockpit-shell flight-deck">
 
-      <!-- FULL CANOPY VIEW -->
-      <section class="hero-view" aria-label="Flight deck introduction">
-
-        <img
-          class="canopy"
-          src="assets/canopy-flight.png"
-          alt="View through an aircraft canopy over the ocean"
-        >
-
-        <div class="canopy-tint"></div>
+      <section class="cockpit-reveal" id="cockpit-controls" aria-label="Portfolio cockpit">
 
         <div class="effect-layer" aria-hidden="true">
           <span class="jet jet-one"></span>
@@ -39,35 +30,6 @@
           <span class="moon"></span>
           <span class="stars"></span>
         </div>
-
-        <div class="hud" aria-hidden="true">
-          <div class="hud-line top"></div>
-          <div class="hud-ring"></div>
-          <div class="hud-cross"></div>
-
-          <div class="hud-readout left">ALT 28,540</div>
-          <div class="hud-readout right">SPD 642</div>
-          <div class="hud-readout bottom">NAV PORTFOLIO // LOCK</div>
-        </div>
-
-        <!-- SMALL HERO CONTENT ONLY -->
-        <div class="hero-intro">
-          <p class="hero-kicker">JAIRE WHITEHEAD</p>
-
-          <a class="enter-cockpit" href="#cockpit-controls">
-            Explore the Flight Deck
-            <span aria-hidden="true">↓</span>
-          </a>
-        </div>
-
-        <a class="scroll-cue" href="#cockpit-controls">
-          Scroll to enter cockpit
-          <span aria-hidden="true">↓</span>
-        </a>
-      </section>
-
-      <!-- COCKPIT APPEARS AFTER SCROLLING -->
-      <section class="cockpit-reveal" id="cockpit-controls">
 
         <div class="cockpit" aria-label="Portfolio navigation">
 
@@ -190,6 +152,21 @@
                 <span>JS</span>
                 Skills
               </a>
+
+              <div class="jet-switch" aria-hidden="true">
+                <span>FUEL</span>
+                <i></i>
+              </div>
+
+              <div class="jet-switch is-armed" aria-hidden="true">
+                <span>ARM</span>
+                <i></i>
+              </div>
+
+              <div class="jet-switch" aria-hidden="true">
+                <span>NAV</span>
+                <i></i>
+              </div>
 
             </aside>
 

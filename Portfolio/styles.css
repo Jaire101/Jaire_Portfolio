@@ -82,7 +82,7 @@ button {
   width: 104vw;
   height: 104svh;
   object-fit: cover;
-  object-position: center;
+  object-position: center 28%;
   transform: translate(var(--look-x), var(--look-y)) scale(1.04);
   transition: transform 180ms ease-out;
 }
@@ -109,7 +109,7 @@ button {
 .effect-layer {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   overflow: hidden;
   pointer-events: none;
 }
@@ -253,6 +253,12 @@ button {
   background:
     radial-gradient(circle at 50% 20%, rgba(8, 18, 42, 0.12) 0 28%, rgba(4, 9, 24, 0.56) 58%, rgba(0, 0, 8, 0.86) 100%),
     linear-gradient(180deg, rgba(7, 14, 44, 0.72), rgba(1, 2, 10, 0.78));
+}
+
+.effect-night .cockpit-reveal::before {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(8, 18, 42, 0.16) 0 26%, rgba(4, 9, 24, 0.58) 58%, rgba(0, 0, 8, 0.88) 100%),
+    linear-gradient(180deg, rgba(7, 14, 44, 0.58), rgba(1, 2, 10, 0.74));
 }
 
 .effect-night .moon,
@@ -439,37 +445,54 @@ button {
 
 .cockpit-reveal {
   position: relative;
-  padding: clamp(28px, 5vw, 72px) 0 0;
+  display: grid;
+  min-height: 100svh;
+  padding: clamp(100px, 16vh, 170px) clamp(12px, 3vw, 34px) clamp(28px, 5vh, 58px);
   background:
+    linear-gradient(
+      180deg,
+      rgba(4, 10, 12, 0.34) 0%,
+      rgba(4, 10, 12, 0.08) 32%,
+      rgba(4, 10, 12, 0.48) 100%
+    ),
+    radial-gradient(
+      circle at 50% 54%,
+      rgba(8, 10, 11, 0) 0 27%,
+      rgba(8, 10, 11, 0.42) 82%
+    ),
+    url("assets/cockpit-integrated-bg.png") center center / cover no-repeat,
     linear-gradient(
       180deg,
       #071013 0%,
       #101619 9%,
       #080a0b 100%
     );
+  isolation: isolate;
+  place-items: center;
 }
 
 .cockpit-reveal::before {
   position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 72px;
+  z-index: 0;
+  inset: 0;
   content: "";
-  background: linear-gradient(
-    180deg,
-    rgba(102, 255, 173, 0.13),
-    transparent
-  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 8, 10, 0.16),
+      transparent 34%,
+      rgba(3, 8, 10, 0.22)
+    );
   pointer-events: none;
 }
 
 .cockpit {
   position: relative;
-  width: min(1180px, 98vw);
+  z-index: 1;
+  width: min(860px, 66vw);
   margin: 0 auto;
-  padding: clamp(12px, 2vw, 22px);
-  border-radius: 26px 26px 0 0;
+  padding: clamp(8px, 1.1vw, 14px);
+  border-radius: 18px 18px 0 0;
   background:
     linear-gradient(
       180deg,
@@ -484,13 +507,14 @@ button {
   box-shadow:
     0 -12px 42px rgba(0, 0, 0, 0.62),
     inset 0 2px 0 rgba(255, 255, 255, 0.12);
+  transform: translateY(clamp(48px, 7.5vh, 86px));
 }
 
 .glareshield {
   display: grid;
-  height: 44px;
-  margin: -12px auto 12px;
-  border-radius: 18px 18px 5px 5px;
+  height: 34px;
+  margin: -7px auto 10px;
+  border-radius: 14px 14px 5px 5px;
   background: linear-gradient(180deg, #333a3b, #0c0f10);
   box-shadow: inset 0 -10px 18px rgba(0, 0, 0, 0.6);
   place-items: center;
@@ -534,12 +558,12 @@ button {
 .console-grid {
   display: grid;
   grid-template-columns:
-    minmax(120px, 0.7fr)
-    minmax(210px, 1.2fr)
-    minmax(160px, 0.78fr)
-    minmax(210px, 1.2fr)
-    minmax(120px, 0.7fr);
-  gap: clamp(8px, 1.4vw, 16px);
+    minmax(86px, 0.7fr)
+    minmax(150px, 1.2fr)
+    minmax(112px, 0.78fr)
+    minmax(150px, 1.2fr)
+    minmax(86px, 0.7fr);
+  gap: clamp(6px, 0.8vw, 10px);
   align-items: stretch;
 }
 
@@ -555,15 +579,15 @@ button {
 
 .side-panel {
   display: grid;
-  gap: 8px;
-  padding: 10px;
-  border-radius: 8px;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 7px;
 }
 
 .hard-button {
   display: grid;
-  min-height: 54px;
-  padding: 8px;
+  min-height: 44px;
+  padding: 7px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 5px;
   background: linear-gradient(180deg, #30393c, #14191b);
@@ -571,7 +595,7 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 5px 0 #050707;
   color: #dfe7e4;
-  font-size: clamp(0.72rem, 1vw, 0.88rem);
+  font-size: clamp(0.66rem, 0.78vw, 0.78rem);
   text-decoration: none;
   align-content: center;
   transition:
@@ -582,7 +606,7 @@ button {
 
 .hard-button span {
   color: var(--amber);
-  font: 800 0.72rem "Consolas", monospace;
+  font: 800 0.64rem "Consolas", monospace;
 }
 
 .hard-button:hover,
@@ -597,6 +621,61 @@ button {
   color: var(--red);
 }
 
+.jet-switch {
+  position: relative;
+  display: grid;
+  min-height: 44px;
+  padding: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 5px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 12px 100%,
+    linear-gradient(180deg, #242b2c, #101314);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -12px 18px rgba(0, 0, 0, 0.22),
+    0 5px 0 #050707;
+  color: rgba(223, 231, 228, 0.78);
+  align-content: center;
+  overflow: hidden;
+}
+
+.jet-switch span {
+  color: rgba(223, 231, 228, 0.78);
+  font: 800 0.6rem "Consolas", monospace;
+  letter-spacing: 0;
+}
+
+.jet-switch i {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 24px;
+  height: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: #080a0b;
+  transform: translateY(-50%);
+}
+
+.jet-switch i::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 10px rgba(255, 195, 77, 0.58);
+}
+
+.jet-switch.is-armed i::after {
+  left: 15px;
+  background: var(--red);
+  box-shadow: 0 0 10px rgba(255, 77, 77, 0.7);
+}
+
 /* =========================================================
    MFD MONITORS
    ========================================================= */
@@ -604,9 +683,9 @@ button {
 .mfd {
   position: relative;
   display: block;
-  min-height: 250px;
-  padding: 16px;
-  border-radius: 8px;
+  min-height: 182px;
+  padding: 12px;
+  border-radius: 7px;
   appearance: none;
   color: var(--green);
   cursor: pointer;
@@ -615,7 +694,7 @@ button {
 
 .mfd::before {
   position: absolute;
-  inset: 14px;
+  inset: 10px;
   border: 1px solid rgba(102, 255, 173, 0.42);
   border-radius: 5px;
   content: "";
@@ -646,16 +725,16 @@ button {
   right: 0;
   left: 0;
   display: block;
-  font: 800 0.75rem "Consolas", monospace;
+  font: 800 0.64rem "Consolas", monospace;
   text-align: center;
 }
 
 .screen-title {
-  top: 24px;
+  top: 18px;
 }
 
 .screen-caption {
-  bottom: 18px;
+  bottom: 12px;
 }
 
 /* =========================================================
@@ -664,7 +743,7 @@ button {
 
 .radar {
   position: absolute;
-  inset: 58px 42px 48px;
+  inset: 44px 30px 36px;
   overflow: hidden;
   border: 1px solid rgba(102, 255, 173, 0.75);
   border-radius: 50%;
@@ -728,17 +807,17 @@ button {
 
 .telemetry {
   position: absolute;
-  top: 68px;
-  right: 38px;
-  left: 38px;
+  top: 54px;
+  right: 28px;
+  left: 28px;
   display: grid;
-  gap: 10px;
-  font: 700 0.78rem "Consolas", monospace;
+  gap: 7px;
+  font: 700 0.64rem "Consolas", monospace;
   text-align: left;
 }
 
 .telemetry i {
-  height: 12px;
+  height: 10px;
   border: 1px solid rgba(102, 255, 173, 0.5);
   background: linear-gradient(
     90deg,
@@ -753,13 +832,13 @@ button {
 
 .center-stack {
   display: grid;
-  gap: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 7px;
 }
 
 .ufc {
-  min-height: 82px;
+  min-height: 62px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 5px;
   background: linear-gradient(180deg, #9cffc3, #45ad75);
@@ -772,22 +851,22 @@ button {
 
 .ufc-code {
   display: block;
-  font: 900 clamp(1.35rem, 2vw, 2rem) "Consolas", monospace;
+  font: 900 clamp(1.08rem, 1.42vw, 1.5rem) "Consolas", monospace;
 }
 
 .ufc-label {
   display: block;
-  font: 800 0.72rem "Consolas", monospace;
+  font: 800 0.58rem "Consolas", monospace;
 }
 
 .throttle-bank {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 6px;
 }
 
 .throttle-bank span {
-  height: 98px;
+  height: 70px;
   border-radius: 12px 12px 4px 4px;
   background: linear-gradient(
     90deg,
@@ -803,7 +882,7 @@ button {
 .switch-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
+  gap: 5px;
   min-width: 0;
 }
 
@@ -812,14 +891,14 @@ button {
   display: grid;
   width: 100%;
   min-width: 0;
-  min-height: 42px;
+  min-height: 34px;
   padding: 0 4px;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 4px;
   background: #0e1112;
   color: var(--amber);
   overflow: hidden;
-  font: 900 clamp(0.62rem, 0.78vw, 0.78rem) "Consolas", monospace;
+  font: 900 clamp(0.54rem, 0.62vw, 0.66rem) "Consolas", monospace;
   line-height: 1;
   text-decoration: none;
   text-overflow: clip;
@@ -834,21 +913,21 @@ button {
 
 .lower-console {
   display: grid;
-  grid-template-columns: 90px 1fr 90px;
-  gap: 18px;
+  grid-template-columns: 64px 1fr 64px;
+  gap: 12px;
   align-items: center;
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 .analog {
   position: relative;
   display: grid;
   aspect-ratio: 1;
-  border: 6px solid #252c2f;
+  border: 5px solid #252c2f;
   border-radius: 50%;
   background: radial-gradient(circle, #182020, #030505 72%);
   color: var(--green);
-  font: 800 0.8rem "Consolas", monospace;
+  font: 800 0.66rem "Consolas", monospace;
   place-items: center;
 }
 
@@ -868,8 +947,8 @@ button {
 }
 
 .nameplate {
-  min-height: 74px;
-  padding: 14px;
+  min-height: 54px;
+  padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 6px;
   background: linear-gradient(180deg, #1d2426, #0b0d0e);
@@ -885,12 +964,14 @@ button {
 
 .nameplate p {
   color: var(--amber);
+  font-size: 0.78rem;
   font-weight: 900;
 }
 
 .nameplate strong {
-  margin-top: 6px;
+  margin-top: 5px;
   color: var(--muted);
+  font-size: 0.72rem;
 }
 
 .locked {
@@ -1599,6 +1680,12 @@ p {
    ========================================================= */
 
 @media (max-width: 860px) {
+  .cockpit-reveal {
+    min-height: 100svh;
+    padding: clamp(58px, 9vh, 96px) 0 0;
+    background-position: center top;
+  }
+
   .hero-view {
     min-height: 100svh;
   }
@@ -1645,6 +1732,7 @@ p {
   .cockpit {
     width: 100vw;
     border-radius: 18px 18px 0 0;
+    transform: none;
   }
 
   .mission-page {
@@ -1657,6 +1745,11 @@ p {
    ========================================================= */
 
 @media (max-width: 520px) {
+  .cockpit-reveal {
+    padding-top: 24px;
+    background-position: center top;
+  }
+
   .hero-view {
     min-height: 100svh;
   }
@@ -1720,6 +1813,10 @@ p {
   }
 
   .hard-button {
+    min-height: 48px;
+  }
+
+  .jet-switch {
     min-height: 48px;
   }
 
