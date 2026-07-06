@@ -474,8 +474,8 @@ button {
 
 .hard-button {
   display: grid;
-  min-height: 44px;
-  padding: 7px;
+  min-height: 40px;
+  padding: 6px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 5px;
   background: linear-gradient(180deg, #30393c, #14191b);
@@ -483,15 +483,10 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 5px 0 #050707;
   color: #dfe7e4;
-  font-size: clamp(0.66rem, 0.78vw, 0.78rem);
+  font-size: 0.72rem;
   text-decoration: none;
   align-content: center;
-  transition:
-    transform 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease;
 }
-
 .hard-button span {
   color: var(--amber);
   font: 800 0.64rem "Consolas", monospace;
@@ -512,7 +507,7 @@ button {
 .ufc {
   display: flex;
   flex-direction: column;
-  min-height: 62px;
+  min-height: 56px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 5px;
   background: linear-gradient(180deg, #9cffc3, #45ad75);
@@ -520,7 +515,6 @@ button {
     inset 0 0 16px rgba(255, 255, 255, 0.4),
     0 0 22px rgba(102, 255, 173, 0.18);
   color: #101410;
-  cursor: default;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -530,7 +524,7 @@ button {
   display: block;
   width: 100%;
   margin: 0;
-  font: 900 clamp(1.08rem, 1.42vw, 1.5rem) "Consolas", monospace;
+  font: 900 1.25rem "Consolas", monospace;
   line-height: 1;
   text-align: center;
 }
@@ -539,15 +533,15 @@ button {
   display: block;
   width: 100%;
   margin: 0;
-  font: 800 0.58rem "Consolas", monospace;
+  font: 800 0.52rem "Consolas", monospace;
   line-height: 1.05;
   text-align: center;
 }
 
 .center-stack {
   display: grid;
-  gap: 8px;
-  padding: 8px;
+  gap: 7px;
+  padding: 7px;
   border-radius: 7px;
 }
 
@@ -558,19 +552,13 @@ button {
 }
 
 .throttle-bank span {
-  height: 70px;
+  height: 58px;
   border-radius: 12px 12px 4px 4px;
-  background: linear-gradient(
-    90deg,
-    #161b1d,
-    #586166 48%,
-    #171b1c
-  );
+  background: linear-gradient(90deg, #161b1d, #586166 48%, #171b1c);
   box-shadow:
     inset 0 12px 16px rgba(255, 255, 255, 0.08),
     inset 0 -12px 20px rgba(0, 0, 0, 0.65);
 }
-
 .switch-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -582,14 +570,14 @@ button {
   display: grid;
   width: 100%;
   min-width: 0;
-  min-height: 42px;
+  min-height: 38px;
   padding: 4px 2px;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 4px;
   background: #0e1112;
   color: var(--amber);
   cursor: pointer;
-  font: 900 0.62rem "Consolas", monospace;
+  font: 900 0.56rem "Consolas", monospace;
   line-height: 0.9;
   text-decoration: none;
   place-items: center;
@@ -669,13 +657,14 @@ button {
 .mfd {
   position: relative;
   display: block;
-  min-height: 182px;
-  padding: 12px;
+  min-height: 160px;
+  padding: 10px;
   border-radius: 7px;
   color: var(--green);
   cursor: pointer;
   text-align: left;
 }
+
 
 .mfd::before {
   position: absolute;
@@ -809,10 +798,10 @@ button {
 
 .lower-console {
   display: grid;
-  grid-template-columns: 64px 1fr 64px;
-  gap: 12px;
+  grid-template-columns: 56px 1fr 56px;
+  gap: 10px;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .analog {
@@ -843,8 +832,8 @@ button {
 }
 
 .nameplate {
-  min-height: 54px;
-  padding: 10px;
+  min-height: 48px;
+  padding: 8px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 6px;
   background: linear-gradient(180deg, #1d2426, #0b0d0e);
@@ -860,14 +849,14 @@ button {
 
 .nameplate p {
   color: var(--amber);
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   font-weight: 900;
 }
 
 .nameplate strong {
-  margin-top: 5px;
+  margin-top: 4px;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.64rem;
 }
 
 /* =========================================================
@@ -1880,6 +1869,39 @@ p {
     --window-effect-height: 40vh;
   }
 }
+@media (max-width: 1100px) {
+  .cockpit {
+    width: min(760px, 64vw);
+    bottom: clamp(22px, 5vh, 56px);
+    transform: translateX(-50%) scale(0.9);
+  }
+}
+
+@media (max-width: 768px) {
+  .cockpit {
+    width: 92vw;
+    bottom: 14px;
+    transform: translateX(-50%) scale(0.94);
+  }
+
+  .console-grid {
+    grid-template-columns:
+      minmax(64px, 0.72fr)
+      minmax(110px, 1fr)
+      minmax(84px, 0.72fr)
+      minmax(110px, 1fr)
+      minmax(64px, 0.72fr);
+    gap: 5px;
+  }
+
+  .mfd {
+    min-height: 135px;
+  }
+
+  .throttle-bank span {
+    height: 48px;
+  }
+}
 
 /* =========================================================
    MOBILE
@@ -1887,19 +1909,65 @@ p {
 
 @media (max-width: 620px) {
   .cockpit-reveal {
-    padding: 68svh 12px 24px;
-    background-size: auto 78svh;
-  }
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  padding: clamp(20px, 4vh, 40px) clamp(12px, 2vw, 24px);
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 10, 12, 0.28) 0%,
+      rgba(4, 10, 12, 0.08) 34%,
+      rgba(4, 10, 12, 0.62) 100%
+    ),
+    radial-gradient(
+      circle at 50% 52%,
+      transparent 0 28%,
+      rgba(2, 6, 7, 0.48) 84%
+    ),
+    url("assets/cockpit-integrated-bg.png") center / cover no-repeat;
+  isolation: isolate;
+  place-items: center;
+}
 
   .cockpit {
-    width: min(100%, 390px);
-    border-radius: 16px 16px 0 0;
-    transform: none;
-  }
+  position: absolute;
+  left: 50%;
+  bottom: clamp(34px, 7vh, 82px);
+  z-index: 2;
+  width: min(760px, 47vw);
+  padding: clamp(8px, 1vw, 12px);
+  border-radius: 18px 18px 0 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(70, 80, 82, 0.72),
+      rgba(12, 15, 16, 0.96) 19%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 0 1px,
+      transparent 1px 84px
+    );
+  box-shadow:
+    0 -12px 42px rgba(0, 0, 0, 0.62),
+    inset 0 2px 0 rgba(255, 255, 255, 0.12);
+  transform: translateX(-50%) scale(0.88);
+  transform-origin: center bottom;
+}
 
   .console-grid {
-    grid-template-columns: 1fr;
-  }
+  display: grid;
+  grid-template-columns:
+    minmax(72px, 0.72fr)
+    minmax(130px, 1.15fr)
+    minmax(96px, 0.78fr)
+    minmax(130px, 1.15fr)
+    minmax(72px, 0.72fr);
+  gap: 6px;
+  align-items: stretch;
+}
 
   .left-panel,
   .right-panel,
@@ -1909,8 +1977,11 @@ p {
   }
 
   .side-panel {
-    grid-template-columns: 1fr 1fr;
-  }
+  display: grid;
+  gap: 5px;
+  padding: 7px;
+  border-radius: 7px;
+}
 
   .mfd {
     min-height: 210px;
@@ -1998,5 +2069,130 @@ p {
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 1ms !important;
+  }
+}
+@media (max-width: 1100px) {
+  .cockpit {
+    width: min(760px, 64vw);
+    bottom: clamp(22px, 5vh, 56px);
+    transform: translateX(-50%) scale(0.9);
+  }
+}
+
+@media (max-width: 768px) {
+  .cockpit {
+    width: 92vw;
+    bottom: 14px;
+    transform: translateX(-50%) scale(0.94);
+  }
+
+  .console-grid {
+    grid-template-columns:
+      minmax(64px, 0.72fr)
+      minmax(110px, 1fr)
+      minmax(84px, 0.72fr)
+      minmax(110px, 1fr)
+      minmax(64px, 0.72fr);
+    gap: 5px;
+  }
+
+  .mfd {
+    min-height: 135px;
+  }
+
+  .throttle-bank span {
+    height: 48px;
+  }
+}
+
+/* Keep the current stacked layout usable on phones. */
+@media (max-width: 760px) {
+  .cockpit-reveal {
+    display: grid;
+    padding: 74px 10px 28px;
+    place-items: center;
+  }
+
+  .cockpit-reveal .cockpit {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(105px, 22vh, 135px);
+  z-index: 2;
+
+  width: min(735px, 70vw);
+  margin: 0;
+  padding: 8px;
+
+  transform: translateX(-50%);
+  transform-origin: center bottom;
+}
+}
+/* =========================================================
+   FINAL HOME COCKPIT PLACEMENT
+   Fits the interactive display inside the background dashboard
+   ========================================================= */
+
+/* Desktop and laptop */
+@media (min-width: 761px) {
+  .cockpit-reveal {
+    display: block !important;
+    min-height: 100svh !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .cockpit-reveal .cockpit {
+    position: absolute !important;
+    top: 46vh !important;
+    left: 50% !important;
+    bottom: auto !important;
+    z-index: 5 !important;
+
+    width: min(735px, 78vw) !important;
+    margin: 0 !important;
+    padding: 8px !important;
+
+    transform: translateX(-50%) !important;
+    transform-origin: top center !important;
+  }
+}
+
+/* Tablet and phone */
+/* Desktop cockpit position */
+@media (min-width: 761px) {
+  .cockpit-reveal .cockpit {
+    position: absolute !important;
+    top: 52vh !important;
+    left: 50% !important;
+    bottom: auto !important;
+    z-index: 5 !important;
+
+    width: min(735px, 78vw) !important;
+    margin: 0 !important;
+    padding: 8px !important;
+
+    transform: translateX(-50%) !important;
+    transform-origin: top center !important;
+  }
+}
+/* Phone and tablet layout */
+@media (max-width: 760px) {
+  .cockpit-reveal {
+    display: grid !important;
+    min-height: auto !important;
+    padding: 56svh 12px 24px !important;
+    place-items: start center !important;
+  }
+
+  .cockpit-reveal .cockpit {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+
+    width: min(100%, 720px) !important;
+    margin: 0 auto !important;
+
+    transform: none !important;
   }
 }
