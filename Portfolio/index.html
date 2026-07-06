@@ -22,10 +22,10 @@
         </a>
 
         <nav class="nav-links" aria-label="Main pages">
-          <a href="about.html">About</a>
-          <a href="projects.html">Projects</a>
-          <a href="log.html">Process</a>
-          <a href="contact.html">Contact</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
         </nav>
       </header>
 
@@ -131,6 +131,62 @@
         </article>
       </section>
 
+      <section class="home-page-section about-home reveal-on-scroll" id="about" aria-labelledby="about-title">
+        <div class="section-copy">
+          <p class="signal-line">About me</p>
+          <h2 id="about-title">Air Force discipline meets front-end creativity.</h2>
+          <p>
+            I am an active-duty member of the United States Air Force, a private
+            pilot, and an aspiring freelance web developer. My military
+            experience taught me discipline, reliability, attention to detail,
+            and calm problem-solving.
+          </p>
+          <p>
+            I bring those same qualities into every website I build: clear
+            structure, responsive layouts, polished visuals, and a strong sense
+            of purpose.
+          </p>
+          <a class="inline-action" href="about.html">Open About Page</a>
+        </div>
+
+        <div class="about-snapshot" aria-label="Jaire profile snapshot">
+          <img src="images/image.png" alt="Jaire Whitehead" />
+          <div>
+            <span>Current Role</span>
+            <strong>U.S. Air Force</strong>
+            <p>Mission-focused, detail-driven, and built for reliable execution.</p>
+          </div>
+          <div>
+            <span>Development Focus</span>
+            <strong>Websites, UI, React</strong>
+            <p>Responsive interfaces with animation, clarity, and clean handoff.</p>
+          </div>
+        </div>
+
+        <div class="home-skill-strip" aria-label="Technical skills">
+          <article>
+            <span>HTML</span>
+            <strong>90%</strong>
+            <i style="--level: 90%"></i>
+          </article>
+          <article>
+            <span>CSS</span>
+            <strong>80%</strong>
+            <i style="--level: 80%"></i>
+          </article>
+          <article>
+            <span>JavaScript</span>
+            <strong>10%</strong>
+            <i style="--level: 10%"></i>
+          </article>
+          <article>
+            <span>Python</span>
+            <strong>5%</strong>
+            <i style="--level: 5%"></i>
+          </article>
+        </div>
+      </section>
+
       <section class="identity-panels" aria-label="Passion areas">
         <article class="identity-card reveal-on-scroll tilt-card">
           <img src="assets/home-airforce.png" alt="" aria-hidden="true" />
@@ -162,6 +218,127 @@
             memorable moments, and details that make the experience stick.
           </p>
         </article>
+      </section>
+
+      <section class="home-page-section projects-home reveal-on-scroll" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="signal-line">Featured projects</p>
+          <h2 id="projects-title">Demo pages, captured live.</h2>
+          <p>
+            Screenshots from the actual demos, paired with the build focus and
+            direct links.
+          </p>
+        </div>
+
+        <div class="home-project-grid">
+          <article class="home-project-card">
+            <img
+              src="assets/screenshots/restaurant-demo.png"
+              alt="Screenshot of the Aster Table restaurant website demo"
+            />
+            <span>Restaurant Website</span>
+            <h3>Aster Table Restaurant</h3>
+            <p>
+              A polished restaurant site for menu browsing, atmosphere, and
+              reservations.
+            </p>
+            <p class="tech">HTML, CSS, JavaScript, Responsive Design</p>
+            <div class="project-actions">
+              <a href="Restaurant_Website/index.html" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              <a href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/Restaurant_Website" target="_blank" rel="noopener noreferrer">View Code</a>
+            </div>
+          </article>
+
+          <article class="home-project-card">
+            <img
+              src="assets/screenshots/elite-fitness-demo.png"
+              alt="Screenshot of the Elite Fitness website demo"
+            />
+            <span>Fitness Website</span>
+            <h3>Elite Fitness</h3>
+            <p>
+              A high-energy fitness site with bold visuals, motion, and clear
+              service paths.
+            </p>
+            <p class="tech">HTML, CSS, JavaScript, Animation</p>
+            <div class="project-actions">
+              <a href="elite-fitness/index.html" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              <a href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/elite-fitness" target="_blank" rel="noopener noreferrer">View Code</a>
+            </div>
+          </article>
+
+          <article class="home-project-card">
+            <img
+              src="assets/screenshots/workout-tracker-demo.png"
+              alt="Screenshot of the Workout Tracker demo"
+            />
+            <span>Health App</span>
+            <h3>Workout Tracker</h3>
+            <p>
+              A practical logging interface for recording workouts and tracking
+              progress.
+            </p>
+            <p class="tech">JavaScript, Local Storage, UI Design</p>
+            <div class="project-actions">
+              <a href="../Workout_Tracker/index.html" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              <a href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Workout_Tracker" target="_blank" rel="noopener noreferrer">View Code</a>
+            </div>
+          </article>
+
+          <article class="home-project-card">
+            <img
+              src="assets/screenshots/weather-dashboard-demo.png"
+              alt="Screenshot of the Weather Dashboard demo"
+            />
+            <span>API Dashboard</span>
+            <h3>Weather Dashboard</h3>
+            <p>
+              A weather interface that turns forecast data into a clear planning
+              dashboard.
+            </p>
+            <p class="tech">JavaScript, Weather API, Cloudflare Workers, CSS</p>
+            <div class="project-actions">
+              <a href="../Weather_Dashboard/index.html" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              <a href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Weather_Dashboard" target="_blank" rel="noopener noreferrer">View Code</a>
+            </div>
+          </article>
+
+          <article class="home-project-card">
+            <img
+              src="assets/screenshots/task-manager-demo.png"
+              alt="Screenshot of the React Task Manager demo"
+            />
+            <span>React App</span>
+            <h3>React Task Manager</h3>
+            <p>
+              A task-management app for creating, completing, searching, and
+              filtering saved tasks.
+            </p>
+            <p class="tech">React, Vite, JavaScript, Local Storage</p>
+            <div class="project-actions">
+              <a href="https://jaire-task-manager.pages.dev" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              <a href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/react-task-manager-starter" target="_blank" rel="noopener noreferrer">View Code</a>
+            </div>
+          </article>
+
+          <article class="home-project-card">
+            <img
+              src="assets/screenshots/marvel-portfolio-demo.png"
+              alt="Screenshot of the Marvel-inspired portfolio concept demo"
+            />
+            <span>Creative Portfolio Concept</span>
+            <h3>Marvel-Inspired Portfolio</h3>
+            <p>
+              A cinematic React portfolio concept with scroll-reactive motion
+              and comic-inspired energy.
+            </p>
+            <p class="tech">React, Vite, JavaScript, CSS Animation</p>
+            <div class="project-actions">
+              <a href="https://6ac1114d.jaire-marvel-portfolio.pages.dev" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              <a href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/marvel-inspired-portfolio" target="_blank" rel="noopener noreferrer">View Code</a>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section class="command-center reveal-on-scroll" aria-labelledby="command-title">
@@ -212,6 +389,47 @@
             <strong>Dodge Shots</strong>
           </button>
         </div>
+      </section>
+
+      <section class="home-page-section process-home reveal-on-scroll" id="process" aria-labelledby="process-title">
+        <div class="section-heading">
+          <p class="signal-line">Web development process</p>
+          <h2 id="process-title">A practical workflow from idea to launch.</h2>
+        </div>
+
+        <ol class="home-timeline">
+          <li>
+            <b>Discovery</b>
+            <p>Clarify the goal, audience, content, visual direction, and actions visitors should take.</p>
+          </li>
+          <li>
+            <b>Build</b>
+            <p>Create responsive pages, interactive details, and clean front-end code that fits the project.</p>
+          </li>
+          <li>
+            <b>Launch Prep</b>
+            <p>Test key pages, refine mobile layouts, package assets, and prepare a clean handoff.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="home-page-section contact-home reveal-on-scroll" id="contact" aria-labelledby="contact-title">
+        <div class="section-copy">
+          <p class="signal-line">Contact</p>
+          <h2 id="contact-title">Start a project with Jaire.</h2>
+          <p>
+            Send a quick note about the website or app you want to build, or
+            use the direct email link.
+          </p>
+        </div>
+
+        <form class="home-contact-form">
+          <label>Name <input type="text" name="name" placeholder="Your name" /></label>
+          <label>Email <input type="email" name="email" placeholder="you@example.com" /></label>
+          <label>Project Details <textarea name="message" placeholder="Tell me what you want to build"></textarea></label>
+          <button type="button">Send Message</button>
+          <a class="email-link" href="mailto:your-email@example.com">Email Jaire directly</a>
+        </form>
       </section>
     </main>
 

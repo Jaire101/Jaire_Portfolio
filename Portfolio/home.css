@@ -1165,6 +1165,350 @@ body.future-home {
   }
 }
 
+/* Full homepage sections */
+.home-page-section {
+  padding: clamp(54px, 8vw, 104px) 0 0;
+  scroll-margin-top: 96px;
+}
+
+.section-heading,
+.section-copy {
+  max-width: 780px;
+}
+
+.section-heading h2,
+.section-copy h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(2rem, 5vw, 4.75rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.section-heading p:not(.signal-line),
+.section-copy p:not(.signal-line) {
+  margin: 20px 0 0;
+  color: #3f5060;
+  font-size: clamp(1rem, 1.55vw, 1.16rem);
+  line-height: 1.72;
+}
+
+.inline-action {
+  display: inline-flex;
+  min-height: 46px;
+  margin-top: 24px;
+  padding: 0 16px;
+  border: 1px solid rgba(0, 141, 228, 0.24);
+  border-radius: 8px;
+  background: #ffffff;
+  color: #006fd6;
+  font-weight: 900;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 32px rgba(28, 82, 145, 0.1);
+}
+
+.inline-action:hover,
+.inline-action:focus-visible {
+  border-color: rgba(255, 49, 95, 0.38);
+  outline: none;
+  background: rgba(255, 49, 95, 0.08);
+  color: #d81b60;
+}
+
+.about-home,
+.contact-home {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+  gap: clamp(24px, 5vw, 58px);
+  align-items: center;
+}
+
+.about-snapshot {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.72fr) 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.about-snapshot img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center 16%;
+  box-shadow: 0 28px 76px rgba(28, 82, 145, 0.21);
+  grid-row: span 2;
+}
+
+.about-snapshot div,
+.home-project-card,
+.home-timeline li,
+.home-contact-form {
+  border: 1px solid rgba(0, 141, 228, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 18px 48px rgba(28, 82, 145, 0.13);
+  backdrop-filter: blur(16px);
+}
+
+.about-snapshot div {
+  padding: clamp(18px, 3vw, 26px);
+}
+
+.about-snapshot span,
+.home-project-card > span,
+.home-timeline li::before {
+  color: #d81b60;
+  font: 900 0.78rem "Consolas", monospace;
+  text-transform: uppercase;
+}
+
+.about-snapshot strong {
+  display: block;
+  margin-top: 10px;
+  color: #0f172a;
+  font-size: 1.2rem;
+}
+
+.about-snapshot p {
+  margin: 12px 0 0;
+  color: #4a5d6f;
+  line-height: 1.6;
+}
+
+.home-skill-strip {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.home-skill-strip article {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid rgba(0, 141, 228, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 48px rgba(28, 82, 145, 0.12);
+}
+
+.home-skill-strip span {
+  color: #334155;
+  font: 900 0.78rem "Consolas", monospace;
+  text-transform: uppercase;
+}
+
+.home-skill-strip strong {
+  color: #d81b60;
+  font-size: 1.6rem;
+}
+
+.home-skill-strip i {
+  display: block;
+  height: 10px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, #008de4, #ff315f, #ffb703) 0 / var(--level) 100% no-repeat,
+    rgba(0, 141, 228, 0.1);
+}
+
+.projects-home {
+  scroll-margin-top: 82px;
+}
+
+.home-project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: clamp(26px, 4vw, 42px);
+}
+
+.home-project-card {
+  position: relative;
+  overflow: hidden;
+  padding: 14px 14px 22px;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.home-project-card:hover {
+  border-color: rgba(0, 141, 228, 0.32);
+  box-shadow: 0 26px 70px rgba(28, 82, 145, 0.21);
+  transform: translateY(-4px);
+}
+
+.home-project-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 18px;
+  border-radius: 7px;
+  object-fit: cover;
+  object-position: top center;
+  box-shadow: 0 16px 40px rgba(28, 82, 145, 0.14);
+  transition: transform 900ms ease;
+}
+
+.home-project-card:hover img {
+  transform: scale(1.025);
+}
+
+.home-project-card h3 {
+  margin: 10px 0 12px;
+  color: #0f172a;
+  font-size: clamp(1.35rem, 3vw, 2.2rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.home-project-card p {
+  color: #4a5d6f;
+  line-height: 1.6;
+}
+
+body.future-home .tech {
+  color: #334155;
+  font: 800 0.78rem "Consolas", monospace;
+}
+
+body.future-home .project-actions a,
+body.future-home .email-link {
+  border-color: rgba(0, 141, 228, 0.26);
+  border-radius: 8px;
+  background: #ffffff;
+  color: #006fd6;
+  box-shadow: 0 10px 28px rgba(28, 82, 145, 0.1);
+}
+
+body.future-home .project-actions a:hover,
+body.future-home .project-actions a:focus-visible,
+body.future-home .email-link:hover,
+body.future-home .email-link:focus-visible {
+  border-color: rgba(255, 49, 95, 0.38);
+  outline: none;
+  background: rgba(255, 49, 95, 0.08);
+  color: #d81b60;
+}
+
+.home-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: clamp(26px, 4vw, 42px) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: home-process;
+}
+
+.home-timeline li {
+  position: relative;
+  min-height: 220px;
+  padding: 72px 22px 22px;
+  counter-increment: home-process;
+}
+
+.home-timeline li::before {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  content: counter(home-process, decimal-leading-zero);
+}
+
+.home-timeline b {
+  display: block;
+  color: #0f172a;
+  font-size: 1.25rem;
+}
+
+.home-timeline p {
+  margin: 14px 0 0;
+  color: #4a5d6f;
+  line-height: 1.65;
+}
+
+.home-contact-form {
+  display: grid;
+  gap: 16px;
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.home-contact-form label {
+  display: grid;
+  gap: 7px;
+  color: #d81b60;
+  font-weight: 900;
+}
+
+.home-contact-form input,
+.home-contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(0, 141, 228, 0.18);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #0f172a;
+}
+
+.home-contact-form input:focus,
+.home-contact-form textarea:focus {
+  border-color: #008de4;
+  outline: 3px solid rgba(0, 141, 228, 0.14);
+}
+
+.home-contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.home-contact-form button {
+  min-height: 48px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff315f, #ffb703);
+  color: #12070a;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 0 14px 34px rgba(255, 49, 95, 0.16);
+}
+
+@media (max-width: 900px) {
+  .about-home,
+  .contact-home,
+  .home-project-grid,
+  .home-timeline,
+  .home-skill-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .about-snapshot {
+    grid-template-columns: 1fr;
+  }
+
+  .about-snapshot img {
+    min-height: 340px;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-page-section {
+    scroll-margin-top: 28px;
+  }
+
+  .home-project-card {
+    padding: 10px 10px 18px;
+  }
+
+  .home-timeline li {
+    min-height: auto;
+  }
+}
+
 /* Bright inner pages */
 body.future-page {
   --future-bg: #f7fbff;
