@@ -1755,8 +1755,11 @@ p {
 
 @media (max-width: 520px) {
   .cockpit-reveal {
-    padding-top: 24px;
+    min-height: auto;
+    padding: 46svh 12px 24px;
     background-position: center top;
+    background-size: auto 62svh;
+    place-items: start center;
   }
 
   .hero-view {
@@ -1808,6 +1811,12 @@ p {
 
   .console-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cockpit {
+    width: min(100%, 390px);
+    border-radius: 16px 16px 0 0;
+    transform: none;
   }
 
   .left-panel,
