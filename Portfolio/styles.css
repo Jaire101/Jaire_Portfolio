@@ -114,7 +114,7 @@ button {
 .window-effects,
 .cockpit-reveal > .effect-layer {
   --window-effect-width: clamp(320px, 66vw, 1040px);
-  --window-effect-height: min(64vh, 620px);
+  --window-effect-height: min(42vh, 380px);
   position: absolute;
   top: 0;
   left: 50%;
@@ -125,16 +125,16 @@ button {
   pointer-events: none;
   transform: translateX(-50%);
   clip-path: polygon(
-    8% 0%,
-    92% 0%,
-    98% 34%,
-    96% 58%,
-    88% 84%,
-    74% 96%,
-    26% 96%,
-    12% 84%,
-    4% 58%,
-    2% 34%
+    9% 0%,
+    91% 0%,
+    97% 31%,
+    94% 53%,
+    84% 70%,
+    68% 78%,
+    32% 78%,
+    16% 70%,
+    6% 53%,
+    3% 31%
   );
 }
 
@@ -204,12 +204,12 @@ button {
 }
 
 .jet-one {
-  top: 45%;
+  top: 21%;
   left: -14%;
 }
 
 .jet-two {
-  top: 39%;
+  top: 19%;
   right: -16%;
   transform: scaleX(-1);
 }
@@ -227,13 +227,13 @@ button {
 }
 
 .trail-one {
-  top: 52%;
+  top: 27%;
   left: -38%;
   transform: rotate(-12deg);
 }
 
 .trail-two {
-  top: 46%;
+  top: 25%;
   right: -38%;
   transform: rotate(14deg);
 }
@@ -262,17 +262,17 @@ button {
 }
 
 .burst-one {
-  top: 36%;
+  top: 19%;
   left: 29%;
 }
 
 .burst-two {
-  top: 46%;
+  top: 27%;
   left: 63%;
 }
 
 .burst-three {
-  top: 28%;
+  top: 14%;
   left: 48%;
 }
 
@@ -1571,12 +1571,12 @@ p {
 
   72% {
     opacity: 1;
-    transform: translate3d(70vw, 18vh, 0) rotate(-5deg) scale(1);
+    transform: translate3d(70vw, 0, 0) rotate(-5deg) scale(1);
   }
 
   100% {
     opacity: 0;
-    transform: translate3d(112vw, 4vh, 0) rotate(2deg) scale(0.9);
+    transform: translate3d(112vw, -8vh, 0) rotate(2deg) scale(0.9);
   }
 }
 
@@ -1592,12 +1592,12 @@ p {
 
   72% {
     opacity: 1;
-    transform: translate3d(-72vw, -16vh, 0) rotate(5deg) scaleX(-1) scale(1);
+    transform: translate3d(-72vw, -12vh, 0) rotate(5deg) scaleX(-1) scale(1);
   }
 
   100% {
     opacity: 0;
-    transform: translate3d(-114vw, -2vh, 0) rotate(-2deg) scaleX(-1) scale(0.9);
+    transform: translate3d(-114vw, -16vh, 0) rotate(-2deg) scaleX(-1) scale(0.9);
   }
 }
 
@@ -1746,7 +1746,7 @@ p {
 @keyframes flyby {
   0% {
     opacity: 0;
-    transform: translate3d(-12vw, 4vh, 0) scale(0.45);
+    transform: translate3d(-12vw, -2vh, 0) scale(0.45);
   }
 
   20% {
@@ -1760,7 +1760,7 @@ p {
 
   100% {
     opacity: 0;
-    transform: translate3d(112vw, -20vh, 0) scale(0.75);
+    transform: translate3d(112vw, -18vh, 0) scale(0.75);
   }
 }
 
@@ -1877,7 +1877,7 @@ p {
   .window-effects,
   .cockpit-reveal > .effect-layer {
     --window-effect-width: clamp(420px, 72vw, 700px);
-    --window-effect-height: 58vh;
+    --window-effect-height: 40vh;
   }
 }
 
@@ -1937,7 +1937,7 @@ p {
   .window-effects,
   .cockpit-reveal > .effect-layer {
     --window-effect-width: clamp(260px, 78vw, 350px);
-    --window-effect-height: 54vh;
+    --window-effect-height: 38vh;
   }
 
   .profile-brief {
