@@ -671,7 +671,7 @@ body.future-home {
 
 /* Bright visual refresh */
 body.future-home {
-  --future-bg: #f7fbff;
+  --future-bg: #d7e4ef;
   --future-panel: rgba(255, 255, 255, 0.82);
   --future-line: rgba(24, 107, 178, 0.18);
   --future-text: #111827;
@@ -681,28 +681,28 @@ body.future-home {
   --future-gold: #ffb703;
   --future-blue: #3157ff;
   background:
-    radial-gradient(circle at 10% 8%, rgba(255, 183, 3, 0.28), transparent 24rem),
-    radial-gradient(circle at 86% 10%, rgba(0, 141, 228, 0.22), transparent 28rem),
-    radial-gradient(circle at 50% 80%, rgba(255, 49, 95, 0.16), transparent 30rem),
-    linear-gradient(180deg, #ffffff 0%, #eef7ff 52%, #ffffff 100%);
+    radial-gradient(circle at 10% 8%, rgba(255, 183, 3, 0.14), transparent 24rem),
+    radial-gradient(circle at 86% 10%, rgba(0, 141, 228, 0.14), transparent 28rem),
+    radial-gradient(circle at 50% 80%, rgba(255, 49, 95, 0.08), transparent 30rem),
+    linear-gradient(180deg, #dbe8f3 0%, #c9dceb 48%, #dfe8f2 100%);
   color: var(--future-text);
 }
 
 .future-home::before {
   background:
-    linear-gradient(rgba(0, 141, 228, 0.075) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 141, 228, 0.075) 1px, transparent 1px);
+    linear-gradient(rgba(0, 76, 140, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 76, 140, 0.065) 1px, transparent 1px);
   mask-image: linear-gradient(to bottom, black, transparent 94%);
 }
 
 .future-home::after {
   background:
-    linear-gradient(115deg, transparent 0 38%, rgba(255, 183, 3, 0.16) 45%, transparent 54%),
-    repeating-linear-gradient(90deg, transparent 0 94px, rgba(0, 141, 228, 0.045) 95px 96px);
+    linear-gradient(115deg, transparent 0 38%, rgba(255, 183, 3, 0.08) 45%, transparent 54%),
+    repeating-linear-gradient(90deg, transparent 0 94px, rgba(0, 76, 140, 0.04) 95px 96px);
 }
 
 .cursor-glow {
-  background: radial-gradient(circle, rgba(0, 141, 228, 0.18), transparent 62%);
+  background: radial-gradient(circle, rgba(0, 96, 164, 0.12), transparent 62%);
 }
 
 .future-nav {
@@ -1511,7 +1511,7 @@ body.future-home .email-link:focus-visible {
 
 /* Bright inner pages */
 body.future-page {
-  --future-bg: #f7fbff;
+  --future-bg: #d7e4ef;
   --future-panel: rgba(255, 255, 255, 0.86);
   --future-line: rgba(24, 107, 178, 0.18);
   --future-text: #111827;
@@ -1522,10 +1522,10 @@ body.future-page {
   min-height: 100%;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 12% 10%, rgba(255, 183, 3, 0.26), transparent 23rem),
-    radial-gradient(circle at 88% 12%, rgba(0, 141, 228, 0.22), transparent 28rem),
-    radial-gradient(circle at 42% 84%, rgba(255, 49, 95, 0.14), transparent 30rem),
-    linear-gradient(180deg, #ffffff 0%, #eef7ff 55%, #ffffff 100%);
+    radial-gradient(circle at 12% 10%, rgba(255, 183, 3, 0.13), transparent 23rem),
+    radial-gradient(circle at 88% 12%, rgba(0, 141, 228, 0.14), transparent 28rem),
+    radial-gradient(circle at 42% 84%, rgba(255, 49, 95, 0.08), transparent 30rem),
+    linear-gradient(180deg, #dbe8f3 0%, #c9dceb 55%, #dfe8f2 100%);
   color: var(--future-text);
 }
 
@@ -1534,8 +1534,8 @@ body.future-page::before {
   inset: 0;
   z-index: -2;
   background:
-    linear-gradient(rgba(0, 141, 228, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 141, 228, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(0, 76, 140, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 76, 140, 0.06) 1px, transparent 1px);
   background-size: 44px 44px;
   content: "";
   mask-image: linear-gradient(to bottom, black, transparent 94%);
@@ -1547,8 +1547,8 @@ body.future-page::after {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(115deg, transparent 0 38%, rgba(255, 183, 3, 0.14) 45%, transparent 54%),
-    repeating-linear-gradient(90deg, transparent 0 94px, rgba(0, 141, 228, 0.04) 95px 96px);
+    linear-gradient(115deg, transparent 0 38%, rgba(255, 183, 3, 0.08) 45%, transparent 54%),
+    repeating-linear-gradient(90deg, transparent 0 94px, rgba(0, 76, 140, 0.035) 95px 96px);
   content: "";
   pointer-events: none;
 }
