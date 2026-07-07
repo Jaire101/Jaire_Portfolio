@@ -265,3 +265,62 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft" || event.key.toLowerCase() === "a") movePlayer(-1);
   if (event.key === "ArrowRight" || event.key.toLowerCase() === "d") movePlayer(1);
 });
+
+/* =========================================================
+   PERSISTENT NIGHT MODE
+   ========================================================= */
+
+const nightModeToggle = document.querySelector("[data-night-mode-toggle]");
+const NIGHT_MODE_STORAGE_KEY = "jaire-portfolio-night-mode";
+
+function setNightMode(enabled, persist = false) {
+  document.body.classList.toggle("night-mode", enabled);
+
+  if (nightModeToggle) {
+    nightModeToggle.setAttribute("aria-pressed", String(enabled));
+
+    nightModeToggle.setAttribute(
+      "aria-label",
+      enabled ? "Turn off night mode" : "Turn on night mode"
+    );
+
+    const modeLabel = nightModeToggle.querySelector(".mode-label");
+    const modeIcon = nightModeToggle.querySelector(".mode-icon");
+
+    if (modeLabel) {
+      modeLabel.textContent = enabled ? "Day Mode" : "Night Mode";
+    }
+
+    if (modeIcon) {
+      modeIcon.textContent = enabled ? "☀" : "☾";
+    }
+  }
+
+  if (persist) {
+    try {
+      window.localStorage.setItem(
+        NIGHT_MODE_STORAGE_KEY,
+        enabled ? "night" : "day"
+      );
+    } catch {
+      /* Night mode still works if browser storage is unavailable. */
+    }
+  }
+}
+
+let savedNightMode = null;
+
+try {
+  savedNightMode = window.localStorage.getItem(NIGHT_MODE_STORAGE_KEY);
+} catch {
+  savedNightMode = null;
+}
+
+setNightMode(savedNightMode === "night");
+
+nightModeToggle?.addEventListener("click", () => {
+  const isNightMode = document.body.classList.contains("night-mode");
+
+  setNightMode(!isNightMode, true);
+});
+
