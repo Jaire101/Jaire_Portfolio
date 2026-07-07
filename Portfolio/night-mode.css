@@ -1052,5 +1052,12 @@ body.future-home {
   box-shadow: none !important;
   backdrop-filter: none !important;
 }
+/* Transparent dark-mode side-nav container */
+.future-home.night-mode .future-nav.is-side-nav {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
 
   
