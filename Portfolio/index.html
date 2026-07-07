@@ -674,6 +674,36 @@
       </div>
     </section>
 
-    <script src="script.js"></script>
+    <script src="script.js">
+  (() => {
+    const mobileNav = document.querySelector(".future-nav");
+
+    if (!mobileNav) return;
+
+    function updateMobileSideNav() {
+      const isPhone = window.matchMedia("(max-width: 760px)").matches;
+
+      const currentScroll = Math.max(
+        window.scrollY,
+        document.documentElement.scrollTop,
+        document.body.scrollTop
+      );
+
+      if (!isPhone) {
+        return;
+      }
+
+      mobileNav.classList.toggle("is-side-nav", currentScroll > 85);
+    }
+
+    window.addEventListener("scroll", updateMobileSideNav, {
+      passive: true
+    });
+
+    window.addEventListener("resize", updateMobileSideNav);
+
+    window.addEventListener("load", updateMobileSideNav);
+  })();
+</script>
   </body>
 </html>
