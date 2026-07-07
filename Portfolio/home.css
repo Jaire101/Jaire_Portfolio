@@ -1986,3 +1986,159 @@ body.future-page .progress-bar {
   border-color: rgba(125, 197, 255, 0.7);
   background: rgba(24, 65, 119, 0.55);
 }
+/* =========================================================
+   FIX SKILL BAR PERCENTAGES IN DARK MODE
+   ========================================================= */
+
+/* The full bar is now only the dark track. */
+.home-skill-strip i {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: 10px !important;
+  overflow: hidden !important;
+  border-radius: 999px !important;
+  background: rgba(130, 169, 218, 0.18) !important;
+  box-shadow: inset 0 0 0 1px rgba(125, 197, 255, 0.14) !important;
+}
+
+/* This is the actual percentage fill. */
+.home-skill-strip i::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--level) !important;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #43caff, #9c7cff) !important;
+  box-shadow: 0 0 14px rgba(89, 183, 255, 0.52);
+  content: "";
+}
+
+/* Dark-mode text contrast. */
+.future-home.night-mode .home-skill-strip article > span {
+  color: #9fc9f5 !important;
+}
+
+.future-home.night-mode .home-skill-strip article > strong {
+  color: #f3f8ff !important;
+}
+/* =========================================================
+   DARK MODE MINI GAMES
+   ========================================================= */
+
+.future-home.night-mode .game-overlay {
+  background: rgba(1, 6, 18, 0.9) !important;
+  backdrop-filter: blur(14px);
+}
+
+.future-home.night-mode .game-panel {
+  border: 1px solid rgba(125, 197, 255, 0.42) !important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10, 28, 59, 0.98),
+      rgba(3, 10, 24, 0.98)
+    ) !important;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.62),
+    inset 0 0 34px rgba(93, 176, 255, 0.1) !important;
+}
+
+.future-home.night-mode .game-header {
+  border-bottom-color: rgba(125, 197, 255, 0.2) !important;
+  background: rgba(6, 19, 42, 0.75) !important;
+}
+
+.future-home.night-mode .game-kicker {
+  color: #79c8ff !important;
+}
+
+.future-home.night-mode .game-header h2 {
+  color: #ffffff !important;
+}
+
+.future-home.night-mode .game-stats {
+  border-bottom-color: rgba(125, 197, 255, 0.2) !important;
+  background: rgba(7, 22, 48, 0.68) !important;
+  color: #d8e9fb !important;
+}
+
+.future-home.night-mode .game-stats b,
+.future-home.night-mode .game-stats span:last-child {
+  color: #73c9ff !important;
+}
+
+.future-home.night-mode .game-stage {
+  background: rgba(4, 14, 31, 0.6) !important;
+}
+
+.future-home.night-mode .game-sky {
+  border-color: rgba(125, 197, 255, 0.32) !important;
+  background:
+    radial-gradient(
+      circle at 50% 18%,
+      rgba(105, 185, 255, 0.25),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #123866 0%,
+      #081a37 52%,
+      #030917 100%
+    ) !important;
+}
+
+.future-home.night-mode .game-close,
+.future-home.night-mode .game-controls button {
+  border-color: rgba(125, 197, 255, 0.52) !important;
+  background: linear-gradient(
+    135deg,
+    #1d68cd,
+    #6046c7
+  ) !important;
+  color: #ffffff !important;
+}
+
+.future-home.night-mode .game-close:hover,
+.future-home.night-mode .game-close:focus-visible,
+.future-home.night-mode .game-controls button:hover,
+.future-home.night-mode .game-controls button:focus-visible {
+  border-color: #b9e1ff !important;
+  filter: brightness(1.16);
+  outline: none;
+}
+
+.future-home.night-mode .game-dot {
+  border-color: #9fdcff !important;
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0 13%,
+      #9a7dff 14% 32%,
+      #50cfff 33% 51%,
+      transparent 52%
+    ),
+    rgba(92, 179, 255, 0.12) !important;
+  box-shadow: 0 0 22px rgba(96, 188, 255, 0.82) !important;
+}
+
+.future-home.night-mode .enemy-shot {
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #9d80ff,
+    #3d83ff
+  ) !important;
+  box-shadow: 0 0 20px rgba(118, 135, 255, 0.9) !important;
+}
+
+.future-home.night-mode .game-player {
+  background: linear-gradient(
+    90deg,
+    #17233e,
+    #d8f2ff 45%,
+    #314b80
+  ) !important;
+  filter: drop-shadow(0 0 14px rgba(96, 188, 255, 0.72)) !important;
+}
