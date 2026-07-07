@@ -999,3 +999,58 @@ body.future-home {
   background: rgba(49, 95, 213, 0.08) !important;
   color: #14213d !important;
 }
+/* =========================================================
+   TRANSPARENT SIDE DROPDOWN MENU
+   ========================================================= */
+
+.future-nav.is-side-nav.is-side-menu-open .nav-links {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* Light-mode dropdown stays transparent too. */
+.future-home:not(.night-mode)
+  .future-nav.is-side-nav.is-side-menu-open
+  .nav-links {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+/* =========================================================
+   TRANSPARENT SIDE DROPDOWN MENU
+   ========================================================= */
+
+.future-nav.is-side-nav.is-side-menu-open .nav-links {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* =========================================================
+   TRANSPARENT SIDE DROPDOWN MENU
+   ========================================================= */
+
+.future-nav.is-side-nav.is-side-menu-open .nav-links {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* Light-mode dropdown stays transparent too. */
+.future-home:not(.night-mode)
+  .future-nav.is-side-nav.is-side-menu-open
+  .nav-links {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* Make the Day/Night button inside the dropdown transparent too. */
+.future-nav.is-side-nav.is-side-menu-open .dropdown-night-toggle {
+  background: transparent !important;
+}
+/* Transparent light-mode side-nav container */
+.future-home:not(.night-mode) .future-nav.is-side-nav {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+  
