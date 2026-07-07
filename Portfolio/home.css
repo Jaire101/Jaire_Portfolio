@@ -2229,3 +2229,58 @@ body.future-page .progress-bar {
 .future-home:not(.night-mode) .future-nav.is-side-nav .night-mode-toggle #nightModeIcon {
   color: #14213d !important;
 }
+/* =========================================================
+   KEEP MOBILE NAV CONSISTENT IN LIGHT + DARK MODE
+   ========================================================= */
+
+@media (max-width: 760px) {
+  /* Normal top navigation only — does not affect the side nav after scrolling */
+  .future-nav:not(.is-side-nav) {
+    display: grid !important;
+    grid-template-columns: 38px minmax(0, 1fr) 38px !important;
+    align-items: center !important;
+    gap: 8px !important;
+    min-height: 62px !important;
+    padding: 10px 8px !important;
+  }
+
+  .future-nav:not(.is-side-nav) .brand-mark {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .future-nav:not(.is-side-nav) .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    gap: clamp(8px, 2.5vw, 14px) !important;
+  }
+
+  .future-nav:not(.is-side-nav) .nav-links a {
+    width: auto !important;
+    padding: 5px 0 !important;
+    font-size: 0.68rem !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+
+  /* Use only the moon/sun icon on phones to save space. */
+  .future-nav:not(.is-side-nav) .night-mode-toggle {
+    display: grid !important;
+    width: 36px !important;
+    min-height: 36px !important;
+    margin: 0 !important;
+    padding: 6px !important;
+    place-items: center !important;
+  }
+
+  .future-nav:not(.is-side-nav) .night-mode-toggle .mode-label,
+  .future-nav:not(.is-side-nav) .night-mode-toggle #nightModeText {
+    display: none !important;
+  }
+}
