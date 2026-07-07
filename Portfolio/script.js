@@ -325,25 +325,76 @@ nightModeToggle?.addEventListener("click", () => {
 });
 
 /* =========================================================
-   SCROLLING SIDE NAVIGATION
+   SCROLLING DROPDOWN NAVIGATION
    Desktop + Mobile
    ========================================================= */
 
 const futureNav = document.querySelector(".future-nav");
+const sideMenuToggle = document.querySelector("[data-side-menu-toggle]");
+const sideNavLinks = document.querySelector("#side-nav-menu");
+
+function setSideMenu(open) {
+  if (!futureNav || !sideMenuToggle) return;
+
+  const canOpen = futureNav.classList.contains("is-side-nav");
+  const shouldOpen = Boolean(open && canOpen);
+
+  futureNav.classList.toggle("is-side-menu-open", shouldOpen);
+
+  sideMenuToggle.setAttribute("aria-expanded", String(shouldOpen));
+  sideMenuToggle.setAttribute(
+    "aria-label",
+    shouldOpen ? "Close navigation menu" : "Open navigation menu"
+  );
+
+  const icon = sideMenuToggle.querySelector("span");
+
+  if (icon) {
+    icon.textContent = shouldOpen ? "×" : "☰";
+  }
+}
 
 function updateSideNavigation() {
   if (!futureNav) return;
 
   const isPhone = window.matchMedia("(max-width: 760px)").matches;
-
-  /* Phone changes slightly sooner because the top nav takes more space. */
   const scrollTrigger = isPhone ? 85 : 140;
+  const shouldUseSideNav = window.scrollY > scrollTrigger;
 
-  futureNav.classList.toggle(
-    "is-side-nav",
-    window.scrollY > scrollTrigger
-  );
+  futureNav.classList.toggle("is-side-nav", shouldUseSideNav);
+
+  /* Close the dropdown whenever the navbar returns to the top. */
+  if (!shouldUseSideNav) {
+    setSideMenu(false);
+  }
 }
+
+sideMenuToggle?.addEventListener("click", () => {
+  const menuIsOpen = futureNav?.classList.contains("is-side-menu-open");
+
+  setSideMenu(!menuIsOpen);
+});
+
+sideNavLinks?.addEventListener("click", (event) => {
+  if (event.target instanceof HTMLAnchorElement) {
+    setSideMenu(false);
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (
+    futureNav?.classList.contains("is-side-menu-open") &&
+    !futureNav.contains(event.target)
+  ) {
+    setSideMenu(false);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    setSideMenu(false);
+  }
+});
 
 window.addEventListener("scroll", updateSideNavigation, {
   passive: true
