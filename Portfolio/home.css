@@ -1892,3 +1892,49 @@ body.future-page .progress-bar {
     min-height: auto;
   }
 }
+/* =========================================================
+   FULL-WIDTH PORTFOLIO LAYOUT
+   Matches the wider restaurant-site presentation.
+   ========================================================= */
+
+.future-shell {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100svh;
+  margin: 0 !important;
+  padding: 22px clamp(1rem, 5vw, 4rem) 64px !important;
+}
+
+/* Keeps the navigation wide while still giving it clean side spacing. */
+.future-nav {
+  width: 100%;
+}
+
+/* Let the large homepage sections use the full available page width. */
+.bright-hero,
+.visual-proof,
+.identity-panels,
+.home-page-section,
+.command-center,
+.game-launchpad,
+.mission-strip {
+  width: 100%;
+}
+
+/* Prevent the older tablet/mobile width rules from shrinking the page again. */
+@media (max-width: 900px) {
+  .future-shell {
+    width: 100% !important;
+    max-width: none !important;
+    padding-right: clamp(1rem, 5vw, 4rem) !important;
+    padding-left: clamp(1rem, 5vw, 4rem) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .future-shell {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 10px 1rem 44px !important;
+  }
+}

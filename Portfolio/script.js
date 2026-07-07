@@ -324,3 +324,25 @@ nightModeToggle?.addEventListener("click", () => {
   setNightMode(!isNightMode, true);
 });
 
+/* =========================================================
+   SCROLLING SIDE NAVIGATION
+   ========================================================= */
+
+const futureNav = document.querySelector(".future-nav");
+
+function updateSideNavigation() {
+  if (!futureNav) return;
+
+  const desktopView = window.matchMedia("(min-width: 761px)").matches;
+  const shouldUseSideNav = desktopView && window.scrollY > 140;
+
+  futureNav.classList.toggle("is-side-nav", shouldUseSideNav);
+}
+
+window.addEventListener("scroll", updateSideNavigation, {
+  passive: true
+});
+
+window.addEventListener("resize", updateSideNavigation);
+
+updateSideNavigation();

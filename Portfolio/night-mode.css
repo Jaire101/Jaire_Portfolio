@@ -260,3 +260,246 @@ body.future-home {
     transition: none;
   }
 }
+/* FIX: ABOUT SNAPSHOT CARD CONTRAST IN NIGHT MODE */
+
+.future-home.night-mode .about-snapshot > div {
+  border: 1px solid rgba(125, 197, 255, 0.3) !important;
+  background: linear-gradient(
+    145deg,
+    rgba(13, 34, 67, 0.98),
+    rgba(5, 13, 29, 0.98)
+  ) !important;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.35) !important;
+}
+
+.future-home.night-mode .about-snapshot > div span {
+  color: #7fc8ff !important;
+}
+
+.future-home.night-mode .about-snapshot > div strong {
+  color: #ffffff !important;
+}
+
+.future-home.night-mode .about-snapshot > div p {
+  color: #c7d9ed !important;
+}
+/* FIX: PROCESS CARD CONTRAST IN NIGHT MODE */
+
+.future-home.night-mode .home-timeline li {
+  border: 1px solid rgba(125, 197, 255, 0.3) !important;
+  background: linear-gradient(
+    145deg,
+    rgba(13, 34, 67, 0.98),
+    rgba(5, 13, 29, 0.98)
+  ) !important;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.35) !important;
+}
+
+.future-home.night-mode .home-timeline li b {
+  color: #ffffff !important;
+}
+
+.future-home.night-mode .home-timeline li p {
+  color: #c7d9ed !important;
+}
+
+.future-home.night-mode .home-timeline li::before {
+  color: #ff5b9b !important;
+}
+/* =========================================================
+   SUBTLE NAVIGATION BAR
+   ========================================================= */
+
+.future-nav {
+  min-height: 58px !important;
+  padding: 0 10px !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(125, 197, 255, 0.12) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Smaller, quieter logo */
+.brand-mark {
+  width: 38px !important;
+  height: 38px !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
+}
+
+.brand-mark span {
+  font-size: 0.78rem !important;
+}
+
+/* Cleaner navigation links */
+.nav-links {
+  gap: clamp(18px, 2.2vw, 34px) !important;
+}
+
+.nav-links a {
+  color: rgba(218, 232, 248, 0.82) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: #ffffff !important;
+}
+
+/* Make Day/Night Mode look like a quiet utility control */
+.night-mode-toggle {
+  min-height: 34px !important;
+  gap: 6px !important;
+  padding: 7px 10px !important;
+  border: 1px solid rgba(125, 197, 255, 0.2) !important;
+  border-radius: 999px !important;
+  background: rgba(125, 197, 255, 0.06) !important;
+  box-shadow: none !important;
+  color: rgba(226, 240, 255, 0.84) !important;
+  font-size: 0.68rem !important;
+}
+
+.night-mode-toggle:hover,
+.night-mode-toggle:focus-visible {
+  border-color: rgba(125, 197, 255, 0.52) !important;
+  background: rgba(125, 197, 255, 0.13) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Keep it subtle in dark mode too */
+.future-home.night-mode .future-nav {
+  background: rgba(3, 10, 22, 0.32) !important;
+  border-bottom-color: rgba(125, 197, 255, 0.14) !important;
+  box-shadow: none !important;
+}
+
+.future-home.night-mode .night-mode-toggle {
+  background: rgba(125, 197, 255, 0.06) !important;
+  color: rgba(231, 242, 255, 0.84) !important;
+}
+
+/* Phone layout */
+@media (max-width: 760px) {
+  .future-nav {
+    min-height: 54px !important;
+    padding: 0 4px !important;
+  }
+
+  .nav-links {
+    gap: 13px !important;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem !important;
+  }
+}
+/* =========================================================
+   SCROLLING SIDE NAVIGATION
+   Desktop only
+   ========================================================= */
+
+@media (min-width: 761px) {
+  .future-nav {
+    z-index: 100;
+    transition:
+      width 220ms ease,
+      padding 220ms ease,
+      background 220ms ease,
+      border-radius 220ms ease,
+      box-shadow 220ms ease;
+  }
+
+  .future-nav.is-side-nav {
+    position: fixed !important;
+    top: 50% !important;
+    right: 18px !important;
+    left: auto !important;
+    z-index: 1000 !important;
+
+    width: 92px !important;
+    min-height: auto !important;
+    padding: 12px 8px !important;
+
+    border: 1px solid rgba(125, 197, 255, 0.2) !important;
+    border-radius: 16px !important;
+    background: rgba(5, 15, 31, 0.88) !important;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28) !important;
+    backdrop-filter: blur(14px);
+
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: center !important;
+
+    transform: translateY(-50%);
+    animation: sideNavEnter 220ms ease both;
+  }
+
+  .future-nav.is-side-nav .brand-mark {
+    width: 34px !important;
+    height: 34px !important;
+    flex: 0 0 auto;
+  }
+
+  .future-nav.is-side-nav .brand-mark span {
+    font-size: 0.72rem !important;
+  }
+
+  .future-nav.is-side-nav .nav-links {
+    display: flex !important;
+    width: 100%;
+    gap: 8px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .future-nav.is-side-nav .nav-links a {
+    width: 100%;
+    padding: 5px 2px !important;
+    color: rgba(224, 239, 255, 0.84) !important;
+    font-size: 0.67rem !important;
+    font-weight: 700 !important;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .future-nav.is-side-nav .nav-links a:hover,
+  .future-nav.is-side-nav .nav-links a:focus-visible {
+    color: #ffffff !important;
+  }
+
+  .future-nav.is-side-nav .night-mode-toggle {
+    width: 36px !important;
+    min-height: 36px !important;
+    margin: 0 !important;
+    padding: 7px !important;
+  }
+
+  .future-nav.is-side-nav .night-mode-toggle .mode-label,
+  .future-nav.is-side-nav .night-mode-toggle #nightModeText {
+    display: none !important;
+  }
+}
+
+@keyframes sideNavEnter {
+  from {
+    opacity: 0;
+    transform: translate(16px, -50%) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .future-nav,
+  .future-nav.is-side-nav {
+    transition: none !important;
+    animation: none !important;
+  }
+}
