@@ -1938,3 +1938,51 @@ body.future-page .progress-bar {
     padding: 10px 1rem 44px !important;
   }
 }
+/* CONTACT PREFERENCE OPTIONS */
+
+.contact-preference {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.contact-preference legend {
+  margin-bottom: 4px;
+  color: inherit;
+  font-weight: 800;
+}
+
+.contact-option {
+  display: flex !important;
+  gap: 10px;
+  padding: 11px 13px;
+  border: 1px solid rgba(125, 197, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  align-items: center;
+}
+
+.contact-option:hover {
+  border-color: rgba(125, 197, 255, 0.55);
+  background: rgba(125, 197, 255, 0.08);
+}
+
+.contact-option input {
+  width: auto !important;
+  margin: 0;
+  accent-color: #5aaeff;
+}
+
+.future-home.night-mode .contact-option {
+  border-color: rgba(125, 197, 255, 0.28);
+  background: rgba(9, 26, 54, 0.58);
+  color: #dcecff;
+}
+
+.future-home.night-mode .contact-option:hover {
+  border-color: rgba(125, 197, 255, 0.7);
+  background: rgba(24, 65, 119, 0.55);
+}

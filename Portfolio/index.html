@@ -482,34 +482,46 @@
               understanding the business, target audience , key services, visual
               style, and the actions visitors should take.
             </p>
-            <p>Goal: Build a clear plan before writing code
-            </p>
+            <p>Goal: Build a clear plan before writing code</p>
           </li>
           <li>
             <b>Design Direction</b>
             <p>
-              Next, I organize the page structure, choose colors and visual references, and map out how the site should guide visitors from the first section to the final call to action.
+              Next, I organize the page structure, choose colors and visual
+              references, and map out how the site should guide visitors from
+              the first section to the final call to action.
             </p>
-            <p>Goal: Create a design that looks professional and supports the client’s brand..</p>
+            <p>
+              Goal: Create a design that looks professional and supports the
+              client’s brand..
+            </p>
           </li>
           <li>
             <b>Build</b>
             <p>
-              I develop the website using clean HTML, CSS, and JavaScript. I focus on responsive layouts, readable content, interactive elements, and a smooth experience across desktop, tablet, and phone screens.
+              I develop the website using clean HTML, CSS, and JavaScript. I
+              focus on responsive layouts, readable content, interactive
+              elements, and a smooth experience across desktop, tablet, and
+              phone screens.
             </p>
             <p>Goal: Turn the plan into a functional, polished website.</p>
           </li>
           <li>
             <b>Test and Refine</b>
             <p>
-              Before launch, I test navigation, buttons, forms, images, spacing, and mobile responsiveness. I correct issues, improve details, and make sure the website feels consistent across common screen sizes.
+              Before launch, I test navigation, buttons, forms, images, spacing,
+              and mobile responsiveness. I correct issues, improve details, and
+              make sure the website feels consistent across common screen sizes.
             </p>
             <p>Goal: Catch problems before visitors see them.</p>
           </li>
           <li>
             <b>Launch and Handoff</b>
             <p>
-              Once the site is ready, I publish it, verify that the live version works correctly, and prepare the project for future updates. The result is a website that is ready to represent the business online.
+              Once the site is ready, I publish it, verify that the live version
+              works correctly, and prepare the project for future updates. The
+              result is a website that is ready to represent the business
+              online.
             </p>
             <p>Goal: Deliver a reliable site that is ready to use.</p>
           </li>
@@ -530,25 +542,95 @@
           </p>
         </div>
 
-        <form class="home-contact-form">
-          <label
-            >Name <input type="text" name="name" placeholder="Your name"
-          /></label>
-          <label
-            >Email
-            <input type="email" name="email" placeholder="you@example.com"
-          /></label>
-          <label
-            >Project Details
+        <form
+          class="home-contact-form"
+          action="https://formspree.io/f/mzdlqpvj"
+          method="POST"
+          accept-charset="UTF-8"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Portfolio Contact Request"
+          />
+
+          <label>
+            Name
+            <input
+              type="text"
+              name="name"
+              placeholder="Your name"
+              autocomplete="name"
+              required
+            />
+          </label>
+
+          <label>
+            Email
+            <input
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+          </label>
+
+          <label>
+            Phone Number
+            <input
+              type="tel"
+              name="phone"
+              placeholder="(555) 555-5555"
+              autocomplete="tel"
+            />
+          </label>
+
+          <fieldset class="contact-preference">
+            <legend>Preferred Contact Method</legend>
+
+            <label class="contact-option">
+              <input type="radio" name="preferred_contact" value="Call" />
+              <span>Call</span>
+            </label>
+
+            <label class="contact-option">
+              <input type="radio" name="preferred_contact" value="Text" />
+              <span>Text</span>
+            </label>
+
+            <label class="contact-option">
+              <input
+                type="radio"
+                name="preferred_contact"
+                value="Email"
+                checked
+              />
+              <span>Email</span>
+            </label>
+
+            <label class="contact-option">
+              <input
+                type="radio"
+                name="preferred_contact"
+                value="No Preference"
+              />
+              <span>No Preference</span>
+            </label>
+          </fieldset>
+
+          <label>
+            Project Details
             <textarea
               name="message"
               placeholder="Tell me what you want to build"
+              required
             ></textarea>
           </label>
-          <button type="button">Send Message</button>
-          <a class="email-link" href="mailto:your-email@example.com"
-            >Email Jaire directly</a
-          >
+
+          <button type="submit">Send Message</button>
+
+          <p class="form-note">I will get back to you as soon as possible.</p>
         </form>
       </section>
     </main>
