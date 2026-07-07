@@ -326,6 +326,7 @@ nightModeToggle?.addEventListener("click", () => {
 
 /* =========================================================
    SCROLLING SIDE NAVIGATION
+   Desktop + Mobile
    ========================================================= */
 
 const futureNav = document.querySelector(".future-nav");
@@ -333,10 +334,15 @@ const futureNav = document.querySelector(".future-nav");
 function updateSideNavigation() {
   if (!futureNav) return;
 
-  const desktopView = window.matchMedia("(min-width: 761px)").matches;
-  const shouldUseSideNav = desktopView && window.scrollY > 140;
+  const isPhone = window.matchMedia("(max-width: 760px)").matches;
 
-  futureNav.classList.toggle("is-side-nav", shouldUseSideNav);
+  /* Phone changes slightly sooner because the top nav takes more space. */
+  const scrollTrigger = isPhone ? 85 : 140;
+
+  futureNav.classList.toggle(
+    "is-side-nav",
+    window.scrollY > scrollTrigger
+  );
 }
 
 window.addEventListener("scroll", updateSideNavigation, {
