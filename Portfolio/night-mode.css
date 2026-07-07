@@ -817,3 +817,185 @@ body.future-home {
   background: rgba(49, 95, 213, 0.09) !important;
   color: #315fd5 !important;
 }
+/* =========================================================
+   SIDE DROPDOWN: DARK MODE INSIDE MENU
+   ========================================================= */
+
+.side-menu-toggle,
+.dropdown-night-toggle {
+  display: none;
+}
+
+/* The normal top navbar keeps its original Day/Night button. */
+.future-nav:not(.is-side-nav) .top-night-toggle {
+  display: inline-flex !important;
+}
+
+.future-nav:not(.is-side-nav) .dropdown-night-toggle,
+.future-nav:not(.is-side-nav) .side-menu-toggle {
+  display: none !important;
+}
+
+/* Small menu rail after the visitor scrolls. */
+.future-nav.is-side-nav {
+  position: fixed !important;
+  top: 50% !important;
+  right: 10px !important;
+  left: auto !important;
+  z-index: 9999 !important;
+
+  display: grid !important;
+  width: 54px !important;
+  min-height: auto !important;
+  padding: 8px !important;
+
+  border: 1px solid rgba(125, 197, 255, 0.28) !important;
+  border-radius: 18px !important;
+  background: rgba(5, 15, 31, 0.94) !important;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(14px);
+
+  place-items: center !important;
+  transform: translateY(-50%) !important;
+}
+
+/* Keep the compact side rail out of the way. */
+.future-nav.is-side-nav .brand-mark,
+.future-nav.is-side-nav .top-night-toggle {
+  display: none !important;
+}
+
+.future-nav.is-side-nav .nav-links {
+  display: none !important;
+}
+
+/* The only visible control while collapsed. */
+.future-nav.is-side-nav .side-menu-toggle {
+  display: grid !important;
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+
+  border: 1px solid rgba(125, 197, 255, 0.42) !important;
+  border-radius: 50% !important;
+  background: rgba(125, 197, 255, 0.1) !important;
+  color: #edf6ff !important;
+  cursor: pointer;
+  font-size: 1.2rem !important;
+
+  place-items: center !important;
+}
+
+.future-nav.is-side-nav .side-menu-toggle:hover,
+.future-nav.is-side-nav .side-menu-toggle:focus-visible {
+  border-color: #b7e2ff !important;
+  background: rgba(125, 197, 255, 0.2) !important;
+  outline: none;
+}
+
+/* Open dropdown panel. */
+.future-nav.is-side-nav.is-side-menu-open .nav-links {
+  position: absolute !important;
+  top: 50% !important;
+  right: calc(100% + 10px) !important;
+
+  display: flex !important;
+  width: min(220px, calc(100vw - 84px)) !important;
+  padding: 9px !important;
+  gap: 4px !important;
+
+  border: 1px solid rgba(125, 197, 255, 0.28) !important;
+  border-radius: 14px !important;
+  background: rgba(5, 15, 31, 0.98) !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(16px);
+
+  flex-direction: column !important;
+  align-items: stretch !important;
+  transform: translateY(-50%) !important;
+}
+
+.future-nav.is-side-nav.is-side-menu-open .nav-links a {
+  width: 100% !important;
+  min-height: 40px !important;
+  padding: 11px 12px !important;
+
+  border-radius: 8px !important;
+  color: #dbeaff !important;
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+  text-align: left !important;
+}
+
+.future-nav.is-side-nav.is-side-menu-open .nav-links a:hover,
+.future-nav.is-side-nav.is-side-menu-open .nav-links a:focus-visible {
+  background: rgba(125, 197, 255, 0.14) !important;
+  color: #ffffff !important;
+  outline: none;
+}
+
+/* Dark/Day Mode button now appears inside the open menu. */
+.future-nav.is-side-nav.is-side-menu-open .dropdown-night-toggle {
+  display: inline-flex !important;
+  width: 100% !important;
+  min-height: 42px !important;
+  margin-top: 5px !important;
+  padding: 10px 12px !important;
+
+  border: 1px solid rgba(125, 197, 255, 0.4) !important;
+  border-radius: 8px !important;
+  background: rgba(125, 197, 255, 0.1) !important;
+  color: #edf6ff !important;
+  cursor: pointer;
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.future-nav.is-side-nav.is-side-menu-open .dropdown-night-toggle:hover,
+.future-nav.is-side-nav.is-side-menu-open .dropdown-night-toggle:focus-visible {
+  border-color: #b7e2ff !important;
+  background: rgba(125, 197, 255, 0.2) !important;
+  outline: none;
+}
+
+/* Light-mode version of the side dropdown. */
+.future-home:not(.night-mode) .future-nav.is-side-nav {
+  border-color: rgba(49, 95, 213, 0.24) !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 16px 34px rgba(21, 47, 86, 0.18) !important;
+}
+
+.future-home:not(.night-mode)
+  .future-nav.is-side-nav
+  .side-menu-toggle {
+  border-color: rgba(49, 95, 213, 0.35) !important;
+  background: rgba(49, 95, 213, 0.08) !important;
+  color: #14213d !important;
+}
+
+.future-home:not(.night-mode)
+  .future-nav.is-side-nav.is-side-menu-open
+  .nav-links {
+  border-color: rgba(49, 95, 213, 0.2) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 18px 42px rgba(21, 47, 86, 0.18) !important;
+}
+
+.future-home:not(.night-mode)
+  .future-nav.is-side-nav.is-side-menu-open
+  .nav-links
+  a {
+  color: #14213d !important;
+}
+
+.future-home:not(.night-mode)
+  .future-nav.is-side-nav.is-side-menu-open
+  .dropdown-night-toggle {
+  border-color: rgba(49, 95, 213, 0.35) !important;
+  background: rgba(49, 95, 213, 0.08) !important;
+  color: #14213d !important;
+}

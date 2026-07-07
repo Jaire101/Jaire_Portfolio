@@ -270,22 +270,25 @@ document.addEventListener("keydown", (event) => {
    PERSISTENT NIGHT MODE
    ========================================================= */
 
-const nightModeToggle = document.querySelector("[data-night-mode-toggle]");
+const nightModeToggles = document.querySelectorAll(
+  "[data-night-mode-toggle]"
+);
+
 const NIGHT_MODE_STORAGE_KEY = "jaire-portfolio-night-mode";
 
 function setNightMode(enabled, persist = false) {
   document.body.classList.toggle("night-mode", enabled);
 
-  if (nightModeToggle) {
-    nightModeToggle.setAttribute("aria-pressed", String(enabled));
+  nightModeToggles.forEach((toggle) => {
+    toggle.setAttribute("aria-pressed", String(enabled));
 
-    nightModeToggle.setAttribute(
+    toggle.setAttribute(
       "aria-label",
       enabled ? "Turn off night mode" : "Turn on night mode"
     );
 
-    const modeLabel = nightModeToggle.querySelector(".mode-label");
-    const modeIcon = nightModeToggle.querySelector(".mode-icon");
+    const modeLabel = toggle.querySelector(".mode-label");
+    const modeIcon = toggle.querySelector(".mode-icon");
 
     if (modeLabel) {
       modeLabel.textContent = enabled ? "Day Mode" : "Night Mode";
@@ -294,7 +297,7 @@ function setNightMode(enabled, persist = false) {
     if (modeIcon) {
       modeIcon.textContent = enabled ? "☀" : "☾";
     }
-  }
+  });
 
   if (persist) {
     try {
@@ -303,7 +306,7 @@ function setNightMode(enabled, persist = false) {
         enabled ? "night" : "day"
       );
     } catch {
-      /* Night mode still works if browser storage is unavailable. */
+      /* Mode still works if browser storage is unavailable. */
     }
   }
 }
@@ -318,20 +321,21 @@ try {
 
 setNightMode(savedNightMode === "night");
 
-nightModeToggle?.addEventListener("click", () => {
-  const isNightMode = document.body.classList.contains("night-mode");
+nightModeToggles.forEach((toggle) => {
+  toggle.addEventListener("click", () => {
+    const isNightMode = document.body.classList.contains("night-mode");
 
-  setNightMode(!isNightMode, true);
+    setNightMode(!isNightMode, true);
+  });
 });
 
 /* =========================================================
    SCROLLING DROPDOWN NAVIGATION
-   Desktop + Mobile
    ========================================================= */
 
 const futureNav = document.querySelector(".future-nav");
 const sideMenuToggle = document.querySelector("[data-side-menu-toggle]");
-const sideNavLinks = document.querySelector("#side-nav-menu");
+const sideNavMenu = document.querySelector("#side-nav-menu");
 
 function setSideMenu(open) {
   if (!futureNav || !sideMenuToggle) return;
@@ -363,19 +367,18 @@ function updateSideNavigation() {
 
   futureNav.classList.toggle("is-side-nav", shouldUseSideNav);
 
-  /* Close the dropdown whenever the navbar returns to the top. */
   if (!shouldUseSideNav) {
     setSideMenu(false);
   }
 }
 
 sideMenuToggle?.addEventListener("click", () => {
-  const menuIsOpen = futureNav?.classList.contains("is-side-menu-open");
+  const isOpen = futureNav?.classList.contains("is-side-menu-open");
 
-  setSideMenu(!menuIsOpen);
+  setSideMenu(!isOpen);
 });
 
-sideNavLinks?.addEventListener("click", (event) => {
+sideNavMenu?.addEventListener("click", (event) => {
   if (event.target instanceof HTMLAnchorElement) {
     setSideMenu(false);
   }

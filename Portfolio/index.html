@@ -10,7 +10,7 @@
     <title>Jaire Whitehead | Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="home.css" />
-    <link rel="stylesheet" href="night-mode.css?v=1.1" />
+    <link rel="stylesheet" href="night-mode.css?v=1.3" />
   </head>
 
   <body class="future-home">
@@ -35,10 +35,23 @@
     <a href="#projects">Projects</a>
     <a href="#process">Process</a>
     <a href="#contact">Contact</a>
+
+    <!-- Only appears inside the open side dropdown -->
+    <button
+      class="dropdown-night-toggle"
+      type="button"
+      data-night-mode-toggle
+      aria-pressed="false"
+      aria-label="Turn on night mode"
+    >
+      <span class="mode-icon" aria-hidden="true">☾</span>
+      <span class="mode-label">Night Mode</span>
+    </button>
   </nav>
 
+  <!-- Normal top-navbar mode button -->
   <button
-    class="night-mode-toggle"
+    class="night-mode-toggle top-night-toggle"
     type="button"
     data-night-mode-toggle
     aria-pressed="false"
@@ -48,6 +61,7 @@
     <span class="mode-label">Night Mode</span>
   </button>
 
+  <!-- Only appears after the navbar becomes the side rail -->
   <button
     class="side-menu-toggle"
     type="button"
