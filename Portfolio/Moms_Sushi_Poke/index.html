@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Mom's Sushi &amp; Poke | Fresh Sushi &amp; Poke Made with Love
+    </title>
+    <meta
+      name="description"
+      content="A one-page restaurant demo for Mom's Sushi & Poke featuring fresh rolls, colorful poke bowls, drinks, sides, and contact information."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#home" aria-label="Mom's Sushi & Poke home">
+          <span class="brand-icon" aria-hidden="true">
+            <span class="roll-dot"></span>
+          </span>
+          <span class="brand-text">Mom's Sushi &amp; Poke</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links" id="site-menu">
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#visit">Visit</a>
+          <a href="#contact">Contact</a>
+          <a class="button button-small" href="#contact">Order Now</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero section-pad">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Fresh daily • Made to order</p>
+          <h1>Fresh Sushi &amp; Poke Made with Love</h1>
+          <p class="hero-subtext">
+            Mom's Sushi &amp; Poke serves fresh rolls, colorful poke bowls, and
+            flavorful favorites made daily.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#menu">View Menu</a>
+            <a class="button button-secondary" href="#contact"
+              >Contact / Order</a
+            >
+          </div>
+        </div>
+
+        <div
+          class="hero-visual reveal"
+          aria-label="Decorative sushi and poke inspired visual"
+        >
+          <!-- Replace this CSS-built visual with real client food photography later if available. -->
+          <div class="bowl-card">
+            <div class="bowl">
+              <span class="topping topping-salmon"></span>
+              <span class="topping topping-avocado"></span>
+              <span class="topping topping-rice"></span>
+              <span class="topping topping-cucumber"></span>
+            </div>
+            <div class="mini-rolls">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="floating-tag">Sushi • Poke • Boba</div>
+        </div>
+      </section>
+
+      <section class="featured section-pad" aria-labelledby="featured-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">House favorites</p>
+          <h2 id="featured-title">Something fresh for every craving</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <!-- Swap this gradient placeholder for a real sushi rolls photo later. -->
+            <div
+              class="image-placeholder sushi-placeholder"
+              aria-hidden="true"
+            ></div>
+            <h3>Sushi Rolls</h3>
+            <p>
+              Classic rolls and spicy favorites prepared fresh with bright,
+              balanced flavors.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <!-- Swap this gradient placeholder for a real poke bowls photo later. -->
+            <div
+              class="image-placeholder poke-placeholder"
+              aria-hidden="true"
+            ></div>
+            <h3>Poke Bowls</h3>
+            <p>
+              Colorful bowls layered with rice, protein, vegetables, sauces, and
+              toppings.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <!-- Swap this gradient placeholder for a real boba or drinks photo later. -->
+            <div
+              class="image-placeholder drink-placeholder"
+              aria-hidden="true"
+            ></div>
+            <h3>Boba / Drinks</h3>
+            <p>
+              Refreshing teas and drinks that pair perfectly with rolls, bowls,
+              and sides.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <!-- Swap this gradient placeholder for a real sides photo later. -->
+            <div
+              class="image-placeholder sides-placeholder"
+              aria-hidden="true"
+            ></div>
+            <h3>Sides</h3>
+            <p>
+              Comforting starters and savory extras made for sharing or rounding
+              out a meal.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about section-pad" id="about">
+        <div class="about-panel reveal">
+          <p class="eyebrow">About Mom's</p>
+          <h2>
+            Fresh ingredients, friendly service, and meals made just for you.
+          </h2>
+          <p>
+            Mom's Sushi &amp; Poke is a welcoming local spot where guests can
+            stop in for fresh sushi rolls, colorful poke bowls, and satisfying
+            favorites made to order. Every visit should feel easy, warm, and
+            dependable, from a quick lunch pickup to a relaxed dinner with
+            family.
+          </p>
+          <p>
+            The menu highlights crisp vegetables, flavorful sauces, quality
+            proteins, and friendly service that makes regulars feel remembered.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="menu-preview section-pad"
+        id="menu"
+        aria-labelledby="menu-title"
+      >
+        <div class="section-heading reveal">
+          <p class="eyebrow">Menu preview</p>
+          <h2 id="menu-title">Fresh favorites made daily</h2>
+        </div>
+
+        <div class="menu-list">
+          <article class="menu-item reveal">
+            <div>
+              <h3>California Roll</h3>
+              <p>
+                Crab mix, avocado, cucumber, and sesame seeds wrapped in
+                seasoned rice.
+              </p>
+            </div>
+            <span>$8.99</span>
+          </article>
+          <article class="menu-item reveal">
+            <div>
+              <h3>Spicy Tuna Roll</h3>
+              <p>
+                Tuna with spicy sauce, cucumber, scallions, and a clean
+                finishing kick.
+              </p>
+            </div>
+            <span>$10.99</span>
+          </article>
+          <article class="menu-item reveal">
+            <div>
+              <h3>Salmon Poke Bowl</h3>
+              <p>
+                Salmon, rice, edamame, cucumber, seaweed salad, and house sauce.
+              </p>
+            </div>
+            <span>$14.99</span>
+          </article>
+          <article class="menu-item reveal">
+            <div>
+              <h3>Chicken Teriyaki Bowl</h3>
+              <p>
+                Grilled chicken, steamed rice, vegetables, and sweet teriyaki
+                glaze.
+              </p>
+            </div>
+            <span>$12.99</span>
+          </article>
+          <article class="menu-item reveal">
+            <div>
+              <h3>Build Your Own Poke Bowl</h3>
+              <p>
+                Choose your base, protein, toppings, sauces, and crunchy
+                finishes.
+              </p>
+            </div>
+            <span>$15.99</span>
+          </article>
+          <article class="menu-item reveal">
+            <div>
+              <h3>Miso Soup</h3>
+              <p>Warm miso broth with tofu, seaweed, and scallions.</p>
+            </div>
+            <span>$3.99</span>
+          </article>
+          <article class="menu-item reveal">
+            <div>
+              <h3>Boba Tea</h3>
+              <p>
+                Refreshing tea with chewy pearls and rotating flavor options.
+              </p>
+            </div>
+            <span>$5.99</span>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="visit section-pad"
+        id="visit"
+        aria-labelledby="visit-title"
+      >
+        <div class="visit-card reveal">
+          <div>
+            <p class="eyebrow">Visit us</p>
+            <h2 id="visit-title">
+              Stop by for lunch, dinner, or a fresh bowl to go.
+            </h2>
+          </div>
+          <div class="contact-grid" id="contact">
+            <div class="contact-item">
+              <strong>Address</strong>
+              <p>123 Main Street, City, State</p>
+            </div>
+            <div class="contact-item">
+              <strong>Phone</strong>
+              <p>(555) 555-5555</p>
+            </div>
+            <div class="contact-item">
+              <strong>Hours</strong>
+              <p>Mon-Sat 11 AM - 9 PM<br />Sun 12 PM - 8 PM</p>
+            </div>
+          </div>
+          <div class="visit-actions">
+            <a class="button" href="tel:5555555555">Call Now</a>
+            <a
+              class="button button-secondary"
+              href="https://maps.google.com/?q=123%20Main%20Street%2C%20City%2C%20State"
+              target="_blank"
+              rel="noopener"
+              >Get Directions</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <strong>Mom's Sushi &amp; Poke</strong>
+      <p>Fresh rolls • poke bowls • made daily</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
