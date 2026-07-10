@@ -1059,5 +1059,80 @@ body.future-home {
   box-shadow: none !important;
   backdrop-filter: none !important;
 }
+/* =========================================================
+   JAIRE DEVELOPMENT NAVBAR LOGO
+   ========================================================= */
 
+.brand-mark {
+  display: grid !important;
+  width: 46px !important;
+  height: 46px !important;
+  padding: 4px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(0, 141, 228, 0.5) !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 14px rgba(0, 141, 228, 0.18) !important;
+  place-items: center !important;
+}
+
+.brand-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.future-home.night-mode .brand-mark {
+  background: #ffffff !important;
+  border-color: rgba(125, 197, 255, 0.65) !important;
+}
+
+@media (max-width: 760px) {
+  .brand-mark {
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+/* =========================================================
+   JAIRE DEVELOPMENT NAVBAR LOGO FIX
+   ========================================================= */
+
+.brand-mark {
+  display: flex !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  padding: 4px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(0, 141, 228, 0.55) !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 14px rgba(0, 141, 228, 0.2) !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.brand-mark img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  border-radius: 50% !important;
+  object-fit: contain !important;
+}
+
+.future-home.night-mode .brand-mark {
+  background: #ffffff !important;
+  border-color: rgba(125, 197, 255, 0.7) !important;
+}
+
+@media (max-width: 760px) {
+  .brand-mark {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+  }
+}
   
