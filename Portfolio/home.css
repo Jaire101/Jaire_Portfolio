@@ -2284,3 +2284,332 @@ body.future-page .progress-bar {
     display: none !important;
   }
 }
+
+/* =========================================================
+   MULTI-PAGE WEBSITE EXPANSION
+   ========================================================= */
+
+.site-page .future-nav a[aria-current="page"] {
+  color: var(--future-text);
+}
+
+.site-page .future-nav a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.site-page .brand-mark[aria-current="page"] {
+  box-shadow: 0 0 26px rgba(103, 232, 249, 0.34);
+}
+
+.page-hero {
+  display: grid;
+  min-height: 68svh;
+  padding: clamp(52px, 8vw, 104px) 0 clamp(38px, 6vw, 78px);
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.75fr);
+  gap: clamp(28px, 6vw, 76px);
+  align-items: center;
+}
+
+.page-hero-copy h1 {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(2.7rem, 7vw, 6.4rem);
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+.page-hero-visual {
+  position: relative;
+  min-height: clamp(330px, 42vw, 560px);
+  margin: 0;
+  border: 1px solid var(--future-line);
+  border-radius: 8px;
+  background: rgba(6, 11, 22, 0.62);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.page-hero-visual::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255,255,255,.14), transparent 30%, rgba(103,232,249,.12));
+  content: "";
+  pointer-events: none;
+}
+
+.page-hero-visual img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+}
+
+.page-preview,
+.process-preview,
+.skills-section,
+.project-page-section,
+.package-guide,
+.expectation-grid {
+  display: block;
+}
+
+.preview-actions {
+  display: flex;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.service-grid,
+.package-grid,
+.value-grid,
+.preview-steps {
+  display: grid;
+  margin: 30px 0 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.service-card,
+.package-grid article,
+.value-grid article,
+.preview-steps li,
+.contact-method-card {
+  border: 1px solid var(--future-line);
+  border-radius: 8px;
+  background: var(--future-panel);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.service-card,
+.package-grid article,
+.value-grid article,
+.preview-steps li {
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.service-card {
+  min-height: 300px;
+}
+
+.service-card > span,
+.package-grid article > span,
+.value-grid article > span,
+.preview-steps span,
+.contact-method-card > span {
+  color: var(--future-gold);
+  font: 900 0.78rem "Consolas", monospace;
+  text-transform: uppercase;
+}
+
+.service-card h2,
+.package-grid h3,
+.value-grid h3,
+.preview-steps h3 {
+  margin: 54px 0 14px;
+}
+
+.service-card p,
+.package-grid p,
+.value-grid p,
+.preview-steps p,
+.contact-method-card li {
+  color: var(--future-muted);
+  line-height: 1.7;
+}
+
+.service-card strong {
+  display: block;
+  margin-top: 20px;
+  color: var(--future-text);
+  line-height: 1.5;
+}
+
+.package-grid article ul,
+.contact-method-card ul {
+  margin: 20px 0 0;
+  padding-left: 20px;
+  color: var(--future-muted);
+  line-height: 1.8;
+}
+
+.about-preview,
+.profile-layout,
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: clamp(26px, 5vw, 68px);
+  align-items: center;
+}
+
+.profile-portrait {
+  min-height: 580px;
+  margin: 0;
+  border: 1px solid var(--future-line);
+  border-radius: 8px;
+  background: var(--future-panel);
+  overflow: hidden;
+}
+
+.profile-portrait img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+}
+
+.preview-steps {
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+.preview-steps li {
+  min-height: 230px;
+}
+
+.full-process li p strong {
+  color: var(--future-text);
+}
+
+.contact-layout {
+  align-items: start;
+}
+
+.contact-details h2 {
+  margin-top: 0;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1;
+}
+
+.contact-method-card {
+  margin-top: 16px;
+  padding: 20px;
+}
+
+.contact-method-card a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--future-cyan);
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.final-cta {
+  display: grid;
+  margin-top: clamp(44px, 7vw, 88px);
+  padding: clamp(26px, 5vw, 48px);
+  border: 1px solid var(--future-line);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(103, 232, 249, 0.18), transparent 24rem),
+    var(--future-panel);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.final-cta h2 {
+  max-width: 780px;
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 4rem);
+  line-height: 1;
+}
+
+.site-footer {
+  display: grid;
+  margin-top: clamp(52px, 8vw, 100px);
+  padding: 30px 0 8px;
+  border-top: 1px solid var(--future-line);
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 24px;
+  align-items: end;
+}
+
+.site-footer strong {
+  font-size: 1.15rem;
+}
+
+.site-footer p {
+  margin: 8px 0 0;
+  color: var(--future-muted);
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.site-footer a {
+  color: var(--future-text);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--future-cyan);
+  outline: none;
+}
+
+@media (max-width: 980px) {
+  .page-hero,
+  .about-preview,
+  .profile-layout,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero {
+    min-height: auto;
+  }
+
+  .page-hero-visual,
+  .profile-portrait {
+    min-height: 420px;
+  }
+
+  .service-grid,
+  .package-grid,
+  .value-grid,
+  .preview-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-hero {
+    padding-top: 42px;
+  }
+
+  .page-hero-copy h1 {
+    font-size: clamp(2.5rem, 15vw, 4.3rem);
+  }
+
+  .page-hero-visual,
+  .profile-portrait {
+    min-height: 320px;
+  }
+
+  .service-grid,
+  .package-grid,
+  .value-grid,
+  .preview-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: auto;
+  }
+
+  .final-cta {
+    grid-template-columns: 1fr;
+  }
+}

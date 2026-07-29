@@ -1136,3 +1136,35 @@ body.future-home {
   }
 }
   
+
+/* MULTI-PAGE NIGHT MODE */
+.future-home.night-mode .page-hero-visual,
+.future-home.night-mode .service-card,
+.future-home.night-mode .package-grid article,
+.future-home.night-mode .value-grid article,
+.future-home.night-mode .preview-steps li,
+.future-home.night-mode .contact-method-card,
+.future-home.night-mode .final-cta,
+.future-home.night-mode .site-footer {
+  border-color: rgba(125, 197, 255, 0.22);
+}
+
+.future-home.night-mode .service-card,
+.future-home.night-mode .package-grid article,
+.future-home.night-mode .value-grid article,
+.future-home.night-mode .preview-steps li,
+.future-home.night-mode .contact-method-card,
+.future-home.night-mode .final-cta {
+  background: linear-gradient(145deg, rgba(11, 28, 55, 0.92), rgba(5, 12, 27, 0.94));
+}
+
+.future-home.night-mode .page-hero-visual img,
+.future-home.night-mode .profile-portrait img {
+  filter: brightness(0.78) saturate(0.92) contrast(1.08);
+}
+
+.future-home.night-mode .site-footer a,
+.future-home.night-mode .service-card strong,
+.future-home.night-mode .full-process li p strong {
+  color: #f2f8ff;
+}

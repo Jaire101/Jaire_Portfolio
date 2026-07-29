@@ -406,3 +406,11 @@ window.addEventListener("scroll", updateSideNavigation, {
 window.addEventListener("resize", updateSideNavigation);
 
 updateSideNavigation();
+
+/* =========================================================
+   MULTI-PAGE ENHANCEMENTS
+   ========================================================= */
+
+document.querySelectorAll("[data-current-year]").forEach((year) => {
+  year.textContent = new Date().getFullYear();
+});

@@ -3,807 +3,226 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Jaire Whitehead portfolio: U.S. Air Force weapons loader, front-end developer, and Marvel-inspired creator."
-    />
-    <title>Jaire Development | Portfolio</title>
+    <meta name="description" content="Jaire Development creates responsive business websites, landing pages, redesigns, and interactive front-end experiences." />
+    <title>Jaire Development | Web Design and Development</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="home.css" />
-    <link rel="stylesheet" href="night-mode.css?v=1.4" />
+    <link rel="stylesheet" href="night-mode.css?v=2.0" />
   </head>
-
-  <body class="future-home">
+  <body class="future-home site-page home-page">
     <div class="cursor-glow" aria-hidden="true"></div>
-
     <main class="future-shell">
       <header class="future-nav" aria-label="Portfolio navigation">
-        <a
-          class="brand-mark"
-          href="index.html"
-          aria-label="Jaire Development home"
-        >
+        <a class="brand-mark" href="index.html" aria-label="Jaire Development home" aria-current="page">
           <img src="images/jaire-logo-nav.png" alt="Jaire Development logo" />
         </a>
-
         <nav class="nav-links" id="side-nav-menu" aria-label="Main pages">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#process">Process</a>
-          <a href="#contact">Contact</a>
-          <a
-            href="https://www.instagram.com/jaire_web_dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram
-          </a>
-
-          <!-- Only appears inside the open side dropdown -->
-          <button
-            class="dropdown-night-toggle"
-            type="button"
-            data-night-mode-toggle
-            aria-pressed="false"
-            aria-label="Turn on night mode"
-          >
-            <span class="mode-icon" aria-hidden="true">☾</span>
-            <span class="mode-label">Night Mode</span>
+          <a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="process.html">Process</a><a href="contact.html">Contact</a>
+          <a href="https://www.instagram.com/jaire_web_dev/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <button class="dropdown-night-toggle" type="button" data-night-mode-toggle aria-pressed="false" aria-label="Turn on night mode">
+            <span class="mode-icon" aria-hidden="true">☾</span><span class="mode-label">Night Mode</span>
           </button>
         </nav>
-
-        <!-- Normal top-navbar mode button -->
-        <button
-          class="night-mode-toggle top-night-toggle"
-          type="button"
-          data-night-mode-toggle
-          aria-pressed="false"
-          aria-label="Turn on night mode"
-        >
-          <span class="mode-icon" aria-hidden="true">☾</span>
-          <span class="mode-label">Night Mode</span>
+        <button class="night-mode-toggle top-night-toggle" type="button" data-night-mode-toggle aria-pressed="false" aria-label="Turn on night mode">
+          <span class="mode-icon" aria-hidden="true">☾</span><span class="mode-label">Night Mode</span>
         </button>
-
-        <!-- Only appears after the navbar becomes the side rail -->
-        <button
-          class="side-menu-toggle"
-          type="button"
-          data-side-menu-toggle
-          aria-expanded="false"
-          aria-controls="side-nav-menu"
-          aria-label="Open navigation menu"
-        >
+        <button class="side-menu-toggle" type="button" data-side-menu-toggle aria-expanded="false" aria-controls="side-nav-menu" aria-label="Open navigation menu">
           <span aria-hidden="true">☰</span>
         </button>
       </header>
-
+      
       <section class="hero-grid bright-hero" aria-labelledby="home-title">
         <div class="hero-copy reveal-on-scroll">
-          <p class="signal-line">
-            Air Force discipline / code craft / hero energy
-          </p>
-
+          <p class="signal-line">Air Force discipline / code craft / hero energy</p>
           <h1 id="home-title">Welcome to Jaire Development.</h1>
-
-          <p class="hero-lead">
-            I am Jaire Whitehead, an Aircraft Armament Systems Specialist for
-            the U.S. Air Force and full-stack developer. I bring mission focus,
-            strong visual design, responsive code, and comic-book-level
-            excitement into the websites I build.
-          </p>
+          <p class="hero-lead">I am Jaire Whitehead, an Aircraft Armament Systems Specialist for the U.S. Air Force and full-stack developer. I build responsive websites that combine clear business goals, polished design, and dependable code.</p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="primary-action" href="#projects">View Projects</a>
-            <a class="secondary-action" href="#contact">Start a Build</a>
+            <a class="primary-action" href="projects.html">View Projects</a>
+            <a class="secondary-action" href="contact.html">Start a Build</a>
           </div>
         </div>
-        <div
-          class="hero-showcase reveal-on-scroll"
-          aria-label="Portfolio image showcase"
-        >
-          <figure class="showcase-main">
-            <img
-              src="assets/home-code.png"
-              alt="Futuristic coding workstation with responsive website previews"
-            />
-            <figcaption>
-              <span>Front-End Build Mode</span>
-              Responsive layouts, clean UI, and interactive motion.
-            </figcaption>
-          </figure>
-
-          <figure class="portrait-scan">
-            <img src="images/image.png" alt="Jaire Whitehead" />
-          </figure>
-
-          <figure class="showcase-chip chip-airforce">
-            <img
-              src="assets/home-airforce.png"
-              alt="Bright futuristic Air Force flightline weapons loader scene"
-            />
-          </figure>
-
-          <figure class="showcase-chip chip-hero">
-            <img
-              src="assets/home-hero.png"
-              alt="Original heroic comic-inspired coding artwork"
-            />
-          </figure>
+        <div class="hero-showcase reveal-on-scroll" aria-label="Portfolio image showcase">
+          <figure class="showcase-main"><img src="assets/home-code.png" alt="Futuristic coding workstation with responsive website previews" /><figcaption><span>Development Mode</span>Responsive layouts, clean UI, and interactive motion.</figcaption></figure>
+          <figure class="portrait-scan"><img src="images/image.png" alt="Jaire Whitehead" /></figure>
+          <figure class="showcase-chip chip-airforce"><img src="assets/home-airforce.png" alt="Air Force flightline inspired visual" /></figure>
+          <figure class="showcase-chip chip-hero"><img src="assets/home-hero.png" alt="Original heroic coding artwork" /></figure>
         </div>
       </section>
 
-      <section
-        class="mission-strip reveal-on-scroll"
-        aria-label="Portfolio stats"
-      >
-        <article>
-          <span data-count-to="100">0</span>
-          <p>Dedication to my craft</p>
-        </article>
-        <article>
-          <span data-count-to="10">0</span>
-          <p>Years of military service</p>
-        </article>
-        <article>
-          <span data-count-to="24">0</span>
-          <p>Client-focused builds</p>
-        </article>
+      <section class="mission-strip reveal-on-scroll" aria-label="Portfolio highlights">
+        <article><span data-count-to="100">0</span><p>Dedication to every build</p></article>
+        <article><span data-count-to="10">0</span><p>Years of military service</p></article>
+        <article><span data-count-to="9">0</span><p>Featured development projects</p></article>
       </section>
 
-      <section class="visual-proof" aria-label="Visual portfolio themes">
-        <article class="proof-feature reveal-on-scroll">
-          <img
-            src="assets/home-airforce.png"
-            alt="Air Force flightline weapons loader inspired visual"
-          />
-          <div>
-            <p class="signal-line">Mission precision</p>
-            <h2>Air Force standards in every build.</h2>
-            <p>
-              My weapons-loader background shows up in the way I approach
-              projects: organized, safety-minded, detail-driven, and ready to
-              execute under pressure.
-            </p>
-          </div>
-        </article>
-
-        <article class="proof-feature proof-feature-alt reveal-on-scroll">
-          <img
-            src="assets/home-code.png"
-            alt="Responsive front-end coding workstation visual"
-          />
-          <div>
-            <p class="signal-line">Code that adapts</p>
-            <h2>Responsive work that looks good everywhere.</h2>
-            <p>
-              I care about layouts that hold up on phones, tablets, laptops, and
-              big screens, with animation that makes the site feel alive without
-              getting in the way.
-            </p>
-          </div>
-        </article>
-      </section>
-
-      <section
-        class="home-page-section about-home reveal-on-scroll"
-        id="about"
-        aria-labelledby="about-title"
-      >
-        <div class="section-copy">
-          <p class="signal-line">About me</p>
-          <h2 id="about-title">
-            Air Force discipline meets front-end creativity.
-          </h2>
-          <p>
-            I am an active-duty member of the United States Air Force, a private
-            pilot, and an aspiring freelance web developer. My military
-            experience taught me discipline, reliability, attention to detail,
-            and calm problem-solving.
-          </p>
-          <p>
-            I bring those same qualities into every website I build: clear
-            structure, responsive layouts, polished visuals, and a strong sense
-            of purpose.
-          </p>
+      <section class="home-page-section page-preview" aria-labelledby="services-preview-title">
+        <div class="section-heading reveal-on-scroll">
+          <p class="signal-line">Services</p>
+          <h2 id="services-preview-title">Web solutions built around the client’s goal.</h2>
+          <p>From focused landing pages to complete business websites, each build is designed to be clear, responsive, and easy to use.</p>
         </div>
-
-        <div class="about-snapshot" aria-label="Jaire profile snapshot">
-          <img src="images/image.png" alt="Jaire Whitehead" />
-          <div>
-            <span>Current Role</span>
-            <strong>U.S. Air Force</strong>
-            <p>
-              Mission-focused, detail-driven, and built for reliable execution.
-            </p>
-          </div>
-          <div>
-            <span>Development Focus</span>
-            <strong>Websites, UI, React</strong>
-            <p>
-              Responsive interfaces with animation, clarity, and clean handoff.
-            </p>
-          </div>
+        <div class="service-grid service-grid-preview">
+          <article class="service-card reveal-on-scroll">
+          <span>01</span><h2>Business Websites</h2><p>Professional multi-page websites for local businesses, service providers, and personal brands.</p><strong>Best for businesses that need a complete online presence.</strong>
+        </article>
+          
+<article class="service-card reveal-on-scroll">
+          <span>02</span><h2>Landing Pages</h2><p>Focused pages built around one offer, campaign, service, event, or lead-generation goal.</p><strong>Best for converting traffic into calls, messages, or signups.</strong>
+        </article>
+          
+<article class="service-card reveal-on-scroll">
+          <span>03</span><h2>Restaurant Websites</h2><p>Mobile-friendly menus, location details, contact options, visual branding, and clear ordering or reservation paths.</p><strong>Best for restaurants, cafés, food trucks, and hospitality brands.</strong>
+        </article>
         </div>
-
-        <div class="home-skill-strip" aria-label="Technical skills">
-          <article>
-            <span>HTML</span>
-            <strong>90%</strong>
-            <i style="--level: 90%"></i>
-          </article>
-
-          <article>
-            <span>CSS</span>
-            <strong>85%</strong>
-            <i style="--level: 85%"></i>
-          </article>
-
-          <article>
-            <span>JAVASCRIPT</span>
-            <strong>60%</strong>
-            <i style="--level: 60%"></i>
-          </article>
-
-          <article>
-            <span>REACT</span>
-            <strong>45%</strong>
-            <i style="--level: 45%"></i>
-          </article>
-        </div>
+        <div class="preview-actions"><a class="secondary-action" href="services.html">Explore All Services</a></div>
       </section>
 
-      <section class="identity-panels" aria-label="Passion areas">
-        <article class="identity-card reveal-on-scroll tilt-card">
-          <img src="assets/home-airforce.png" alt="" aria-hidden="true" />
-          <span class="card-index">USAF</span>
-          <h2>Mission Ready</h2>
-          <p>
-            Working around aircraft weapons systems teaches discipline,
-            accountability, and calm execution. That mindset follows me into
-            every project.
-          </p>
-        </article>
-
-        <article class="identity-card reveal-on-scroll tilt-card">
-          <img src="assets/home-code.png" alt="" aria-hidden="true" />
-          <span class="card-index">DEV</span>
-          <h2>Code With Motion</h2>
-          <p>
-            I build pages that adapt across devices, feel alive under the
-            cursor, and keep the user focused on what matters.
-          </p>
-        </article>
-
-        <article class="identity-card reveal-on-scroll tilt-card">
-          <img src="assets/home-hero.png" alt="" aria-hidden="true" />
-          <span class="card-index">HERO</span>
-          <h2>Cinematic Energy</h2>
-          <p>
-            Marvel inspires the way I think about impact: strong visuals,
-            memorable moments, and details that make the experience stick.
-          </p>
-        </article>
-      </section>
-
-      <section
-        class="home-page-section projects-home"
-        id="projects"
-        aria-labelledby="projects-title"
-      >
-        <div class="section-heading">
+      <section class="home-page-section projects-home" aria-labelledby="featured-projects-title">
+        <div class="section-heading reveal-on-scroll">
           <p class="signal-line">Featured projects</p>
-          <h2 id="projects-title">Demo pages, captured live.</h2>
-          <p>
-            Screenshots from the actual demos, paired with the build focus and
-            direct links.
-          </p>
+          <h2 id="featured-projects-title">Recent work and development concepts.</h2>
+          <p>Real client work and portfolio builds that demonstrate responsive design, UI development, and interactive features.</p>
         </div>
-
-        <div class="home-project-grid">
-          <article class="home-project-card">
-            <img
-              src="assets/screenshots/alburquerque-auto-demo.png"
-              alt="Screenshot of the Alburquerque Auto automotive repair website"
-            />
-
-            <span>REAL CLIENT WEBSITE</span>
-
-            <h3>Alburquerque Auto</h3>
-
-            <p>
+        <div class="home-project-grid"><article class="home-project-card reveal-on-scroll" id="alburquerque-auto">
+<img alt="Screenshot of the Alburquerque Auto automotive repair website" src="assets/screenshots/alburquerque-auto-demo.png"/>
+<span>REAL CLIENT WEBSITE</span>
+<h3>Alburquerque Auto</h3>
+<p>
               A responsive automotive service website created for an independent
               Bridgeport repair shop. The site includes service information,
               appointment booking, mobile navigation, contact options, custom
               animations, and strong local branding.
             </p>
-
-            <p class="tech">
+<p class="tech">
               Next.js, React, TypeScript, Responsive Design, Appointment Forms
             </p>
-
-            <div class="project-actions">
-              <a
-                href="https://jaire101.github.io/Alburquerque_Auto/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+<div class="project-actions">
+<a href="https://jaire101.github.io/Alburquerque_Auto/" rel="noopener noreferrer" target="_blank">
                 Live Website
               </a>
-            </div>
-          </article>
-          <article class="home-project-card">
-            <img
-              src="assets/screenshots/moms-sushi-poke-demo.png"
-              alt="Screenshot of the Sushi and Poke restaurant website demo"
-            />
-            <span>Restaurant Website</span>
-            <h3>Sushi &amp; Poke</h3>
-            <p>
+</div>
+</article><article class="home-project-card reveal-on-scroll" id="sushi-poke">
+<img alt="Screenshot of the Sushi and Poke restaurant website demo" src="assets/screenshots/moms-sushi-poke-demo.png"/>
+<span>Restaurant Website</span>
+<h3>Sushi &amp; Poke</h3>
+<p>
               A fresh restaurant homepage demo for sushi rolls, poke bowls, menu
               browsing, and customer contact.
             </p>
-            <p class="tech">HTML, CSS, JavaScript, Responsive Design</p>
-            <div class="project-actions">
-              <a
-                href="Moms_Sushi_Poke/index.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/Moms_Sushi_Poke"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View Code</a
-              >
-            </div>
-          </article>
-          <article class="home-project-card">
-            <img
-              src="aegis-air-4d/assets/hero-air-command.png"
-              alt="Screenshot of the Aegis Air Command 4D aerospace website demo"
-            />
-
-            <span>4D Aerospace Concept</span>
-
-            <h3>Aegis Air Command</h3>
-
-            <p>
+<p class="tech">HTML, CSS, JavaScript, Responsive Design</p>
+<div class="project-actions">
+<a href="Moms_Sushi_Poke/index.html" rel="noopener noreferrer" target="_blank">Live Demo</a>
+<a href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/Moms_Sushi_Poke" rel="noopener noreferrer" target="_blank">View Code</a>
+</div>
+</article><article class="home-project-card reveal-on-scroll" id="aegis-air-command">
+<img alt="Screenshot of the Aegis Air Command 4D aerospace website demo" src="aegis-air-4d/assets/hero-air-command.png"/>
+<span>4D Aerospace Concept</span>
+<h3>Aegis Air Command</h3>
+<p>
               A cinematic aerospace defense concept with a command-style hero,
               interactive 4D matrix, mission panels, pricing, and contact flow.
             </p>
-
-            <p class="tech">HTML, CSS, JavaScript, Three.js, GSAP</p>
-
-            <div class="project-actions">
-              <a
-                href="./aegis-air-4d/index.html"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+<p class="tech">HTML, CSS, JavaScript, Three.js, GSAP</p>
+<div class="project-actions">
+<a href="./aegis-air-4d/index.html" rel="noopener noreferrer" target="_blank">
                 Live Demo
               </a>
-
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/aegis-air-4d"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+<a href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/aegis-air-4d" rel="noopener noreferrer" target="_blank">
                 View Code
               </a>
-            </div>
-          </article>
-          <article class="home-project-card">
-            <img
-              src="assets/screenshots/restaurant-demo.png"
-              alt="Screenshot of the Aster Table restaurant website demo"
-            />
-            <span>Restaurant Website</span>
-            <h3>Aster Table Restaurant</h3>
-            <p>
-              A polished restaurant site for menu browsing, atmosphere, and
-              reservations.
-            </p>
-            <p class="tech">HTML, CSS, JavaScript, Responsive Design</p>
-            <div class="project-actions">
-              <a
-                href="Restaurant_Website/index.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/Restaurant_Website"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View Code</a
-              >
-            </div>
-          </article>
-
-          <article class="home-project-card">
-            <img
-              src="assets/screenshots/elite-fitness-demo.png"
-              alt="Screenshot of the Elite Fitness website demo"
-            />
-            <span>Fitness Website</span>
-            <h3>Elite Fitness</h3>
-            <p>
-              A high-energy fitness site with bold visuals, motion, and clear
-              service paths.
-            </p>
-            <p class="tech">HTML, CSS, JavaScript, Animation</p>
-            <div class="project-actions">
-              <a
-                href="elite-fitness/index.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Portfolio/elite-fitness"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View Code</a
-              >
-            </div>
-          </article>
-
-          <article class="home-project-card">
-            <img
-              src="assets/screenshots/workout-tracker-demo.png"
-              alt="Screenshot of the Workout Tracker demo"
-            />
-            <span>Health App</span>
-            <h3>Workout Tracker</h3>
-            <p>
-              A practical logging interface for recording workouts and tracking
-              progress.
-            </p>
-            <p class="tech">JavaScript, Local Storage, UI Design</p>
-            <div class="project-actions">
-              <a
-                href="./Workout_Tracker/index.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Workout_Tracker"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View Code</a
-              >
-            </div>
-          </article>
-
-          <article class="home-project-card">
-            <img
-              src="assets/screenshots/weather-dashboard-demo.png"
-              alt="Screenshot of the Weather Dashboard demo"
-            />
-            <span>API Dashboard</span>
-            <h3>Weather Dashboard</h3>
-            <p>
-              A weather interface that turns forecast data into a clear planning
-              dashboard.
-            </p>
-            <p class="tech">JavaScript, Weather API, Cloudflare Workers, CSS</p>
-            <div class="project-actions">
-              <a
-                href="./Weather_Dashboard/index.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/Weather_Dashboard"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View Code</a
-              >
-            </div>
-          </article>
-
-          <article class="home-project-card">
-            <img
-              src="assets/screenshots/task-manager-demo.png"
-              alt="Screenshot of the React Task Manager demo"
-            />
-            <span>React App</span>
-            <h3>React Task Manager</h3>
-            <p>
-              A task-management app for creating, completing, searching, and
-              filtering saved tasks.
-            </p>
-            <p class="tech">React, Vite, JavaScript, Local Storage</p>
-            <div class="project-actions">
-              <a
-                href="https://jaire-task-manager.pages.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/react-task-manager-starter"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View Code</a
-              >
-            </div>
-          </article>
-
-          <article class="home-project-card">
-            <img
-              src="assets/screenshots/marvel-portfolio-demo.png"
-              alt="Screenshot of the Marvel-inspired portfolio concept demo"
-            />
-            <span>Creative Portfolio Concept</span>
-            <h3>Marvel-Inspired Portfolio</h3>
-            <p>
-              A cinematic React portfolio concept with scroll-reactive motion
-              and comic-inspired energy.
-            </p>
-            <p class="tech">React, Vite, JavaScript, CSS Animation</p>
-            <div class="project-actions">
-              <a
-                href="https://6ac1114d.jaire-marvel-portfolio.pages.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/Jaire101/Jaire_Portfolio/tree/main/marvel-inspired-portfolio"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View Code</a
-              >
-            </div>
-          </article>
-        </div>
+</div>
+</article></div>
+        <div class="preview-actions"><a class="secondary-action" href="projects.html">View All Projects</a></div>
       </section>
 
-      <section
-        class="command-center reveal-on-scroll"
-        aria-labelledby="command-title"
-      >
-        <div>
-          <p class="signal-line">Interactive command mode</p>
-          <h2 id="command-title">Pick a game to play.</h2>
+      <section class="home-page-section about-preview reveal-on-scroll" aria-labelledby="about-preview-title">
+        <div class="section-copy">
+          <p class="signal-line">About Jaire</p>
+          <h2 id="about-preview-title">Military discipline applied to creative development.</h2>
+          <p>My Air Force background taught me to work from a plan, verify details, stay dependable under pressure, and finish the mission correctly. I bring that same standard to every website.</p>
+          <a class="secondary-action" href="about.html">Read My Story</a>
         </div>
-        <div class="game-launch-grid" aria-label="Mini game launch controls">
-          <button class="mini-game-card" type="button" data-game="shooter">
-            <img src="assets/home-hero.png" alt="" aria-hidden="true" />
-            <strong>Shoot Targets</strong>
-          </button>
+        <div class="about-snapshot"><img src="images/image.png" alt="Jaire Whitehead" /><div><span>Current Role</span><strong>U.S. Air Force</strong><p>Mission-focused and detail-driven.</p></div><div><span>Development Focus</span><strong>Websites, UI, React</strong><p>Responsive interfaces with clear purpose.</p></div></div>
+      </section>
 
-          <button class="mini-game-card" type="button" data-game="evade">
-            <img src="assets/home-airforce.png" alt="" aria-hidden="true" />
-            <strong>Dodge Shots</strong>
-          </button>
-        </div>
-        <p class="command-readout" aria-live="polite" data-readout>
+      <section class="home-page-section process-preview" aria-labelledby="process-preview-title">
+        <div class="section-heading reveal-on-scroll"><p class="signal-line">Process</p><h2 id="process-preview-title">A clear path from idea to launch.</h2><p>Every project follows an organized workflow so the client always understands what is happening next.</p></div>
+        <ol class="preview-steps">
+          <li class="reveal-on-scroll"><span>01</span><h3>Plan</h3><p>Define the audience, goals, content, and required features.</p></li>
+          <li class="reveal-on-scroll"><span>02</span><h3>Build</h3><p>Create the responsive design and working interactions.</p></li>
+          <li class="reveal-on-scroll"><span>03</span><h3>Launch</h3><p>Test the site, publish it, and verify the live experience.</p></li>
+        </ol>
+        <div class="preview-actions"><a class="secondary-action" href="process.html">See the Full Process</a></div>
+      </section>
+
+      <section aria-labelledby="command-title" class="command-center reveal-on-scroll">
+<div>
+<p class="signal-line">Interactive command mode</p>
+<h2 id="command-title">Pick a game to play.</h2>
+</div>
+<div aria-label="Mini game launch controls" class="game-launch-grid">
+<button class="mini-game-card" data-game="shooter" type="button">
+<img alt="" aria-hidden="true" src="assets/home-hero.png"/>
+<strong>Shoot Targets</strong>
+</button>
+<button class="mini-game-card" data-game="evade" type="button">
+<img alt="" aria-hidden="true" src="assets/home-airforce.png"/>
+<strong>Dodge Shots</strong>
+</button>
+</div>
+<p aria-live="polite" class="command-readout" data-readout="">
           Systems online. Choose a game.
         </p>
+</section>
+
+      <section class="final-cta reveal-on-scroll" aria-labelledby="home-cta-title">
+        <div><p class="signal-line">Ready to build?</p><h2 id="home-cta-title">Give your business a stronger online presence.</h2></div>
+        <a class="primary-action" href="contact.html">Start a Project</a>
       </section>
-      <section
-        class="home-page-section process-home reveal-on-scroll"
-        id="process"
-        aria-labelledby="process-title"
-      >
-        <div class="section-heading">
-          <p class="signal-line">Web development process</p>
-          <h2 id="process-title">A practical workflow from idea to launch.</h2>
-          <p>
-            Every project starts with a clear goal and ends with a website that
-            is organized, responsive, and ready for real users.
-          </p>
+
+      <footer class="site-footer">
+        <div>
+          <strong>Jaire Development</strong>
+          <p>Responsive websites built with mission focus and creative energy.</p>
         </div>
-
-        <ol class="home-timeline">
-          <li>
-            <b>Discovery</b>
-            <p>
-              First, I learn what the website needs to accomplish. This includes
-              understanding the business, target audience , key services, visual
-              style, and the actions visitors should take.
-            </p>
-            <p>Goal: Build a clear plan before writing code</p>
-          </li>
-          <li>
-            <b>Design Direction</b>
-            <p>
-              Next, I organize the page structure, choose colors and visual
-              references, and map out how the site should guide visitors from
-              the first section to the final call to action.
-            </p>
-            <p>
-              Goal: Create a design that looks professional and supports the
-              client’s brand..
-            </p>
-          </li>
-          <li>
-            <b>Build</b>
-            <p>
-              I develop the website using clean HTML, CSS, and JavaScript. I
-              focus on responsive layouts, readable content, interactive
-              elements, and a smooth experience across desktop, tablet, and
-              phone screens.
-            </p>
-            <p>Goal: Turn the plan into a functional, polished website.</p>
-          </li>
-          <li>
-            <b>Test and Refine</b>
-            <p>
-              Before launch, I test navigation, buttons, forms, images, spacing,
-              and mobile responsiveness. I correct issues, improve details, and
-              make sure the website feels consistent across common screen sizes.
-            </p>
-            <p>Goal: Catch problems before visitors see them.</p>
-          </li>
-          <li>
-            <b>Launch and Handoff</b>
-            <p>
-              Once the site is ready, I publish it, verify that the live version
-              works correctly, and prepare the project for future updates. The
-              result is a website that is ready to represent the business
-              online.
-            </p>
-            <p>Goal: Deliver a reliable site that is ready to use.</p>
-          </li>
-        </ol>
-      </section>
-
-      <section
-        class="home-page-section contact-home reveal-on-scroll"
-        id="contact"
-        aria-labelledby="contact-title"
-      >
-        <div class="section-copy">
-          <p class="signal-line">Contact</p>
-          <h2 id="contact-title">Start a project with Jaire Development.</h2>
-          <p>Send a quick note about the website or app you want to build.</p>
-          <a
-            class="email-link"
-            href="https://www.instagram.com/jaire_web_dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Message Jaire Development on Instagram
-          </a>
-        </div>
-
-        <form
-          class="home-contact-form"
-          action="https://formspree.io/f/mzdlqpvj"
-          method="POST"
-          accept-charset="UTF-8"
-        >
-          <input
-            type="hidden"
-            name="_subject"
-            value="New Portfolio Contact Request"
-          />
-
-          <label>
-            Name
-            <input
-              type="text"
-              name="name"
-              placeholder="Your name"
-              autocomplete="name"
-              required
-            />
-          </label>
-
-          <label>
-            Email
-            <input
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              autocomplete="email"
-              required
-            />
-          </label>
-
-          <label>
-            Phone Number
-            <input
-              type="tel"
-              name="phone"
-              placeholder="(555) 555-5555"
-              autocomplete="tel"
-            />
-          </label>
-
-          <fieldset class="contact-preference">
-            <legend>Preferred Contact Method</legend>
-
-            <label class="contact-option">
-              <input type="radio" name="preferred_contact" value="Call" />
-              <span>Call</span>
-            </label>
-
-            <label class="contact-option">
-              <input type="radio" name="preferred_contact" value="Text" />
-              <span>Text</span>
-            </label>
-
-            <label class="contact-option">
-              <input
-                type="radio"
-                name="preferred_contact"
-                value="Email"
-                checked
-              />
-              <span>Email</span>
-            </label>
-
-            <label class="contact-option">
-              <input
-                type="radio"
-                name="preferred_contact"
-                value="No Preference"
-              />
-              <span>No Preference</span>
-            </label>
-          </fieldset>
-
-          <label>
-            Project Details
-            <textarea
-              name="message"
-              placeholder="Tell me what you want to build"
-              required
-            ></textarea>
-          </label>
-
-          <button type="submit">Send Message</button>
-
-          <p class="form-note">I will get back to you as soon as possible.</p>
-        </form>
-      </section>
+        <nav aria-label="Footer navigation">
+          <a href="services.html">Services</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Start a Project</a>
+        </nav>
+        <p>© <span data-current-year>2026</span> Jaire Development.</p>
+      </footer>
     </main>
-
-    <section class="game-overlay" aria-live="polite" aria-hidden="true">
-      <div
-        class="game-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="game-title"
-      >
-        <header class="game-header">
-          <div>
-            <p class="game-kicker">TRAINING SIM</p>
-            <h2 id="game-title">Target Pop</h2>
-          </div>
-          <button class="game-close" type="button" aria-label="Close mini game">
+    <section aria-hidden="true" aria-live="polite" class="game-overlay">
+<div aria-labelledby="game-title" aria-modal="true" class="game-panel" role="dialog">
+<header class="game-header">
+<div>
+<p class="game-kicker">TRAINING SIM</p>
+<h2 id="game-title">Target Pop</h2>
+</div>
+<button aria-label="Close mini game" class="game-close" type="button">
             CLOSE
           </button>
-        </header>
-
-        <div class="game-stats">
-          <span>Score <b data-game-score>0</b></span>
-          <span>Time <b data-game-time>60</b></span>
-          <span data-game-status>Ready</span>
-        </div>
-
-        <div class="game-stage" data-game-stage>
-          <div class="game-sky">
-            <span class="game-horizon"></span>
-            <span class="game-runway"></span>
-            <span class="game-player" data-game-player></span>
-          </div>
-        </div>
-
-        <div class="game-controls">
-          <button type="button" data-game-move="-1">LEFT</button>
-          <button type="button" data-game-start>START</button>
-          <button type="button" data-game-move="1">RIGHT</button>
-        </div>
-      </div>
-    </section>
-
+</header>
+<div class="game-stats">
+<span>Score <b data-game-score="">0</b></span>
+<span>Time <b data-game-time="">60</b></span>
+<span data-game-status="">Ready</span>
+</div>
+<div class="game-stage" data-game-stage="">
+<div class="game-sky">
+<span class="game-horizon"></span>
+<span class="game-runway"></span>
+<span class="game-player" data-game-player=""></span>
+</div>
+</div>
+<div class="game-controls">
+<button data-game-move="-1" type="button">LEFT</button>
+<button data-game-start="" type="button">START</button>
+<button data-game-move="1" type="button">RIGHT</button>
+</div>
+</div>
+</section>
     <script src="script.js"></script>
   </body>
 </html>
