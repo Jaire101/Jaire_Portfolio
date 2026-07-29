@@ -1168,3 +1168,10 @@ body.future-home {
 .future-home.night-mode .full-process li p strong {
   color: #f2f8ff;
 }
+body.night-mode .service-details li {
+  color: #cbd5e1;
+}
+
+body.night-mode .service-details li::marker {
+  color: #94a3b8;
+}
