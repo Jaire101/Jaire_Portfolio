@@ -1,1 +1,1 @@
-https://jaire101.github.io/Jaire_Portfolio/Portfolio/
+http://jairedevelopment.com/Portfolio/index.html
