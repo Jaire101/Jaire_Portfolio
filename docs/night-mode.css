@@ -427,7 +427,6 @@ body.future-home {
     box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
-    ter: blur(14px);
 
     display: flex !important;
     flex-direction: column !important;
@@ -578,7 +577,6 @@ body.future-home {
     box-shadow: 0 16px 34px rgba(21, 47, 86, 0.2) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
-    ter: blur(14px);
 
     flex-direction: column !important;
     align-items: center !important;
@@ -685,7 +683,6 @@ body.future-home {
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3) !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: blur(14px);
 
   align-items: center !important;
   justify-items: center !important;
@@ -757,7 +754,6 @@ body.future-home {
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38) !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: blur(16px);
 
   flex-direction: column !important;
   align-items: stretch !important;
@@ -859,7 +855,6 @@ body.future-home {
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3) !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: blur(14px);
 
   place-items: center !important;
   transform: translateY(-50%) !important;
@@ -916,7 +911,6 @@ body.future-home {
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4) !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: blur(16px);
 
   flex-direction: column !important;
   align-items: stretch !important;
@@ -1013,7 +1007,6 @@ body.future-home {
   background: transparent !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: none !important;
 }
 
 /* Light-mode dropdown stays transparent too. */
@@ -1023,7 +1016,6 @@ body.future-home {
   background: transparent !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: none !important;
 }
 /* =========================================================
    TRANSPARENT SIDE DROPDOWN MENU
@@ -1033,7 +1025,6 @@ body.future-home {
   background: transparent !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: none !important;
 }
 
 /* =========================================================
@@ -1042,13 +1033,11 @@ body.future-home {
 
 .future-nav.is-side-nav.is-side-menu-open .nav-links {
   background: transparent !important;
-  -webkit--webkit-backdrop-filter: none !important;
-  backdrop-filter: none !important;
-  ter: none !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: none !important;
-  ter: none !important;
+
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
 
 /* Light-mode dropdown stays transparent too. */
@@ -1058,11 +1047,8 @@ body.future-home {
   background: transparent !important;
   -webkit--webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: none !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: none !important;
-  ter: none !important;
 }
 
 /* Make the Day/Night button inside the dropdown transparent too. */
@@ -1076,7 +1062,6 @@ body.future-home {
   box-shadow: none !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: none !important;
 }
 /* Transparent dark-mode side-nav container */
 .future-home.night-mode .future-nav.is-side-nav {
@@ -1085,7 +1070,6 @@ body.future-home {
   box-shadow: none !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  ter: none !important;
 }
 /* =========================================================
    JAIRE DEVELOPMENT NAVBAR LOGO
