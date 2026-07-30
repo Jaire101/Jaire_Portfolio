@@ -13,7 +13,10 @@
   background: rgba(255, 255, 255, 0.8);
   color: #102a52;
   cursor: pointer;
-  font: 800 0.74rem/1 "Segoe UI", Arial, sans-serif;
+  font:
+    800 0.74rem/1 "Segoe UI",
+    Arial,
+    sans-serif;
   letter-spacing: 0.02em;
   white-space: nowrap;
   box-shadow: 0 10px 22px rgba(10, 32, 78, 0.08);
@@ -72,12 +75,7 @@ body.future-home {
       rgba(112, 63, 255, 0.13),
       transparent 26%
     ),
-    linear-gradient(
-      180deg,
-      #071326 0%,
-      #030712 46%,
-      #07111f 100%
-    );
+    linear-gradient(180deg, #071326 0%, #030712 46%, #07111f 100%);
 }
 
 .future-home.night-mode .future-nav {
@@ -427,7 +425,9 @@ body.future-home {
     border-radius: 16px !important;
     background: rgba(5, 15, 31, 0.88) !important;
     box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28) !important;
-    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    ter: blur(14px);
 
     display: flex !important;
     flex-direction: column !important;
@@ -576,7 +576,9 @@ body.future-home {
     border-radius: 14px !important;
     background: rgba(255, 255, 255, 0.94) !important;
     box-shadow: 0 16px 34px rgba(21, 47, 86, 0.2) !important;
-    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    ter: blur(14px);
 
     flex-direction: column !important;
     align-items: center !important;
@@ -681,7 +683,9 @@ body.future-home {
   border-radius: 18px !important;
   background: rgba(5, 15, 31, 0.94) !important;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3) !important;
-  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  ter: blur(14px);
 
   align-items: center !important;
   justify-items: center !important;
@@ -751,7 +755,9 @@ body.future-home {
   border-radius: 14px !important;
   background: rgba(5, 15, 31, 0.97) !important;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38) !important;
-  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  ter: blur(16px);
 
   flex-direction: column !important;
   align-items: stretch !important;
@@ -783,9 +789,7 @@ body.future-home {
   box-shadow: 0 16px 34px rgba(21, 47, 86, 0.18) !important;
 }
 
-.future-home:not(.night-mode)
-  .future-nav.is-side-nav
-  .side-menu-toggle {
+.future-home:not(.night-mode) .future-nav.is-side-nav .side-menu-toggle {
   border-color: rgba(49, 95, 213, 0.35) !important;
   background: rgba(49, 95, 213, 0.08) !important;
   color: #14213d !important;
@@ -853,7 +857,9 @@ body.future-home {
   border-radius: 18px !important;
   background: rgba(5, 15, 31, 0.94) !important;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3) !important;
-  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  ter: blur(14px);
 
   place-items: center !important;
   transform: translateY(-50%) !important;
@@ -908,7 +914,9 @@ body.future-home {
   border-radius: 14px !important;
   background: rgba(5, 15, 31, 0.98) !important;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4) !important;
-  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  ter: blur(16px);
 
   flex-direction: column !important;
   align-items: stretch !important;
@@ -969,9 +977,7 @@ body.future-home {
   box-shadow: 0 16px 34px rgba(21, 47, 86, 0.18) !important;
 }
 
-.future-home:not(.night-mode)
-  .future-nav.is-side-nav
-  .side-menu-toggle {
+.future-home:not(.night-mode) .future-nav.is-side-nav .side-menu-toggle {
   border-color: rgba(49, 95, 213, 0.35) !important;
   background: rgba(49, 95, 213, 0.08) !important;
   color: #14213d !important;
@@ -1005,7 +1011,9 @@ body.future-home {
 
 .future-nav.is-side-nav.is-side-menu-open .nav-links {
   background: transparent !important;
+  -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
+  ter: none !important;
 }
 
 /* Light-mode dropdown stays transparent too. */
@@ -1013,7 +1021,9 @@ body.future-home {
   .future-nav.is-side-nav.is-side-menu-open
   .nav-links {
   background: transparent !important;
+  -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
+  ter: none !important;
 }
 /* =========================================================
    TRANSPARENT SIDE DROPDOWN MENU
@@ -1021,7 +1031,9 @@ body.future-home {
 
 .future-nav.is-side-nav.is-side-menu-open .nav-links {
   background: transparent !important;
+  -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
+  ter: none !important;
 }
 
 /* =========================================================
@@ -1030,7 +1042,13 @@ body.future-home {
 
 .future-nav.is-side-nav.is-side-menu-open .nav-links {
   background: transparent !important;
+  -webkit--webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
+  ter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  ter: none !important;
+  ter: none !important;
 }
 
 /* Light-mode dropdown stays transparent too. */
@@ -1038,7 +1056,13 @@ body.future-home {
   .future-nav.is-side-nav.is-side-menu-open
   .nav-links {
   background: transparent !important;
+  -webkit--webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
+  ter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  ter: none !important;
+  ter: none !important;
 }
 
 /* Make the Day/Night button inside the dropdown transparent too. */
@@ -1050,14 +1074,18 @@ body.future-home {
   background: transparent !important;
   border-color: transparent !important;
   box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
+  ter: none !important;
 }
 /* Transparent dark-mode side-nav container */
 .future-home.night-mode .future-nav.is-side-nav {
   background: transparent !important;
   border-color: transparent !important;
   box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
+  ter: none !important;
 }
 /* =========================================================
    JAIRE DEVELOPMENT NAVBAR LOGO
@@ -1135,7 +1163,6 @@ body.future-home {
     min-width: 44px !important;
   }
 }
-  
 
 /* MULTI-PAGE NIGHT MODE */
 .future-home.night-mode .page-hero-visual,
@@ -1155,7 +1182,11 @@ body.future-home {
 .future-home.night-mode .preview-steps li,
 .future-home.night-mode .contact-method-card,
 .future-home.night-mode .final-cta {
-  background: linear-gradient(145deg, rgba(11, 28, 55, 0.92), rgba(5, 12, 27, 0.94));
+  background: linear-gradient(
+    145deg,
+    rgba(11, 28, 55, 0.92),
+    rgba(5, 12, 27, 0.94)
+  );
 }
 
 .future-home.night-mode .page-hero-visual img,
