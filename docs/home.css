@@ -388,7 +388,6 @@ body.future-home {
   background: var(--future-panel);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  :blur(18px);
 }
 
 .status-card {
@@ -1712,7 +1711,6 @@ body.future-page .page-header {
   font-weight: 900;
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  :blur(18px);
 }
 
 body.future-page .back {
