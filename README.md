@@ -1,1 +1,1 @@
-http://jairedevelopment.com/Portfolio/index.html
+https://jairedevelopment.com/
