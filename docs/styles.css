@@ -94,13 +94,12 @@ button {
   inset: 0;
   z-index: 0;
   content: "";
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.12),
-      transparent 36%,
-      rgba(0, 0, 0, 0.28)
-    );
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.12),
+    transparent 36%,
+    rgba(0, 0, 0, 0.28)
+  );
   pointer-events: none;
 }
 
@@ -294,18 +293,14 @@ button {
 .stars {
   inset: 0;
   background-image:
-    radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.92) 0 1px,
-      transparent 1.5px
-    ),
-    radial-gradient(
-      circle,
-      rgba(180, 218, 255, 0.8) 0 1px,
-      transparent 1.5px
-    );
-  background-position: 14vw 12vh, 8vw 18vh;
-  background-size: 120px 92px, 170px 130px;
+    radial-gradient(circle, rgba(255, 255, 255, 0.92) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(180, 218, 255, 0.8) 0 1px, transparent 1.5px);
+  background-position:
+    14vw 12vh,
+    8vw 18vh;
+  background-size:
+    120px 92px,
+    170px 130px;
 }
 
 /* =========================================================
@@ -386,11 +381,7 @@ button {
   padding: clamp(8px, 1.1vw, 14px);
   border-radius: 18px 18px 0 0;
   background:
-    linear-gradient(
-      180deg,
-      rgba(70, 80, 82, 0.72),
-      rgba(12, 15, 16, 0.96) 19%
-    ),
+    linear-gradient(180deg, rgba(70, 80, 82, 0.72), rgba(12, 15, 16, 0.96) 19%),
     repeating-linear-gradient(
       90deg,
       rgba(255, 255, 255, 0.03) 0 1px,
@@ -416,7 +407,9 @@ button {
   display: flex;
   gap: 8px;
   color: #c7d1cc;
-  font: 700 0.75rem "Consolas", monospace;
+  font:
+    700 0.75rem "Consolas",
+    monospace;
   align-items: center;
 }
 
@@ -489,7 +482,9 @@ button {
 }
 .hard-button span {
   color: var(--amber);
-  font: 800 0.64rem "Consolas", monospace;
+  font:
+    800 0.64rem "Consolas",
+    monospace;
 }
 
 .hard-button:hover,
@@ -524,7 +519,9 @@ button {
   display: block;
   width: 100%;
   margin: 0;
-  font: 900 1.25rem "Consolas", monospace;
+  font:
+    900 1.25rem "Consolas",
+    monospace;
   line-height: 1;
   text-align: center;
 }
@@ -533,7 +530,9 @@ button {
   display: block;
   width: 100%;
   margin: 0;
-  font: 800 0.52rem "Consolas", monospace;
+  font:
+    800 0.52rem "Consolas",
+    monospace;
   line-height: 1.05;
   text-align: center;
 }
@@ -577,7 +576,9 @@ button {
   background: #0e1112;
   color: var(--amber);
   cursor: pointer;
-  font: 900 0.56rem "Consolas", monospace;
+  font:
+    900 0.56rem "Consolas",
+    monospace;
   line-height: 0.9;
   text-decoration: none;
   place-items: center;
@@ -601,12 +602,8 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 5px;
   background:
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.05) 1px,
-      transparent 1px
-    )
-    0 0 / 12px 100%,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 /
+      12px 100%,
     linear-gradient(180deg, #242b2c, #101314);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -617,7 +614,9 @@ button {
 }
 
 .jet-switch span {
-  font: 800 0.6rem "Consolas", monospace;
+  font:
+    800 0.6rem "Consolas",
+    monospace;
 }
 
 .jet-switch i {
@@ -665,7 +664,6 @@ button {
   text-align: left;
 }
 
-
 .mfd::before {
   position: absolute;
   inset: 10px;
@@ -673,10 +671,10 @@ button {
   border-radius: 5px;
   background:
     linear-gradient(
-      rgba(102, 255, 173, 0.08) 50%,
-      rgba(102, 255, 173, 0.02) 50%
-    )
-    0 0 / 100% 6px,
+        rgba(102, 255, 173, 0.08) 50%,
+        rgba(102, 255, 173, 0.02) 50%
+      )
+      0 0 / 100% 6px,
     radial-gradient(
       circle at center,
       rgba(102, 255, 173, 0.12),
@@ -699,7 +697,9 @@ button {
   right: 0;
   left: 0;
   display: block;
-  font: 800 0.64rem "Consolas", monospace;
+  font:
+    800 0.64rem "Consolas",
+    monospace;
   text-align: center;
 }
 
@@ -738,13 +738,8 @@ button {
   left: 50%;
   width: 50%;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    rgba(102, 255, 173, 0.9),
-    transparent
-  );
+  background: linear-gradient(90deg, rgba(102, 255, 173, 0.9), transparent);
   transform-origin: left center;
-  animation: sweep 2.8s linear infinite;
 }
 
 .blip {
@@ -778,7 +773,9 @@ button {
   left: 28px;
   display: grid;
   gap: 7px;
-  font: 700 0.64rem "Consolas", monospace;
+  font:
+    700 0.64rem "Consolas",
+    monospace;
   text-align: left;
 }
 
@@ -812,7 +809,9 @@ button {
   border-radius: 50%;
   background: radial-gradient(circle, #182020, #030505 72%);
   color: var(--green);
-  font: 800 0.66rem "Consolas", monospace;
+  font:
+    800 0.66rem "Consolas",
+    monospace;
   place-items: center;
 }
 
@@ -885,11 +884,7 @@ button {
   border: 1px solid rgba(102, 255, 173, 0.36);
   border-radius: 8px;
   background:
-    linear-gradient(
-      180deg,
-      rgba(19, 33, 35, 0.96),
-      rgba(4, 8, 9, 0.98)
-    ),
+    linear-gradient(180deg, rgba(19, 33, 35, 0.96), rgba(4, 8, 9, 0.98)),
     repeating-linear-gradient(
       90deg,
       rgba(102, 255, 173, 0.035) 0 1px,
@@ -917,13 +912,17 @@ button {
 .game-kicker {
   margin: 0 0 4px;
   color: var(--amber);
-  font: 900 0.72rem "Consolas", monospace;
+  font:
+    900 0.72rem "Consolas",
+    monospace;
 }
 
 .game-header h2 {
   margin: 0;
   color: var(--green);
-  font: 900 clamp(1.3rem, 4vw, 2rem) "Consolas", monospace;
+  font:
+    900 clamp(1.3rem, 4vw, 2rem) "Consolas",
+    monospace;
 }
 
 .game-close,
@@ -935,14 +934,18 @@ button {
   background: rgba(255, 176, 47, 0.1);
   color: var(--amber);
   cursor: pointer;
-  font: 900 0.78rem "Consolas", monospace;
+  font:
+    900 0.78rem "Consolas",
+    monospace;
 }
 
 .game-stats {
   padding: 12px 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   color: #d9e6e1;
-  font: 800 0.82rem "Consolas", monospace;
+  font:
+    800 0.82rem "Consolas",
+    monospace;
 }
 
 .game-stats b,
@@ -1050,10 +1053,10 @@ button {
 .game-evade .game-sky {
   background:
     linear-gradient(
-      rgba(102, 255, 173, 0.08) 50%,
-      rgba(102, 255, 173, 0.02) 50%
-    )
-    0 0 / 100% 8px,
+        rgba(102, 255, 173, 0.08) 50%,
+        rgba(102, 255, 173, 0.02) 50%
+      )
+      0 0 / 100% 8px,
     radial-gradient(
       circle at 50% 20%,
       rgba(102, 255, 173, 0.12),
@@ -1116,7 +1119,9 @@ button {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: linear-gradient(90deg, #111719, #222a2d);
   color: var(--amber);
-  font: 900 0.85rem "Consolas", monospace;
+  font:
+    900 0.85rem "Consolas",
+    monospace;
   align-items: center;
   justify-content: space-between;
 }
@@ -1139,10 +1144,7 @@ button {
   min-height: calc(100vh - 72px);
   padding: clamp(28px, 6vw, 76px);
   background:
-    linear-gradient(
-      rgba(7, 9, 10, 0.84),
-      rgba(7, 9, 10, 0.95)
-    ),
+    linear-gradient(rgba(7, 9, 10, 0.84), rgba(7, 9, 10, 0.95)),
     url("assets/canopy-flight.png") center / cover fixed;
 }
 
@@ -1152,7 +1154,9 @@ button {
 
 .eyebrow {
   color: var(--green);
-  font: 900 0.82rem "Consolas", monospace;
+  font:
+    900 0.82rem "Consolas",
+    monospace;
 }
 
 h1 {
@@ -1210,7 +1214,9 @@ p {
 .data-grid span,
 .project-list span {
   color: var(--amber);
-  font: 900 0.78rem "Consolas", monospace;
+  font:
+    900 0.78rem "Consolas",
+    monospace;
 }
 
 .data-grid strong {
@@ -1225,7 +1231,9 @@ p {
 
 .tech {
   color: #d8e4df;
-  font: 800 0.78rem "Consolas", monospace;
+  font:
+    800 0.78rem "Consolas",
+    monospace;
 }
 
 .project-actions {
@@ -1276,7 +1284,9 @@ p {
   left: 22px;
   color: var(--amber);
   content: counter(list-item, decimal-leading-zero);
-  font: 900 1rem "Consolas", monospace;
+  font:
+    900 1rem "Consolas",
+    monospace;
 }
 
 .comms-form {
@@ -1347,7 +1357,9 @@ p {
 .profile-role {
   margin: 0 0 22px;
   color: var(--amber);
-  font: 900 clamp(0.72rem, 1.4vw, 0.95rem) "Consolas", monospace;
+  font:
+    900 clamp(0.72rem, 1.4vw, 0.95rem) "Consolas",
+    monospace;
   line-height: 1.5;
 }
 
@@ -1448,7 +1460,9 @@ p {
 
 .strength-grid article > span {
   color: var(--amber);
-  font: 900 0.78rem "Consolas", monospace;
+  font:
+    900 0.78rem "Consolas",
+    monospace;
 }
 
 .strength-grid h3 {
@@ -1488,7 +1502,9 @@ p {
 .skill-title {
   display: flex;
   color: var(--text);
-  font: 900 0.82rem "Consolas", monospace;
+  font:
+    900 0.82rem "Consolas",
+    monospace;
   letter-spacing: 0.06em;
   justify-content: space-between;
 }
@@ -1515,11 +1531,7 @@ p {
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(102, 255, 173, 0.72),
-    var(--green)
-  );
+  background: linear-gradient(90deg, rgba(102, 255, 173, 0.72), var(--green));
   box-shadow: 0 0 14px rgba(102, 255, 173, 0.58);
 }
 
@@ -1542,12 +1554,6 @@ p {
 /* =========================================================
    ANIMATIONS
    ========================================================= */
-
-@keyframes sweep {
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 @keyframes jetSlashOne {
   0% {
@@ -1818,7 +1824,7 @@ p {
 
 @media (max-width: 860px) {
   .cockpit-reveal {
-    min-height: auto;
+    min-height: 0;
     padding: 56svh 12px 24px;
     background-position: center top;
     background-size: auto 70svh;
@@ -1910,65 +1916,65 @@ p {
 
 @media (max-width: 620px) {
   .cockpit-reveal {
-  position: relative;
-  display: grid;
-  min-height: 100svh;
-  padding: clamp(20px, 4vh, 40px) clamp(12px, 2vw, 24px);
-  overflow: hidden;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(4, 10, 12, 0.28) 0%,
-      rgba(4, 10, 12, 0.08) 34%,
-      rgba(4, 10, 12, 0.62) 100%
-    ),
-    radial-gradient(
-      circle at 50% 52%,
-      transparent 0 28%,
-      rgba(2, 6, 7, 0.48) 84%
-    ),
-    url("assets/cockpit-integrated-bg.png") center / cover no-repeat;
-  isolation: isolate;
-  place-items: center;
-}
+    position: relative;
+    display: grid;
+    min-height: 100svh;
+    padding: clamp(20px, 4vh, 40px) clamp(12px, 2vw, 24px);
+    overflow: hidden;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(4, 10, 12, 0.28) 0%,
+        rgba(4, 10, 12, 0.08) 34%,
+        rgba(4, 10, 12, 0.62) 100%
+      ),
+      radial-gradient(
+        circle at 50% 52%,
+        transparent 0 28%,
+        rgba(2, 6, 7, 0.48) 84%
+      ),
+      url("assets/cockpit-integrated-bg.png") center / cover no-repeat;
+    isolation: isolate;
+    place-items: center;
+  }
 
   .cockpit {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(34px, 7vh, 82px);
-  z-index: 2;
-  width: min(760px, 47vw);
-  padding: clamp(8px, 1vw, 12px);
-  border-radius: 18px 18px 0 0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(70, 80, 82, 0.72),
-      rgba(12, 15, 16, 0.96) 19%
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.03) 0 1px,
-      transparent 1px 84px
-    );
-  box-shadow:
-    0 -12px 42px rgba(0, 0, 0, 0.62),
-    inset 0 2px 0 rgba(255, 255, 255, 0.12);
-  transform: translateX(-50%) scale(0.88);
-  transform-origin: center bottom;
-}
+    position: absolute;
+    left: 50%;
+    bottom: clamp(34px, 7vh, 82px);
+    z-index: 2;
+    width: min(760px, 47vw);
+    padding: clamp(8px, 1vw, 12px);
+    border-radius: 18px 18px 0 0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(70, 80, 82, 0.72),
+        rgba(12, 15, 16, 0.96) 19%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.03) 0 1px,
+        transparent 1px 84px
+      );
+    box-shadow:
+      0 -12px 42px rgba(0, 0, 0, 0.62),
+      inset 0 2px 0 rgba(255, 255, 255, 0.12);
+    transform: translateX(-50%) scale(0.88);
+    transform-origin: center bottom;
+  }
 
   .console-grid {
-  display: grid;
-  grid-template-columns:
-    minmax(72px, 0.72fr)
-    minmax(130px, 1.15fr)
-    minmax(96px, 0.78fr)
-    minmax(130px, 1.15fr)
-    minmax(72px, 0.72fr);
-  gap: 6px;
-  align-items: stretch;
-}
+    display: grid;
+    grid-template-columns:
+      minmax(72px, 0.72fr)
+      minmax(130px, 1.15fr)
+      minmax(96px, 0.78fr)
+      minmax(130px, 1.15fr)
+      minmax(72px, 0.72fr);
+    gap: 6px;
+    align-items: stretch;
+  }
 
   .left-panel,
   .right-panel,
@@ -1978,11 +1984,11 @@ p {
   }
 
   .side-panel {
-  display: grid;
-  gap: 5px;
-  padding: 7px;
-  border-radius: 7px;
-}
+    display: grid;
+    gap: 5px;
+    padding: 7px;
+    border-radius: 7px;
+  }
 
   .mfd {
     min-height: 210px;
@@ -2040,7 +2046,7 @@ p {
   }
 
   .strength-grid article {
-    min-height: auto;
+    min-height: 0;
   }
 
   .project-actions a,
@@ -2135,7 +2141,7 @@ p {
   .cockpit-reveal {
     display: grid !important;
     width: 100%;
-    min-height: auto !important;
+    min-height: 0 !important;
     padding: 56svh 12px 24px !important;
     aspect-ratio: auto;
 
@@ -2155,4 +2161,155 @@ p {
 
     transform: none !important;
   }
+}
+/* ========================================
+   Ink & Iron portfolio project
+======================================== */
+
+.tattoo-project-card {
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: rgba(14, 14, 14, 0.94);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.tattoo-project-card:hover {
+  border-color: rgba(182, 138, 74, 0.8);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+  transform: translateY(-7px);
+}
+
+.tattoo-project-card .project-image {
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0b0b0b;
+}
+
+.tattoo-project-card .project-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s ease;
+}
+
+.tattoo-project-card:hover .project-image img {
+  transform: scale(1.04);
+}
+
+.tattoo-project-card .project-content {
+  padding: 28px;
+}
+
+.tattoo-project-card .project-category {
+  margin-bottom: 10px;
+  color: #d1a766;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.tattoo-project-card h3 {
+  margin-bottom: 14px;
+  color: #f4f1ea;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.tattoo-project-card .project-description {
+  color: #aaa69d;
+  line-height: 1.7;
+}
+
+.tattoo-project-card .project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 22px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tattoo-project-card .project-technologies li {
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #d4d1ca;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.tattoo-project-card .project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tattoo-project-card .project-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 19px;
+  border: 1px solid #b68a4a;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.tattoo-project-card .project-button:hover {
+  transform: translateY(-2px);
+}
+
+.tattoo-project-card .project-button-primary {
+  background: #b68a4a;
+  color: #0b0b0b;
+}
+
+.tattoo-project-card .project-button-primary:hover {
+  background: #d1a766;
+}
+
+.tattoo-project-card .project-button-secondary {
+  background: transparent;
+  color: #d1a766;
+}
+
+.tattoo-project-card .project-button-secondary:hover {
+  background: #b68a4a;
+  color: #0b0b0b;
+}
+
+@media (max-width: 600px) {
+  .tattoo-project-card .project-content {
+    padding: 22px;
+  }
+
+  .tattoo-project-card .project-links {
+    display: grid;
+  }
+
+  .tattoo-project-card .project-button {
+    width: 100%;
+  }
+}
+/* Disable scroll-reveal animations */
+.reveal-on-scroll,
+.reveal-on-scroll.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
 }

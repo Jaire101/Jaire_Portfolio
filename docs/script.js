@@ -1,38 +1,13 @@
 const homeBody = document.querySelector(".future-home");
-const cursorGlow = document.querySelector(".cursor-glow");
+
 const readout = document.querySelector("[data-readout]");
 const themeMessages = {
-  airforce: "Air Force signal active: precision, checklist discipline, and mission focus.",
+  airforce:
+    "Air Force signal active: precision, checklist discipline, and mission focus.",
   code: "Coding signal active: responsive layouts, clean interactions, and reliable front-end systems.",
-  marvel: "Marvel signal active: bold color, cinematic motion, and hero-level presentation."
+  marvel:
+    "Marvel signal active: bold color, cinematic motion, and hero-level presentation.",
 };
-
-if (homeBody && cursorGlow) {
-  window.addEventListener("pointermove", (event) => {
-    homeBody.style.setProperty("--cursor-x", `${event.clientX}px`);
-    homeBody.style.setProperty("--cursor-y", `${event.clientY}px`);
-  });
-}
-
-const revealItems = document.querySelectorAll(".reveal-on-scroll");
-
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.18 }
-  );
-
-  revealItems.forEach((item) => revealObserver.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add("is-visible"));
-}
 
 document.querySelectorAll("[data-theme]").forEach((button) => {
   button.addEventListener("click", () => {
@@ -51,58 +26,6 @@ document.querySelectorAll("[data-theme]").forEach((button) => {
     }, 950);
   });
 });
-
-document.querySelectorAll(".tilt-card").forEach((card) => {
-  card.addEventListener("pointermove", (event) => {
-    const bounds = card.getBoundingClientRect();
-    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-    card.style.transform = `rotateX(${y * -8}deg) rotateY(${x * 8}deg) translateY(-4px)`;
-  });
-
-  card.addEventListener("pointerleave", () => {
-    card.style.transform = "";
-  });
-});
-
-const counters = document.querySelectorAll("[data-count-to]");
-
-function animateCounter(counter) {
-  const target = Number(counter.dataset.countTo || 0);
-  const duration = 900;
-  const start = performance.now();
-
-  function tick(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    counter.textContent = Math.round(target * progress);
-
-    if (progress < 1) {
-      requestAnimationFrame(tick);
-    } else if (target === 100) {
-      counter.textContent = "100%";
-    }
-  }
-
-  requestAnimationFrame(tick);
-}
-
-if ("IntersectionObserver" in window) {
-  const counterObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.55 }
-  );
-
-  counters.forEach((counter) => counterObserver.observe(counter));
-} else {
-  counters.forEach(animateCounter);
-}
 
 const gameOverlay = document.querySelector(".game-overlay");
 const gameTitle = document.querySelector("#game-title");
@@ -126,7 +49,9 @@ function setGamePlayerPosition() {
 }
 
 function clearGameObjects() {
-  gameSky?.querySelectorAll(".game-dot, .enemy-shot").forEach((item) => item.remove());
+  gameSky
+    ?.querySelectorAll(".game-dot, .enemy-shot")
+    .forEach((item) => item.remove());
 }
 
 function updateGameStatus(message) {
@@ -134,7 +59,12 @@ function updateGameStatus(message) {
 }
 
 function movePlayer(direction) {
-  if (!gameOverlay || gameOverlay.getAttribute("aria-hidden") === "true" || activeGame !== "evade") return;
+  if (
+    !gameOverlay ||
+    gameOverlay.getAttribute("aria-hidden") === "true" ||
+    activeGame !== "evade"
+  )
+    return;
   gameX = Math.max(8, Math.min(92, gameX + direction * 10));
   setGamePlayerPosition();
 }
@@ -151,14 +81,21 @@ function openGame(game) {
   window.clearInterval(spawnTimer);
   clearGameObjects();
   gameOverlay?.classList.remove("game-shooter", "game-evade", "is-playing");
-  gameOverlay?.classList.add(game === "shooter" ? "game-shooter" : "game-evade");
+  gameOverlay?.classList.add(
+    game === "shooter" ? "game-shooter" : "game-evade",
+  );
   gameOverlay?.setAttribute("aria-hidden", "false");
 
-  if (gameTitle) gameTitle.textContent = game === "shooter" ? "Target Pop" : "Incoming Fire";
+  if (gameTitle)
+    gameTitle.textContent = game === "shooter" ? "Target Pop" : "Incoming Fire";
   if (gameScore) gameScore.textContent = score;
   if (gameTime) gameTime.textContent = timeLeft;
   setGamePlayerPosition();
-  updateGameStatus(game === "shooter" ? "Click the targets before they vanish." : "Move left and right. Do not get hit.");
+  updateGameStatus(
+    game === "shooter"
+      ? "Click the targets before they vanish."
+      : "Move left and right. Do not get hit.",
+  );
 }
 
 function spawnTarget() {
@@ -195,7 +132,9 @@ function spawnShot() {
     const shotX = parseFloat(shot.style.left);
     if (Math.abs(shotX - gameX) < 8 && gameRunning) {
       lives -= 1;
-      updateGameStatus(lives > 0 ? `Hit taken. ${lives} shields left.` : "Shields down.");
+      updateGameStatus(
+        lives > 0 ? `Hit taken. ${lives} shields left.` : "Shields down.",
+      );
       if (lives <= 0) endGame("Game over. Try again.");
     } else if (gameRunning) {
       score += 5;
@@ -206,7 +145,8 @@ function spawnShot() {
 }
 
 function startGame() {
-  if (!gameOverlay || gameOverlay.getAttribute("aria-hidden") === "true") return;
+  if (!gameOverlay || gameOverlay.getAttribute("aria-hidden") === "true")
+    return;
   window.clearInterval(gameTimer);
   window.clearInterval(spawnTimer);
   clearGameObjects();
@@ -219,15 +159,24 @@ function startGame() {
   if (gameTime) gameTime.textContent = timeLeft;
   setGamePlayerPosition();
   gameOverlay.classList.add("is-playing");
-  updateGameStatus(activeGame === "shooter" ? "Shoot every dot." : "Avoid incoming shots.");
-  spawnTimer = window.setInterval(activeGame === "shooter" ? spawnTarget : spawnShot, activeGame === "shooter" ? 650 : 520);
+  updateGameStatus(
+    activeGame === "shooter" ? "Shoot every dot." : "Avoid incoming shots.",
+  );
+  spawnTimer = window.setInterval(
+    activeGame === "shooter" ? spawnTarget : spawnShot,
+    activeGame === "shooter" ? 650 : 520,
+  );
 
   gameTimer = window.setInterval(() => {
     timeLeft -= 1;
     if (gameTime) gameTime.textContent = timeLeft;
 
     if (timeLeft <= 0) {
-      endGame(activeGame === "shooter" ? "Time. Targets complete." : "You survived the minute.");
+      endGame(
+        activeGame === "shooter"
+          ? "Time. Targets complete."
+          : "You survived the minute.",
+      );
     }
   }, 1000);
 }
@@ -253,26 +202,30 @@ document.querySelectorAll("[data-game]").forEach((button) => {
   button.addEventListener("click", () => openGame(button.dataset.game));
 });
 
-document.querySelector("[data-game-start]")?.addEventListener("click", startGame);
+document
+  .querySelector("[data-game-start]")
+  ?.addEventListener("click", startGame);
 document.querySelector(".game-close")?.addEventListener("click", closeGame);
 
 document.querySelectorAll("[data-game-move]").forEach((button) => {
-  button.addEventListener("click", () => movePlayer(Number(button.dataset.gameMove)));
+  button.addEventListener("click", () =>
+    movePlayer(Number(button.dataset.gameMove)),
+  );
 });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeGame();
-  if (event.key === "ArrowLeft" || event.key.toLowerCase() === "a") movePlayer(-1);
-  if (event.key === "ArrowRight" || event.key.toLowerCase() === "d") movePlayer(1);
+  if (event.key === "ArrowLeft" || event.key.toLowerCase() === "a")
+    movePlayer(-1);
+  if (event.key === "ArrowRight" || event.key.toLowerCase() === "d")
+    movePlayer(1);
 });
 
 /* =========================================================
    PERSISTENT NIGHT MODE
    ========================================================= */
 
-const nightModeToggles = document.querySelectorAll(
-  "[data-night-mode-toggle]"
-);
+const nightModeToggles = document.querySelectorAll("[data-night-mode-toggle]");
 
 const NIGHT_MODE_STORAGE_KEY = "jaire-portfolio-night-mode";
 
@@ -284,7 +237,7 @@ function setNightMode(enabled, persist = false) {
 
     toggle.setAttribute(
       "aria-label",
-      enabled ? "Turn off night mode" : "Turn on night mode"
+      enabled ? "Turn off night mode" : "Turn on night mode",
     );
 
     const modeLabel = toggle.querySelector(".mode-label");
@@ -303,7 +256,7 @@ function setNightMode(enabled, persist = false) {
     try {
       window.localStorage.setItem(
         NIGHT_MODE_STORAGE_KEY,
-        enabled ? "night" : "day"
+        enabled ? "night" : "day",
       );
     } catch {
       /* Mode still works if browser storage is unavailable. */
@@ -348,7 +301,7 @@ function setSideMenu(open) {
   sideMenuToggle.setAttribute("aria-expanded", String(shouldOpen));
   sideMenuToggle.setAttribute(
     "aria-label",
-    shouldOpen ? "Close navigation menu" : "Open navigation menu"
+    shouldOpen ? "Close navigation menu" : "Open navigation menu",
   );
 
   const icon = sideMenuToggle.querySelector("span");
@@ -400,7 +353,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("scroll", updateSideNavigation, {
-  passive: true
+  passive: true,
 });
 
 window.addEventListener("resize", updateSideNavigation);
