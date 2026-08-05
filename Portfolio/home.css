@@ -14,9 +14,21 @@ body.future-home {
   min-height: 100%;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 18% 16%, rgba(255, 54, 95, 0.18), transparent 28vw),
-    radial-gradient(circle at 82% 8%, rgba(98, 125, 255, 0.2), transparent 30vw),
-    radial-gradient(circle at 50% 85%, rgba(103, 232, 249, 0.16), transparent 34vw),
+    radial-gradient(
+      circle at 18% 16%,
+      rgba(255, 54, 95, 0.18),
+      transparent 28vw
+    ),
+    radial-gradient(
+      circle at 82% 8%,
+      rgba(98, 125, 255, 0.2),
+      transparent 30vw
+    ),
+    radial-gradient(
+      circle at 50% 85%,
+      rgba(103, 232, 249, 0.16),
+      transparent 34vw
+    ),
     var(--future-bg);
   color: var(--future-text);
 }
@@ -32,7 +44,6 @@ body.future-home {
   background-size: 44px 44px;
   -webkit-mask-image: linear-gradient(to bottom, black, transparent 88%);
   mask-image: linear-gradient(to bottom, black, transparent 88%);
-  animation: gridDrift 18s linear infinite;
 }
 
 .future-home::after {
@@ -41,24 +52,20 @@ body.future-home {
   z-index: -2;
   content: "";
   background:
-    linear-gradient(115deg, transparent 0 42%, rgba(255, 209, 102, 0.08) 48%, transparent 54%),
-    repeating-linear-gradient(90deg, transparent 0 88px, rgba(255, 255, 255, 0.035) 89px 90px);
+    linear-gradient(
+      115deg,
+      transparent 0 42%,
+      rgba(255, 209, 102, 0.08) 48%,
+      transparent 54%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 88px,
+      rgba(255, 255, 255, 0.035) 89px 90px
+    );
   pointer-events: none;
 }
 
-.cursor-glow {
-  position: fixed;
-  left: var(--cursor-x, 50%);
-  top: var(--cursor-y, 50%);
-  z-index: -1;
-  width: 34rem;
-  height: 34rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(103, 232, 249, 0.16), transparent 62%);
-  transform: translate(-50%, -50%);
-  transition: left 120ms ease, top 120ms ease;
-  pointer-events: none;
-}
 
 .future-shell {
   width: min(1180px, calc(100% - 32px));
@@ -78,8 +85,7 @@ body.future-home {
   border-radius: 8px;
   background: rgba(5, 7, 13, 0.72);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
+  
   align-items: center;
   justify-content: space-between;
 }
@@ -157,7 +163,9 @@ body.future-home {
 .signal-line {
   margin: 0 0 16px;
   color: var(--future-cyan);
-  font: 800 0.78rem "Consolas", monospace;
+  font:
+    800 0.78rem "Consolas",
+    monospace;
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -194,7 +202,10 @@ body.future-home {
   cursor: pointer;
   font-weight: 850;
   text-decoration: none;
-  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .primary-action,
@@ -240,9 +251,15 @@ body.future-home {
 .hero-interface::before {
   position: absolute;
   inset: -40%;
-  background: conic-gradient(from 90deg, transparent, rgba(103, 232, 249, 0.18), transparent, rgba(255, 54, 95, 0.18), transparent);
+  background: conic-gradient(
+    from 90deg,
+    transparent,
+    rgba(103, 232, 249, 0.18),
+    transparent,
+    rgba(255, 54, 95, 0.18),
+    transparent
+  );
   content: "";
-  animation: rotateSlow 14s linear infinite;
 }
 
 .core-orbit {
@@ -275,11 +292,18 @@ body.future-home {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(transparent 0 47%, rgba(103, 232, 249, 0.34) 48% 50%, transparent 51%),
-    repeating-linear-gradient(0deg, transparent 0 7px, rgba(255, 255, 255, 0.08) 8px 9px);
+    linear-gradient(
+      transparent 0 47%,
+      rgba(103, 232, 249, 0.34) 48% 50%,
+      transparent 51%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 7px,
+      rgba(255, 255, 255, 0.08) 8px 9px
+    );
   content: "";
   mix-blend-mode: screen;
-  animation: scanLine 2.8s ease-in-out infinite;
 }
 
 .portrait-scan img {
@@ -301,26 +325,28 @@ body.future-home {
 }
 
 .ring-one {
-  animation: rotateSlow 9s linear infinite;
 }
 
 .ring-two {
   inset: 13%;
   border-color: rgba(255, 209, 102, 0.46);
-  animation: rotateReverse 7s linear infinite;
 }
 
 .ring-three {
   inset: 26%;
   border-color: rgba(255, 54, 95, 0.46);
-  animation: pulseRing 2.6s ease-in-out infinite;
 }
 
 .power-core {
   inset: 35%;
   display: grid;
-  background:
-    radial-gradient(circle at 30% 28%, #ffffff, var(--future-cyan) 28%, var(--future-blue) 68%, #17204f);
+  background: radial-gradient(
+    circle at 30% 28%,
+    #ffffff,
+    var(--future-cyan) 28%,
+    var(--future-blue) 68%,
+    #17204f
+  );
   box-shadow: 0 0 50px rgba(103, 232, 249, 0.58);
   color: #020814;
   font-size: clamp(1.5rem, 5vw, 2.7rem);
@@ -335,8 +361,7 @@ body.future-home {
   border: 1px solid var(--future-line);
   border-radius: 8px;
   background: var(--future-panel);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
+ 
 }
 
 .status-card {
@@ -349,7 +374,9 @@ body.future-home {
 .status-card span,
 .card-index {
   color: var(--future-gold);
-  font: 900 0.78rem "Consolas", monospace;
+  font:
+    900 0.78rem "Consolas",
+    monospace;
 }
 
 .status-card strong {
@@ -417,7 +444,10 @@ body.future-home {
   padding: clamp(22px, 3vw, 32px);
   overflow: hidden;
   transform-style: preserve-3d;
-  transition: transform 180ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  transition:
+    transform 180ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .identity-card::before {
@@ -503,61 +533,6 @@ body.future-home {
   --future-gold: #ffd166;
 }
 
-.future-home.is-pulsing .power-core {
-  animation: coreFlash 900ms ease both;
-}
-
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 700ms ease, transform 700ms ease;
-}
-
-.reveal-on-scroll.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes gridDrift {
-  to {
-    background-position: 44px 44px;
-  }
-}
-
-@keyframes rotateSlow {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rotateReverse {
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
-@keyframes pulseRing {
-  50% {
-    opacity: 0.35;
-    transform: scale(1.12);
-  }
-}
-
-@keyframes coreFlash {
-  50% {
-    box-shadow:
-      0 0 24px #ffffff,
-      0 0 80px var(--future-cyan),
-      0 0 120px var(--future-red);
-    transform: scale(1.08);
-  }
-}
-
-@keyframes scanLine {
-  50% {
-    transform: translateY(-12%);
-  }
-}
 
 @media (max-width: 900px) {
   .future-shell {
@@ -667,9 +642,6 @@ body.future-home {
     animation: none !important;
   }
 
-  .cursor-glow {
-    display: none;
-  }
 }
 
 /* Bright visual refresh */
@@ -684,9 +656,21 @@ body.future-home {
   --future-gold: #ffb703;
   --future-blue: #3157ff;
   background:
-    radial-gradient(circle at 10% 8%, rgba(255, 183, 3, 0.14), transparent 24rem),
-    radial-gradient(circle at 86% 10%, rgba(0, 141, 228, 0.14), transparent 28rem),
-    radial-gradient(circle at 50% 80%, rgba(255, 49, 95, 0.08), transparent 30rem),
+    radial-gradient(
+      circle at 10% 8%,
+      rgba(255, 183, 3, 0.14),
+      transparent 24rem
+    ),
+    radial-gradient(
+      circle at 86% 10%,
+      rgba(0, 141, 228, 0.14),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(255, 49, 95, 0.08),
+      transparent 30rem
+    ),
     linear-gradient(180deg, #dbe8f3 0%, #c9dceb 48%, #dfe8f2 100%);
   color: var(--future-text);
 }
@@ -701,13 +685,19 @@ body.future-home {
 
 .future-home::after {
   background:
-    linear-gradient(115deg, transparent 0 38%, rgba(255, 183, 3, 0.08) 45%, transparent 54%),
-    repeating-linear-gradient(90deg, transparent 0 94px, rgba(0, 76, 140, 0.04) 95px 96px);
+    linear-gradient(
+      115deg,
+      transparent 0 38%,
+      rgba(255, 183, 3, 0.08) 45%,
+      transparent 54%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 94px,
+      rgba(0, 76, 140, 0.04) 95px 96px
+    );
 }
 
-.cursor-glow {
-  background: radial-gradient(circle, rgba(0, 96, 164, 0.12), transparent 62%);
-}
 
 .future-nav {
   border-color: rgba(0, 141, 228, 0.18);
@@ -793,8 +783,7 @@ body.future-home {
   background: rgba(255, 255, 255, 0.78);
   color: #334155;
   line-height: 1.45;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  
 }
 
 .showcase-main figcaption span {
@@ -940,8 +929,16 @@ body.future-home {
   border: 1px solid rgba(0, 141, 228, 0.18);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(232, 246, 255, 0.78)),
-    radial-gradient(circle at 92% 12%, rgba(255, 49, 95, 0.15), transparent 20rem);
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(232, 246, 255, 0.78)
+    ),
+    radial-gradient(
+      circle at 92% 12%,
+      rgba(255, 49, 95, 0.15),
+      transparent 20rem
+    );
   box-shadow: 0 24px 70px rgba(28, 82, 145, 0.16);
   grid-template-columns: minmax(0, 0.82fr) minmax(320px, 1.18fr);
   gap: clamp(22px, 4vw, 44px);
@@ -980,7 +977,9 @@ body.future-home {
   cursor: pointer;
   overflow: hidden;
   text-align: left;
-  transition: transform 220ms ease, box-shadow 220ms ease;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .mini-game-card::after {
@@ -1010,7 +1009,9 @@ body.future-home {
 
 .mini-game-card span {
   color: #ffd166;
-  font: 900 0.78rem "Consolas", monospace;
+  font:
+    900 0.78rem "Consolas",
+    monospace;
   text-transform: uppercase;
 }
 
@@ -1039,8 +1040,16 @@ body.future-home {
 .future-home .game-panel {
   border-color: rgba(0, 141, 228, 0.34);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(226, 245, 255, 0.97)),
-    repeating-linear-gradient(90deg, rgba(0, 141, 228, 0.045) 0 1px, transparent 1px 42px);
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(226, 245, 255, 0.97)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 141, 228, 0.045) 0 1px,
+      transparent 1px 42px
+    );
   box-shadow:
     0 28px 70px rgba(8, 31, 55, 0.36),
     inset 0 0 34px rgba(0, 141, 228, 0.08);
@@ -1076,7 +1085,11 @@ body.future-home {
 .future-home .game-sky {
   border-color: rgba(0, 141, 228, 0.24);
   background:
-    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.75), transparent 26%),
+    radial-gradient(
+      circle at 50% 18%,
+      rgba(255, 255, 255, 0.75),
+      transparent 26%
+    ),
     linear-gradient(180deg, #8ed8ff 0%, #d8f3ff 45%, #fff7df 100%);
 }
 
@@ -1256,8 +1269,7 @@ body.future-home {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     0 18px 48px rgba(28, 82, 145, 0.13);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  
 }
 
 .about-snapshot div {
@@ -1268,7 +1280,9 @@ body.future-home {
 .home-project-card > span,
 .home-timeline li::before {
   color: #d81b60;
-  font: 900 0.78rem "Consolas", monospace;
+  font:
+    900 0.78rem "Consolas",
+    monospace;
   text-transform: uppercase;
 }
 
@@ -1304,7 +1318,9 @@ body.future-home {
 
 .home-skill-strip span {
   color: #334155;
-  font: 900 0.78rem "Consolas", monospace;
+  font:
+    900 0.78rem "Consolas",
+    monospace;
   text-transform: uppercase;
 }
 
@@ -1318,7 +1334,8 @@ body.future-home {
   height: 10px;
   border-radius: 999px;
   background:
-    linear-gradient(90deg, #008de4, #ff315f, #ffb703) 0 / var(--level) 100% no-repeat,
+    linear-gradient(90deg, #008de4, #ff315f, #ffb703) 0 / var(--level) 100%
+      no-repeat,
     rgba(0, 141, 228, 0.1);
 }
 
@@ -1337,7 +1354,10 @@ body.future-home {
   position: relative;
   overflow: hidden;
   padding: 14px 14px 22px;
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
 }
 
 .home-project-card:hover {
@@ -1377,7 +1397,9 @@ body.future-home {
 
 body.future-home .tech {
   color: #334155;
-  font: 800 0.78rem "Consolas", monospace;
+  font:
+    800 0.78rem "Consolas",
+    monospace;
 }
 
 body.future-home .project-actions a,
@@ -1525,9 +1547,21 @@ body.future-page {
   min-height: 100%;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 12% 10%, rgba(255, 183, 3, 0.13), transparent 23rem),
-    radial-gradient(circle at 88% 12%, rgba(0, 141, 228, 0.14), transparent 28rem),
-    radial-gradient(circle at 42% 84%, rgba(255, 49, 95, 0.08), transparent 30rem),
+    radial-gradient(
+      circle at 12% 10%,
+      rgba(255, 183, 3, 0.13),
+      transparent 23rem
+    ),
+    radial-gradient(
+      circle at 88% 12%,
+      rgba(0, 141, 228, 0.14),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 42% 84%,
+      rgba(255, 49, 95, 0.08),
+      transparent 30rem
+    ),
     linear-gradient(180deg, #dbe8f3 0%, #c9dceb 55%, #dfe8f2 100%);
   color: var(--future-text);
 }
@@ -1543,7 +1577,6 @@ body.future-page::before {
   content: "";
   -webkit-mask-image: linear-gradient(to bottom, black, transparent 94%);
   mask-image: linear-gradient(to bottom, black, transparent 94%);
-  animation: gridDrift 18s linear infinite;
 }
 
 body.future-page::after {
@@ -1551,8 +1584,17 @@ body.future-page::after {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(115deg, transparent 0 38%, rgba(255, 183, 3, 0.08) 45%, transparent 54%),
-    repeating-linear-gradient(90deg, transparent 0 94px, rgba(0, 76, 140, 0.035) 95px 96px);
+    linear-gradient(
+      115deg,
+      transparent 0 38%,
+      rgba(255, 183, 3, 0.08) 45%,
+      transparent 54%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 94px,
+      rgba(0, 76, 140, 0.035) 95px 96px
+    );
   content: "";
   pointer-events: none;
 }
@@ -1572,8 +1614,7 @@ body.future-page .page-header {
   color: #0f172a;
   font-family: "Segoe UI", Arial, sans-serif;
   font-weight: 900;
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
+  
 }
 
 body.future-page .back {
@@ -1618,7 +1659,9 @@ body.future-page h3 {
 
 body.future-page .eyebrow {
   color: #d81b60;
-  font: 900 0.82rem "Consolas", monospace;
+  font:
+    900 0.82rem "Consolas",
+    monospace;
   letter-spacing: 0;
 }
 
@@ -1636,8 +1679,16 @@ body.future-page .profile-brief {
   border: 1px solid rgba(0, 141, 228, 0.18);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(232, 246, 255, 0.82)),
-    radial-gradient(circle at 92% 12%, rgba(255, 49, 95, 0.14), transparent 20rem);
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.92),
+      rgba(232, 246, 255, 0.82)
+    ),
+    radial-gradient(
+      circle at 92% 12%,
+      rgba(255, 49, 95, 0.14),
+      transparent 20rem
+    );
   box-shadow: 0 24px 70px rgba(28, 82, 145, 0.16);
   overflow: hidden;
 }
@@ -1710,14 +1761,15 @@ body.future-page .skills-panel {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     0 18px 48px rgba(28, 82, 145, 0.13);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
 }
 
 body.future-page .data-grid article,
 body.future-page .project-list article,
 body.future-page .strength-grid article {
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
 }
 
 body.future-page .data-grid article:hover,
@@ -1834,7 +1886,11 @@ body.future-page .progress {
   border-color: rgba(0, 141, 228, 0.24);
   border-radius: 999px;
   background:
-    repeating-linear-gradient(90deg, rgba(0, 141, 228, 0.08) 0 12px, transparent 12px 16px),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 141, 228, 0.08) 0 12px,
+      transparent 12px 16px
+    ),
     rgba(232, 246, 255, 0.92);
   box-shadow: inset 0 0 14px rgba(28, 82, 145, 0.08);
 }
@@ -2034,18 +2090,16 @@ body.future-page .progress-bar {
 
 .future-home.night-mode .game-overlay {
   background: rgba(1, 6, 18, 0.9) !important;
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  
 }
 
 .future-home.night-mode .game-panel {
   border: 1px solid rgba(125, 197, 255, 0.42) !important;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(10, 28, 59, 0.98),
-      rgba(3, 10, 24, 0.98)
-    ) !important;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 28, 59, 0.98),
+    rgba(3, 10, 24, 0.98)
+  ) !important;
   box-shadow:
     0 28px 70px rgba(0, 0, 0, 0.62),
     inset 0 0 34px rgba(93, 176, 255, 0.1) !important;
@@ -2087,22 +2141,13 @@ body.future-page .progress-bar {
       rgba(105, 185, 255, 0.25),
       transparent 30%
     ),
-    linear-gradient(
-      180deg,
-      #123866 0%,
-      #081a37 52%,
-      #030917 100%
-    ) !important;
+    linear-gradient(180deg, #123866 0%, #081a37 52%, #030917 100%) !important;
 }
 
 .future-home.night-mode .game-close,
 .future-home.night-mode .game-controls button {
   border-color: rgba(125, 197, 255, 0.52) !important;
-  background: linear-gradient(
-    135deg,
-    #1d68cd,
-    #6046c7
-  ) !important;
+  background: linear-gradient(135deg, #1d68cd, #6046c7) !important;
   color: #ffffff !important;
 }
 
@@ -2130,22 +2175,12 @@ body.future-page .progress-bar {
 }
 
 .future-home.night-mode .enemy-shot {
-  background: linear-gradient(
-    180deg,
-    #ffffff,
-    #9d80ff,
-    #3d83ff
-  ) !important;
+  background: linear-gradient(180deg, #ffffff, #9d80ff, #3d83ff) !important;
   box-shadow: 0 0 20px rgba(118, 135, 255, 0.9) !important;
 }
 
 .future-home.night-mode .game-player {
-  background: linear-gradient(
-    90deg,
-    #17233e,
-    #d8f2ff 45%,
-    #314b80
-  ) !important;
+  background: linear-gradient(90deg, #17233e, #d8f2ff 45%, #314b80) !important;
   filter: drop-shadow(0 0 14px rgba(96, 188, 255, 0.72)) !important;
 }
 /* =========================================================
@@ -2194,55 +2229,16 @@ body.future-page .progress-bar {
   background: rgba(255, 255, 255, 0.58) !important;
   border-bottom: 1px solid rgba(28, 55, 94, 0.1) !important;
   box-shadow: 0 8px 22px rgba(33, 66, 110, 0.05) !important;
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  
 }
 
-/* Keep the navbar subtle while giving it a defined edge. */
-.future-home:not(.night-mode) .future-nav.is-side-nav {
-  background: rgba(255, 255, 255, 0.88) !important;
-  border: 1px solid rgba(49, 95, 213, 0.16) !important;
-  box-shadow: 0 18px 36px rgba(33, 66, 110, 0.14) !important;
-}
-/* =========================================================
-   FIX LIGHT-MODE SIDE NAV TEXT
-   ========================================================= */
-
-.future-home:not(.night-mode) .future-nav.is-side-nav {
-  background: rgba(255, 255, 255, 0.92) !important;
-}
-
-.future-home:not(.night-mode) .future-nav.is-side-nav .nav-links a {
-  color: #14213d !important;
-  opacity: 1 !important;
-  text-shadow: none !important;
-}
-
-.future-home:not(.night-mode) .future-nav.is-side-nav .nav-links a:hover,
-.future-home:not(.night-mode) .future-nav.is-side-nav .nav-links a:focus-visible {
-  color: #315fd5 !important;
-  background: rgba(49, 95, 213, 0.08) !important;
-  border-radius: 6px;
-  outline: none;
-}
-
-.future-home:not(.night-mode) .future-nav.is-side-nav .night-mode-toggle {
-  border-color: rgba(49, 95, 213, 0.35) !important;
-  background: rgba(49, 95, 213, 0.08) !important;
-  color: #14213d !important;
-}
-
-.future-home:not(.night-mode) .future-nav.is-side-nav .night-mode-toggle .mode-icon,
-.future-home:not(.night-mode) .future-nav.is-side-nav .night-mode-toggle #nightModeIcon {
-  color: #14213d !important;
-}
 /* =========================================================
    KEEP MOBILE NAV CONSISTENT IN LIGHT + DARK MODE
    ========================================================= */
 
 @media (max-width: 760px) {
   /* Normal top navigation only — does not affect the side nav after scrolling */
-  .future-nav:not(.is-side-nav) {
+  .future-nav {
     display: grid !important;
     grid-template-columns: 38px minmax(0, 1fr) 38px !important;
     align-items: center !important;
@@ -2251,12 +2247,12 @@ body.future-page .progress-bar {
     padding: 10px 8px !important;
   }
 
-  .future-nav:not(.is-side-nav) .brand-mark {
+  .future-nav .brand-mark {
     width: 36px !important;
     height: 36px !important;
   }
 
-  .future-nav:not(.is-side-nav) .nav-links {
+  .future-nav .nav-links {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -2267,7 +2263,7 @@ body.future-page .progress-bar {
     gap: clamp(8px, 2.5vw, 14px) !important;
   }
 
-  .future-nav:not(.is-side-nav) .nav-links a {
+  .future-nav .nav-links a {
     width: auto !important;
     padding: 5px 0 !important;
     font-size: 0.68rem !important;
@@ -2277,7 +2273,7 @@ body.future-page .progress-bar {
   }
 
   /* Use only the moon/sun icon on phones to save space. */
-  .future-nav:not(.is-side-nav) .night-mode-toggle {
+  .future-nav .night-mode-toggle {
     display: grid !important;
     width: 36px !important;
     min-height: 36px !important;
@@ -2286,8 +2282,8 @@ body.future-page .progress-bar {
     place-items: center !important;
   }
 
-  .future-nav:not(.is-side-nav) .night-mode-toggle .mode-label,
-  .future-nav:not(.is-side-nav) .night-mode-toggle #nightModeText {
+  .future-nav .night-mode-toggle .mode-label,
+  .future-nav .night-mode-toggle #nightModeText {
     display: none !important;
   }
 }
@@ -2338,7 +2334,12 @@ body.future-page .progress-bar {
 .page-hero-visual::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, rgba(255,255,255,.14), transparent 30%, rgba(103,232,249,.12));
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.14),
+    transparent 30%,
+    rgba(103, 232, 249, 0.12)
+  );
   content: "";
   pointer-events: none;
 }
@@ -2384,8 +2385,7 @@ body.future-page .progress-bar {
   border-radius: 8px;
   background: var(--future-panel);
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
+  
 }
 
 .service-card,
@@ -2405,7 +2405,9 @@ body.future-page .progress-bar {
 .preview-steps span,
 .contact-method-card > span {
   color: var(--future-gold);
-  font: 900 0.78rem "Consolas", monospace;
+  font:
+    900 0.78rem "Consolas",
+    monospace;
   text-transform: uppercase;
 }
 
@@ -2509,7 +2511,11 @@ body.future-page .progress-bar {
   border: 1px solid var(--future-line);
   border-radius: 8px;
   background:
-    radial-gradient(circle at 85% 20%, rgba(103, 232, 249, 0.18), transparent 24rem),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(103, 232, 249, 0.18),
+      transparent 24rem
+    ),
     var(--future-panel);
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
   grid-template-columns: minmax(0, 1fr) auto;

@@ -12,18 +12,12 @@ const themeMessages = {
 document.querySelectorAll("[data-theme]").forEach((button) => {
   button.addEventListener("click", () => {
     const theme = button.dataset.theme;
+
     homeBody?.setAttribute("data-theme", theme);
-    homeBody?.classList.remove("is-pulsing");
-    void homeBody?.offsetWidth;
-    homeBody?.classList.add("is-pulsing");
 
     if (readout) {
       readout.textContent = themeMessages[theme] || "Signal active.";
     }
-
-    window.setTimeout(() => {
-      homeBody?.classList.remove("is-pulsing");
-    }, 950);
   });
 });
 
@@ -213,12 +207,33 @@ document.querySelectorAll("[data-game-move]").forEach((button) => {
   );
 });
 
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden && gameRunning) {
+    endGame("Game paused because the page is no longer active.");
+  }
+});
+
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeGame();
-  if (event.key === "ArrowLeft" || event.key.toLowerCase() === "a")
+  const gameIsOpen = gameOverlay?.getAttribute("aria-hidden") === "false";
+
+  if (!gameIsOpen) return;
+
+  const key = event.key.toLowerCase();
+
+  if (event.key === "Escape") {
+    closeGame();
+    return;
+  }
+
+  if (event.key === "ArrowLeft" || key === "a") {
+    event.preventDefault();
     movePlayer(-1);
-  if (event.key === "ArrowRight" || event.key.toLowerCase() === "d")
+  }
+
+  if (event.key === "ArrowRight" || key === "d") {
+    event.preventDefault();
     movePlayer(1);
+  }
 });
 
 /* =========================================================
@@ -281,84 +296,6 @@ nightModeToggles.forEach((toggle) => {
     setNightMode(!isNightMode, true);
   });
 });
-
-/* =========================================================
-   SCROLLING DROPDOWN NAVIGATION
-   ========================================================= */
-
-const futureNav = document.querySelector(".future-nav");
-const sideMenuToggle = document.querySelector("[data-side-menu-toggle]");
-const sideNavMenu = document.querySelector("#side-nav-menu");
-
-function setSideMenu(open) {
-  if (!futureNav || !sideMenuToggle) return;
-
-  const canOpen = futureNav.classList.contains("is-side-nav");
-  const shouldOpen = Boolean(open && canOpen);
-
-  futureNav.classList.toggle("is-side-menu-open", shouldOpen);
-
-  sideMenuToggle.setAttribute("aria-expanded", String(shouldOpen));
-  sideMenuToggle.setAttribute(
-    "aria-label",
-    shouldOpen ? "Close navigation menu" : "Open navigation menu",
-  );
-
-  const icon = sideMenuToggle.querySelector("span");
-
-  if (icon) {
-    icon.textContent = shouldOpen ? "×" : "☰";
-  }
-}
-
-function updateSideNavigation() {
-  if (!futureNav) return;
-
-  const isPhone = window.matchMedia("(max-width: 760px)").matches;
-  const scrollTrigger = isPhone ? 85 : 140;
-  const shouldUseSideNav = window.scrollY > scrollTrigger;
-
-  futureNav.classList.toggle("is-side-nav", shouldUseSideNav);
-
-  if (!shouldUseSideNav) {
-    setSideMenu(false);
-  }
-}
-
-sideMenuToggle?.addEventListener("click", () => {
-  const isOpen = futureNav?.classList.contains("is-side-menu-open");
-
-  setSideMenu(!isOpen);
-});
-
-sideNavMenu?.addEventListener("click", (event) => {
-  if (event.target instanceof HTMLAnchorElement) {
-    setSideMenu(false);
-  }
-});
-
-document.addEventListener("click", (event) => {
-  if (
-    futureNav?.classList.contains("is-side-menu-open") &&
-    !futureNav.contains(event.target)
-  ) {
-    setSideMenu(false);
-  }
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    setSideMenu(false);
-  }
-});
-
-window.addEventListener("scroll", updateSideNavigation, {
-  passive: true,
-});
-
-window.addEventListener("resize", updateSideNavigation);
-
-updateSideNavigation();
 
 /* =========================================================
    MULTI-PAGE ENHANCEMENTS
