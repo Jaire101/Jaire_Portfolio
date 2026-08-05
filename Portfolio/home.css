@@ -324,9 +324,6 @@ body.future-home {
   border: 1px solid rgba(103, 232, 249, 0.36);
 }
 
-.ring-one {
-}
-
 .ring-two {
   inset: 13%;
   border-color: rgba(255, 209, 102, 0.46);
@@ -2641,4 +2638,74 @@ body.future-page .progress-bar {
 
 .home-skill-strip article:nth-child(4) i {
   --level: 45%;
+}
+/* =========================================================
+   FINAL STATIC NAVIGATION ALIGNMENT
+   Keeps the desktop navigation exactly centered.
+   ========================================================= */
+
+@media (min-width: 761px) {
+  .future-nav {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    align-items: center !important;
+  }
+
+  .future-nav .brand-mark {
+    justify-self: start !important;
+  }
+
+  .future-nav .nav-links {
+    justify-self: center !important;
+  }
+
+  .future-nav .top-night-toggle {
+    margin-left: 0 !important;
+    justify-self: end !important;
+  }
+}
+
+/* =========================================================
+   PROJECTS PAGE PERFORMANCE
+   Preserves every project while reducing scrolling paint work.
+   ========================================================= */
+
+.projects-page .page-hero {
+  max-width: 900px;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.projects-page .home-project-grid > article {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 620px;
+}
+
+.projects-page .home-project-card,
+.projects-page .tattoo-project-card {
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+.projects-page .home-project-card:hover,
+.projects-page .tattoo-project-card:hover {
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.projects-page .home-project-card img,
+.projects-page .tattoo-project-card .project-image img {
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+.projects-page .home-project-card:hover img,
+.projects-page .tattoo-project-card:hover .project-image img {
+  transform: none !important;
+}
+
+/* Disable full-screen decorative layers that repaint during scrolling. */
+.future-home::before,
+.future-home::after {
+  display: none !important;
 }

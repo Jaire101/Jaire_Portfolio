@@ -424,7 +424,6 @@ body.future-home {
     overflow-x: auto;
     align-items: center !important;
     justify-content: flex-start !important;
-    scrollbar-width: none;
   }
 
   .future-nav .nav-links::-webkit-scrollbar {
