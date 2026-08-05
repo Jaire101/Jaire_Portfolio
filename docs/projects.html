@@ -1,67 +1,19 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-N4TZPL72QG"
-    ></script>
-
-    <script>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-
-      gtag("js", new Date());
-      gtag("config", "G-N4TZPL72QG");
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Web Design Portfolio in Buckeye, AZ | Jaire Development</title>
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="View website projects from Jaire Development, including small-business websites, restaurant sites, dashboards, fitness platforms, and interactive web applications."
+      content="View the Jaire Development portfolio of business websites, web applications, dashboards, and interactive front-end projects."
     />
-
-    <meta name="robots" content="index, follow" />
-
-    <link rel="canonical" href="https://jairedevelopment.com/projects.html" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Jaire Development" />
-    <meta
-      property="og:title"
-      content="Web Design Portfolio in Buckeye, AZ | Jaire Development"
-    />
-    <meta
-      property="og:description"
-      content="Explore responsive websites, dashboards, restaurant sites, fitness platforms, and interactive web projects."
-    />
-    <meta
-      property="og:url"
-      content="https://jairedevelopment.com/projects.html"
-    />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Web Design Portfolio in Buckeye, AZ | Jaire Development"
-    />
-    <meta
-      name="twitter:description"
-      content="Explore responsive websites, dashboards, restaurant sites, and interactive web projects."
-    />
+    <title>Projects | Jaire Development</title>
 
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="home.css" />
     <link rel="stylesheet" href="night-mode.css?v=2.0" />
   </head>
   <body class="future-home site-page projects-page">
-    <div class="cursor-glow" aria-hidden="true"></div>
     <main class="future-shell">
       <header class="future-nav" aria-label="Portfolio navigation">
         <a
@@ -114,7 +66,7 @@
           <span aria-hidden="true">☰</span>
         </button>
       </header>
-      <section class="page-hero reveal-on-scroll" aria-labelledby="page-title">
+      <section class="page-hero" aria-labelledby="page-title">
         <div class="page-hero-copy">
           <p class="signal-line">Portfolio</p>
           <h1 id="page-title">
@@ -124,17 +76,21 @@
             Explore client work, business website demos, dashboards, trackers,
             aerospace concepts, and creative front-end experiments.
           </p>
-          <div class="hero-actions"></div>
         </div>
+
         <figure class="page-hero-visual">
-          <img src="assets/home-hero.png" alt="" aria-hidden="true" />
+          <img
+            src="assets/home-hero.png"
+            alt="Futuristic heroic web-development artwork"
+            decoding="async"
+          />
         </figure>
       </section>
       <section
         class="home-page-section projects-home project-page-section"
         aria-labelledby="all-projects-title"
       >
-        <div class="section-heading reveal-on-scroll">
+        <div class="section-heading">
           <p class="signal-line">All projects</p>
           <h2 id="all-projects-title">
             Responsive builds, applications, and design concepts.
@@ -145,14 +101,60 @@
           </p>
         </div>
         <div class="home-project-grid">
+          <!-- Ink & Iron Tattoo Studio Project -->
+          <article class="project-card tattoo-project-card">
+            <div class="project-image">
+              <img
+                src="images/tattoo-shop-preview.png"
+                alt="Ink and Iron Tattoo Studio website homepage" loading="lazy" decoding="async" />
+            </div>
+
+            <div class="project-content">
+              <p class="project-category">Front-End Web Development</p>
+
+              <h3>Ink &amp; Iron Tattoo Studio</h3>
+
+              <p class="project-description">
+                A responsive multi-page tattoo studio website featuring artist
+                profiles, a filterable tattoo gallery, service information,
+                custom floral artwork, and an online consultation form.
+              </p>
+
+              <ul class="project-technologies">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Responsive Design</li>
+              </ul>
+
+              <div class="project-links">
+                <a
+                  class="project-button project-button-primary"
+                  href="https://jaire101.github.io/Tattoo_Shop_Website/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Live Site
+                </a>
+
+                <a
+                  class="project-button project-button-secondary"
+                  href="https://github.com/Jaire101/Tattoo_Shop_Website"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Code
+                </a>
+              </div>
+            </div>
+          </article>
           <article
-            class="home-project-card reveal-on-scroll"
+            class="home-project-card"
             id="alburquerque-auto"
           >
             <img
               alt="Screenshot of the Alburquerque Auto automotive repair website"
-              src="assets/screenshots/alburquerque-auto-demo.png"
-            />
+              src="assets/screenshots/alburquerque-auto-demo.png" loading="lazy" decoding="async" />
             <span>REAL CLIENT WEBSITE</span>
             <h3>Alburquerque Auto</h3>
             <p>
@@ -174,11 +176,10 @@
               </a>
             </div>
           </article>
-          <article class="home-project-card reveal-on-scroll" id="sushi-poke">
+          <article class="home-project-card" id="sushi-poke">
             <img
               alt="Screenshot of the Sushi and Poke restaurant website demo"
-              src="assets/screenshots/moms-sushi-poke-demo.png"
-            />
+              src="assets/screenshots/moms-sushi-poke-demo.png" loading="lazy" decoding="async" />
             <span>Restaurant Website</span>
             <h3>Sushi &amp; Poke</h3>
             <p>
@@ -202,13 +203,12 @@
             </div>
           </article>
           <article
-            class="home-project-card reveal-on-scroll"
+            class="home-project-card"
             id="aegis-air-command"
           >
             <img
               alt="Screenshot of the Aegis Air Command 4D aerospace website demo"
-              src="aegis-air-4d/assets/hero-air-command.png"
-            />
+              src="aegis-air-4d/assets/hero-air-command.png" loading="lazy" decoding="async" />
             <span>4D Aerospace Concept</span>
             <h3>Aegis Air Command</h3>
             <p>
@@ -234,13 +234,12 @@
             </div>
           </article>
           <article
-            class="home-project-card reveal-on-scroll"
+            class="home-project-card"
             id="aster-table-restaurant"
           >
             <img
               alt="Screenshot of the Aster Table restaurant website demo"
-              src="assets/screenshots/restaurant-demo.png"
-            />
+              src="assets/screenshots/restaurant-demo.png" loading="lazy" decoding="async" />
             <span>Restaurant Website</span>
             <h3>Aster Table Restaurant</h3>
             <p>
@@ -264,13 +263,12 @@
             </div>
           </article>
           <article
-            class="home-project-card reveal-on-scroll"
+            class="home-project-card"
             id="elite-fitness"
           >
             <img
               alt="Screenshot of the Elite Fitness website demo"
-              src="assets/screenshots/elite-fitness-demo.png"
-            />
+              src="assets/screenshots/elite-fitness-demo.png" loading="lazy" decoding="async" />
             <span>Fitness Website</span>
             <h3>Elite Fitness</h3>
             <p>
@@ -294,13 +292,12 @@
             </div>
           </article>
           <article
-            class="home-project-card reveal-on-scroll"
+            class="home-project-card"
             id="workout-tracker"
           >
             <img
               alt="Screenshot of the Workout Tracker demo"
-              src="assets/screenshots/workout-tracker-demo.png"
-            />
+              src="assets/screenshots/workout-tracker-demo.png" loading="lazy" decoding="async" />
             <span>Health App</span>
             <h3>Workout Tracker</h3>
             <p>
@@ -324,13 +321,12 @@
             </div>
           </article>
           <article
-            class="home-project-card reveal-on-scroll"
+            class="home-project-card"
             id="weather-dashboard"
           >
             <img
               alt="Screenshot of the Weather Dashboard demo"
-              src="assets/screenshots/weather-dashboard-demo.png"
-            />
+              src="assets/screenshots/weather-dashboard-demo.png" loading="lazy" decoding="async" />
             <span>API Dashboard</span>
             <h3>Weather Dashboard</h3>
             <p>
@@ -354,13 +350,12 @@
             </div>
           </article>
           <article
-            class="home-project-card reveal-on-scroll"
+            class="home-project-card"
             id="react-task-manager"
           >
             <img
               alt="Screenshot of the React Task Manager demo"
-              src="assets/screenshots/task-manager-demo.png"
-            />
+              src="assets/screenshots/task-manager-demo.png" loading="lazy" decoding="async" />
             <span>React App</span>
             <h3>React Task Manager</h3>
             <p>
@@ -384,13 +379,12 @@
             </div>
           </article>
           <article
-            class="home-project-card reveal-on-scroll"
+            class="home-project-card"
             id="marvel-inspired-portfolio"
           >
             <img
               alt="Screenshot of the Marvel-inspired portfolio concept demo"
-              src="assets/screenshots/marvel-portfolio-demo.png"
-            />
+              src="assets/screenshots/marvel-portfolio-demo.png" loading="lazy" decoding="async" />
             <span>Creative Portfolio Concept</span>
             <h3>Marvel-Inspired Portfolio</h3>
             <p>
@@ -415,7 +409,7 @@
           </article>
         </div>
       </section>
-      <section class="final-cta reveal-on-scroll">
+      <section class="final-cta">
         <div>
           <p class="signal-line">Your business could be next</p>
           <h2>Let’s turn your idea into a polished website.</h2>
