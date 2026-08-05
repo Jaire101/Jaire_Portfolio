@@ -297,6 +297,92 @@ nightModeToggles.forEach((toggle) => {
   });
 });
 
+
+
+/* =========================================================
+   OPTIMIZED SCROLL-MINIMIZING NAVIGATION
+   ========================================================= */
+
+const futureNav = document.querySelector(".future-nav");
+const sideMenuToggle = document.querySelector("[data-side-menu-toggle]");
+const sideNavMenu = document.querySelector("#side-nav-menu");
+
+let navigationFramePending = false;
+
+function setSideMenu(open) {
+  if (!futureNav || !sideMenuToggle) return;
+
+  const canOpen = futureNav.classList.contains("is-side-nav");
+  const shouldOpen = Boolean(open && canOpen);
+
+  futureNav.classList.toggle("is-side-menu-open", shouldOpen);
+  sideMenuToggle.setAttribute("aria-expanded", String(shouldOpen));
+  sideMenuToggle.setAttribute(
+    "aria-label",
+    shouldOpen ? "Close navigation menu" : "Open navigation menu",
+  );
+
+  const icon = sideMenuToggle.querySelector("span");
+  if (icon) icon.textContent = shouldOpen ? "×" : "☰";
+}
+
+function applySideNavigationState() {
+  navigationFramePending = false;
+
+  if (!futureNav) return;
+
+  const useSideNavigation =
+    window.matchMedia("(min-width: 761px)").matches &&
+    window.scrollY > 140;
+
+  futureNav.classList.toggle("is-side-nav", useSideNavigation);
+
+  if (!useSideNavigation) {
+    setSideMenu(false);
+  }
+}
+
+function requestSideNavigationUpdate() {
+  if (navigationFramePending) return;
+
+  navigationFramePending = true;
+  window.requestAnimationFrame(applySideNavigationState);
+}
+
+sideMenuToggle?.addEventListener("click", (event) => {
+  event.stopPropagation();
+  const isOpen = futureNav?.classList.contains("is-side-menu-open");
+  setSideMenu(!isOpen);
+});
+
+sideNavMenu?.addEventListener("click", (event) => {
+  if (event.target instanceof HTMLAnchorElement) {
+    setSideMenu(false);
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (
+    futureNav?.classList.contains("is-side-menu-open") &&
+    !futureNav.contains(event.target)
+  ) {
+    setSideMenu(false);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    setSideMenu(false);
+  }
+});
+
+window.addEventListener("scroll", requestSideNavigationUpdate, {
+  passive: true,
+});
+window.addEventListener("resize", requestSideNavigationUpdate);
+
+requestSideNavigationUpdate();
+
 /* =========================================================
    MULTI-PAGE ENHANCEMENTS
    ========================================================= */

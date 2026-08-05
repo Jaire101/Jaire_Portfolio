@@ -530,3 +530,123 @@ body.night-mode .service-details li {
 body.night-mode .service-details li::marker {
   color: #94a3b8;
 }
+
+/* =========================================================
+   FINAL RESPONSIVE NAVIGATION CENTERING
+   ========================================================= */
+
+@media (min-width: 761px) {
+  .future-nav {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    align-items: center !important;
+  }
+
+  .future-nav .brand-mark {
+    grid-column: 1 !important;
+    justify-self: start !important;
+  }
+
+  .future-nav .nav-links {
+    position: static !important;
+    grid-column: 2 !important;
+    left: auto !important;
+    width: max-content !important;
+    max-width: 100% !important;
+    justify-self: center !important;
+    justify-content: center !important;
+    transform: none !important;
+  }
+
+  .future-nav .top-night-toggle {
+    grid-column: 3 !important;
+    margin-left: 0 !important;
+    justify-self: end !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .future-nav {
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    align-items: center !important;
+    column-gap: 8px !important;
+  }
+
+  .future-nav .brand-mark {
+    grid-column: 1 !important;
+    justify-self: start !important;
+  }
+
+  .future-nav .nav-links {
+    position: static !important;
+    grid-column: 2 !important;
+    left: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: clamp(7px, 1.7vw, 13px) !important;
+    overflow-x: auto;
+    justify-self: stretch !important;
+    justify-content: center !important;
+    transform: none !important;
+  }
+
+  .future-nav .top-night-toggle {
+    grid-column: 3 !important;
+    width: 40px !important;
+    margin: 0 !important;
+    justify-self: end !important;
+  }
+}
+
+/* =========================================================
+   NIGHT MODE: OPTIMIZED SIDE NAVIGATION
+   ========================================================= */
+
+@media (min-width: 761px) {
+  .future-home.night-mode .future-nav.is-side-nav {
+    border-color: rgba(125, 197, 255, 0.28) !important;
+    background: rgba(5, 15, 31, 0.96) !important;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34) !important;
+  }
+
+  .future-home.night-mode
+    .future-nav.is-side-nav
+    .side-menu-toggle {
+    border-color: rgba(125, 197, 255, 0.42) !important;
+    background: rgba(125, 197, 255, 0.1) !important;
+    color: #edf6ff !important;
+  }
+
+  .future-home.night-mode
+    .future-nav.is-side-nav.is-side-menu-open
+    .nav-links {
+    border-color: rgba(125, 197, 255, 0.28) !important;
+    background: rgba(5, 15, 31, 0.98) !important;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .future-home.night-mode
+    .future-nav.is-side-nav.is-side-menu-open
+    .nav-links a {
+    color: #dbeaff !important;
+  }
+
+  .future-home.night-mode
+    .future-nav.is-side-nav.is-side-menu-open
+    .nav-links a:hover,
+  .future-home.night-mode
+    .future-nav.is-side-nav.is-side-menu-open
+    .nav-links a:focus-visible {
+    background: rgba(125, 197, 255, 0.14) !important;
+    color: #ffffff !important;
+  }
+
+  .future-home.night-mode
+    .future-nav.is-side-nav.is-side-menu-open
+    .dropdown-night-toggle {
+    border-color: rgba(125, 197, 255, 0.4) !important;
+    background: rgba(125, 197, 255, 0.1) !important;
+    color: #edf6ff !important;
+  }
+}
