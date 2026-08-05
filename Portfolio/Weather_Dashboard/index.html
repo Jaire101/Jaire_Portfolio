@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <section class="search-panel">
+        <div>
+          <p class="eyebrow">Live weather lookup</p>
+          <h1>Weather Dashboard</h1>
+          <p class="intro">
+            Search any city to see current conditions and the week ahead.
+          </p>
+        </div>
+
+        <form id="searchForm" class="search-form">
+          <label for="cityInput">City</label>
+          <div class="search-row">
+            <input
+              id="cityInput"
+              type="search"
+              placeholder="Try Phoenix, Tokyo, or Paris"
+              autocomplete="off"
+              required
+            />
+            <button type="submit">Search</button>
+          </div>
+        </form>
+
+        <p id="statusMessage" class="status-message" aria-live="polite"></p>
+      </section>
+
+      <section id="weatherPanel" class="weather-panel is-empty">
+        <section class="globe-section" aria-label="Earth location view">
+          <canvas id="earthCanvas" width="720" height="360"></canvas>
+          <div class="globe-label">
+            <span>Earth view</span>
+            <strong id="globeLocation">Awaiting location</strong>
+          </div>
+        </section>
+
+        <div class="empty-state">
+          <span class="empty-icon">☁</span>
+          <p>Choose a city to start tracking the sky.</p>
+        </div>
+
+        <div class="weather-content" hidden>
+          <div class="current-weather">
+            <div>
+              <p id="locationName" class="location-name"></p>
+              <p id="conditionText" class="condition-text"></p>
+            </div>
+            <div class="temperature-wrap">
+              <span id="weatherIcon" class="weather-icon"></span>
+              <strong id="currentTemp" class="current-temp"></strong>
+            </div>
+          </div>
+
+          <div class="detail-grid">
+            <div>
+              <span>Feels like</span>
+              <strong id="feelsLike"></strong>
+            </div>
+            <div>
+              <span>Wind</span>
+              <strong id="windSpeed"></strong>
+            </div>
+            <div>
+              <span>Humidity</span>
+              <strong id="humidity"></strong>
+            </div>
+          </div>
+
+          <section class="forecast-section">
+            <div class="section-heading">
+              <h2>Multi-Day Forecast</h2>
+              <span id="forecastRange"></span>
+            </div>
+            <div id="forecastList" class="forecast-list"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

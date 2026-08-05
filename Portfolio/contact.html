@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Contact Jaire Development to discuss a new business website, landing page, redesign, or interactive front-end project."
+    />
+    <title>Contact | Jaire Development</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="night-mode.css?v=2.0" />
+  </head>
+  <body class="future-home site-page contact-page">
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <main class="future-shell">
+      <header class="future-nav" aria-label="Portfolio navigation">
+        <a
+          class="brand-mark"
+          href="index.html"
+          aria-label="Jaire Development home"
+        >
+          <img src="images/jaire-logo-nav.png" alt="Jaire Development logo" />
+        </a>
+        <nav class="nav-links" id="side-nav-menu" aria-label="Main pages">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a
+          ><a href="projects.html">Projects</a
+          ><a href="contact.html" aria-current="page">Contact</a>
+          <a
+            href="https://www.instagram.com/jaire_web_dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+          <button
+            class="dropdown-night-toggle"
+            type="button"
+            data-night-mode-toggle
+            aria-pressed="false"
+            aria-label="Turn on night mode"
+          >
+            <span class="mode-icon" aria-hidden="true">☾</span
+            ><span class="mode-label">Night Mode</span>
+          </button>
+        </nav>
+        <button
+          class="night-mode-toggle top-night-toggle"
+          type="button"
+          data-night-mode-toggle
+          aria-pressed="false"
+          aria-label="Turn on night mode"
+        >
+          <span class="mode-icon" aria-hidden="true">☾</span
+          ><span class="mode-label">Night Mode</span>
+        </button>
+        <button
+          class="side-menu-toggle"
+          type="button"
+          data-side-menu-toggle
+          aria-expanded="false"
+          aria-controls="side-nav-menu"
+          aria-label="Open navigation menu"
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+      </header>
+      <section class="page-hero reveal-on-scroll" aria-labelledby="page-title">
+        <div class="page-hero-copy">
+          <p class="signal-line">Contact</p>
+          <h1 id="page-title">Tell me what you want to build.</h1>
+          <p class="hero-lead">
+            Share the business, the goal, and any important features. I will use
+            that information to understand the project and determine the best
+            next step.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="projects.html">Review My Work</a>
+            <a class="secondary-action" href="services.html">View Services</a>
+          </div>
+        </div>
+        <figure class="page-hero-visual">
+          <img src="assets/home-airforce.png" alt="" aria-hidden="true" />
+        </figure>
+      </section>
+      <section
+        class="home-page-section contact-layout"
+        aria-labelledby="contact-form-title"
+      >
+        <div class="contact-details reveal-on-scroll">
+          <p class="signal-line">Start a project</p>
+          <h2 id="contact-form-title">Send the project details.</h2>
+          <p>
+            The strongest first message includes the type of business, the pages
+            or features needed, any existing website, and the desired launch
+            window.
+          </p>
+          <div class="contact-method-card">
+            <span>Instagram</span
+            ><a
+              href="https://www.instagram.com/jaire_web_dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >@jaire_web_dev</a
+            >
+          </div>
+          <div class="contact-method-card">
+            <span>Good information to include</span>
+            <ul class="service-details">
+              <li>Business or project name</li>
+              <li>Main goal of the website</li>
+              <li>Required pages or features</li>
+              <li>Examples of sites you like</li>
+              <li>Target launch date</li>
+            </ul>
+          </div>
+        </div>
+        <form
+          accept-charset="UTF-8"
+          action="https://formspree.io/f/mzdlqpvj"
+          class="home-contact-form"
+          method="POST"
+        >
+          <input
+            name="_subject"
+            type="hidden"
+            value="New Portfolio Contact Request"
+          />
+          <label>
+            Name
+            <input
+              autocomplete="name"
+              name="name"
+              placeholder="Your name"
+              required=""
+              type="text"
+            />
+          </label>
+          <label>
+            Email
+            <input
+              autocomplete="email"
+              name="email"
+              placeholder="you@example.com"
+              required=""
+              type="email"
+            />
+          </label>
+          <label>
+            Phone Number
+            <input
+              autocomplete="tel"
+              name="phone"
+              placeholder="(555) 555-5555"
+              type="tel"
+            />
+          </label>
+          <fieldset class="contact-preference">
+            <legend>Preferred Contact Method</legend>
+            <label class="contact-option">
+              <input name="preferred_contact" type="radio" value="Call" />
+              <span>Call</span>
+            </label>
+            <label class="contact-option">
+              <input name="preferred_contact" type="radio" value="Text" />
+              <span>Text</span>
+            </label>
+            <label class="contact-option">
+              <input
+                checked=""
+                name="preferred_contact"
+                type="radio"
+                value="Email"
+              />
+              <span>Email</span>
+            </label>
+            <label class="contact-option">
+              <input
+                name="preferred_contact"
+                type="radio"
+                value="No Preference"
+              />
+              <span>No Preference</span>
+            </label>
+          </fieldset>
+          <label>
+            Project Details
+            <textarea
+              name="message"
+              placeholder="Tell me what you want to build"
+              required=""
+            ></textarea>
+          </label>
+          <button type="submit">Send Message</button>
+          <p class="form-note">I will get back to you as soon as possible.</p>
+        </form>
+      </section>
+      <section class="final-cta reveal-on-scroll">
+        <div>
+          <p class="signal-line">Jaire Development</p>
+          <h2>Responsive design. Clear communication. Reliable execution.</h2>
+        </div>
+        <a class="secondary-action" href="projects.html">View Portfolio</a>
+      </section>
+
+      <footer class="site-footer">
+        <div>
+          <strong>Jaire Development</strong>
+          <p>
+            Responsive websites built with mission focus and creative energy.
+          </p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="services.html">Services</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Start a Project</a>
+        </nav>
+        <p>© <span data-current-year>2026</span> Jaire Development.</p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

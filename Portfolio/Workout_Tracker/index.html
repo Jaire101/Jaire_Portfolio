@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Workout Tracker</title>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main class="app">
+      <section class="tracker-card">
+        <div class="hero-kicker">Personal training log</div>
+
+        <h1>Workout Tracker</h1>
+
+        <p>Stack sessions, chase volume, and keep your lifts glowing.</p>
+
+        <form id="workoutForm">
+          <label for="exercise"> Exercise </label>
+
+          <input
+            type="text"
+            id="exercise"
+            placeholder="Example: Bench Press"
+            required
+          />
+
+          <label for="sets"> Sets </label>
+
+          <input
+            type="number"
+            id="sets"
+            min="1"
+            placeholder="Example: 4"
+            required
+          />
+
+          <label for="reps"> Reps </label>
+
+          <input
+            type="number"
+            id="reps"
+            min="1"
+            placeholder="Example: 10"
+            required
+          />
+
+          <label for="weight"> Weight in Pounds </label>
+
+          <input
+            type="number"
+            id="weight"
+            min="0"
+            placeholder="Example: 185"
+            required
+          />
+
+          <button type="submit">Add Workout</button>
+        </form>
+      </section>
+
+      <section class="workout-list-card">
+        <div class="workout-list-header">
+          <div>
+            <h2>Today's Workouts</h2>
+
+            <p class="section-subtitle">Your live session board</p>
+          </div>
+
+          <div class="summary">
+            <div>
+              <span>Workouts</span>
+              <strong id="totalWorkouts">0</strong>
+            </div>
+
+            <div>
+              <span>Total Sets</span>
+              <strong id="totalSets">0</strong>
+            </div>
+
+            <div>
+              <span>Volume</span>
+              <strong id="totalVolume">0 lbs</strong>
+            </div>
+          </div>
+        </div>
+        <div class="filter-bar">
+          <label for="workoutFilter">Search Workouts</label>
+
+          <input
+            type="text"
+            id="workoutFilter"
+            placeholder="Search by exercise name..."
+          />
+        </div>
+
+        <button id="clearAllButton" class="clear-all-button" type="button">
+          Clear All Workouts
+        </button>
+
+        <div id="workoutList">
+          <p class="empty-message">No workouts added yet.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
